@@ -256,7 +256,7 @@
 %\newcommand{\Ical}{\mathcal{I}}
 %\newcommand{\Jcal}{\mathcal{J}}
 \newcommand{\rF}{\mathbf{F}}
-\newcommand{\rG}{\mathbf{G}}
+
 
 \title[Homological Algebra on a Complete Intersection]{Free Resolutions Over a Complete Hypersurface (And Friends)}  
 \subtitle{Based on ``Homological algebra on a complete intersection, with an
@@ -297,6 +297,12 @@
 \newcommand{\idl}[1]{\langle #1 \rangle}
 
 \newcommand{\del}{\partial}
+\newcommand{\tF}{{\tilde F}}
+\DeclareMathOperator{\rank}{rank}
+\newcommand{\trF}{\tilde{\rF}}
+\newcommand{\tdel}{\tilde{\del}}
+\renewcommand{\tt}{\tilde{t}}
+\newcommand{\rG}{\mathbf{G}}
 \begin{document}
 
 
@@ -343,7 +349,7 @@
 {\textbf{Throughout this talk, we let\dots}}
 \begin{itemize}
 \item<2-> $(A,\mfr)$ be a regular local ring
-\item<3-> $x_1,\dots,x_n$ a regular sequence of finite length
+\item<3-> $x_1,\dots,x_n$ a regular $A$-sequence of finite length
 \item<4-> $B:=A/\idl{x_1,\dots,x_n}$
 \end{itemize}
 \only<5->{Such a $B$ is a \emph{complete intersection of codimension $n$.}}
@@ -351,7 +357,7 @@
 \only<6-> {We shall study the structure of $B$-free resolutions of $B$-modules, relating these to their liftings to $A$.}
 }
 \frame{\frametitle{Clarification: $B$-Free}
-\only<1>{We do \textbf{NOT} mean\dots} \only<2->{\begin{figure}
+{We do \textbf{NOT} mean\dots} \onslide<2>{\begin{figure}
 		\includegraphics[scale=.6]{bfree.jpg}\caption{Another \say{$B$-Free} Object.}
 \end{figure}}
 }
@@ -367,7 +373,7 @@
 	\end{theorem}
 \end{itemize}}
 \frame{\frametitle{Why do we care?}\begin{itemize}
-		\item<1-3> Generalizing Auslander-Buchsbaum and Serre!
+		\item<1-3> Expanding upon a familiar characterization!
 		\alt<1>{\begin{theorem}[Auslander-Buchsbaum-Serre]
 			For $(R,\mfr)$ local, $R$ is regular $\iff$ $\mathrm{gl}\,\mathrm{dim}(R)<\infty$.
 			\end{theorem}}{\begin{theorem}[6.1]
@@ -376,17 +382,49 @@
 			\item For some $x_1,\dots,x_{d+1}\in R$, $\mfr=\idl{x_1,\dots,x_{d+1}}$ and $\hat{0}$ is unmixed in $\hat{R}^\mfr$ (i.e. all associated primes of $\hat{0}$ are minimal).
 			\item For any f.g. $R$-module $M$ with minimal free resolution $\rF$, the truncation of $\rF$ at degree $d+1$ is periodic of period 2.
 			\item There exists a free resolution $\rF:\dots\to F_1\to F_0\to 0$ of $R_\mfr/\mfr R_\mfr$ where for some $n$, $\mathrm{rank} F_n<n$.
-		\end{itemize}
+		\end{itemize}\note{This establishes periodicity as somewhat of a ``first step up" from finiteness of projective resolutions.}
 	\alert<3>{We call such an $R$ an \emph{abstract hypersurface.}}
 		\end{theorem}}
+	\note{Remark: ``Abstract hypersurface" is an intentionally suggestive piece of terminology. Indeed, if $B$ is such a ring satisfying these conditions, there exists some $\hat{A}$ regular, local, complete and $x\in \hat{A}$ with $\hat{B}=\hat{A}/\idl{x}$\textemdash in summary, given such a ring, we may identify its completion as the coordinate ring of some codimension-1 closed embedding into the affine scheme of a regular local ring. }
 \end{itemize}}
 
-\frame{\frametitle{Set-up}
-Let $M$ be a $B$-module, and $\mathbf{F}$ a free resolution of $B$.
+\frame{\frametitle{Codim ${n}$: Set-up}
+Recall that $B:=A/\idl{x_1,\dots,x_n}$. Let $M$ be a $B$-module, and $\mathbf{F}$ a free resolution of $B$.
 $$\begin{tikzcd}[ampersand replacement=\#]\rF: \dots\ar[r,"\del_3"] \# F_2\ar[r,"\del_2"]\# F_1\ar[r,"\del_1"]\# F_0\ar[r,"\del_0"]\# 0\end{tikzcd}$$
-\onslide<2->{}
-\onslide<3->{Let $\tilde{\del_i}$ denote an arbitrary lifting of  }
+\note{Consider $\del_j$ as a matrix\dots}
+\onslide<2->\textbf{Now let\dots}\begin{itemize}
+\item<3->\alert<3>{$\tF_i$ be a free $A$-module with $\rank_A\tF_i=\rank_BF_i$}
+\item<4->\alert<4>{ $\tilde{\del_i}$ denote an arbitrary lifting of (the entries of) $\del_i$ to $A$ }
+
+\end{itemize}}
+\frame{\frametitle{Codim $n$: Set-up}
+\textbf{Consider} $$\begin{tikzcd}[ampersand replacement=\#]\trF: \dots\ar[r,"\tdel_3"] \# \tF_2\ar[r,"\tdel_2"]\# \tF_1\ar[r,"\tdel_1"]\# \tF_0\ar[r,"\tdel_0"]\# 0\end{tikzcd}$$ 
+\begin{itemize}\item<2->\alert<2>{$\trF$ is\emph{not} necessarily a complex, but $\im (\tdel_i\circ \tdel_{i+1})\subset \idl{x_1,\dots,x_n} F_{i-1}$}
+\item<3->\alert<3>{Write $
+	%\displaystyle
+	{\tdel_i\otimes \tdel_{i+1}=\sum_{j=1}^nx_j\tt_j}$ for some transformation $\tt_j:=\tt_j(A,\{x_i\},\rF):\trF\to \trF$.} \note{we think of the $t_j$ as a simultaneous transformation of the whole chain $\trF$, but as we've seen, confusing these isn't always exactly unjustified.}
+\item<4-> \alert<4>{Finally, let $t_j=t_j(A,\{x_i\},\rF):\rF\to \rF$ be defined by $t_j=B\otimes \tt_j$.}
+
+\end{itemize}}
+\frame{\frametitle{The $t_j$ have many nice properties!}\note{Some of these results are due to Guilliksen or Mehta}
+\begin{theorem}[Summary of \S1]
+	The $t_j$ have many nice properties! These include:
+\begin{itemize}
+\item<2-> The $t_j$ are unique (w/r/t fixed $A,\rF,\{x_i\}$) up to homotopy.\note{say aloud: do not depend on choice of lifting (wow!)}	
+\item<3-> The $t_j$ are natural in the sense that they commute with morphisms of complexes up to homotopy.
+\item<4-> The $t_j$ commute with each other up to homotopy.
+\item<5-> If $M,N$ are $B$-modules, with $B$-free resolutions $\rF\to M$, $\rG\to N$ $t_j(\rF)$ and $t_j(\rG)$
+ induce the same map on $\mathrm{Tor}^B_\bullet(M,N)$.
+\item<6-> The $t_j$ play only a little less well with ring morphisms $\alpha:A\to A'$. 
+\end{itemize}
+\end{theorem}
 }
+\frame{\frametitle{Interlude: Matrix Factorizations}
+Let $x\in A$ and $\phi:F\to G$ a morphism of $A$-modules.
+
+\onslide<3->{\begin{definition}
+ The ordered pair $(\psi,\phi)$ is a \emph{matrix factorization of $x$} if\end{definition}
+}}
 %
 %
 %\frame{\frametitle{Basic Definitions}
