@@ -349,17 +349,42 @@
 \only<5->{Such a $B$ is a \emph{complete intersection of codimension $n$.}}
 
 \only<6-> {We shall study the structure of $B$-free resolutions of $B$-modules, relating these to their liftings to $A$.}
-
 }
 \frame{\frametitle{Clarification: $B$-Free}
 \only<1>{We do \textbf{NOT} mean\dots} \only<2->{\begin{figure}
 		\includegraphics[scale=.6]{bfree.jpg}\caption{Another \say{$B$-Free} Object.}
 \end{figure}}
 }
+\frame{\frametitle{Why do we care?}\begin{itemize}
+	\item<2-> Classifying maximal CM modules over complete hypersurfaces! (case $n=1$)
+	\begin{theorem}[6.1]
+		Let $x\in A$, $d=\dim A$, and $B:=A/\idl{x}$. Then,
+		\begin{itemize}
+			\item For any $B$-module $M$ and minimal free resolution $\rF$, the truncation at $F_{d+1}$ is periodic with period 2.
+			\item $\rF$ periodic $\iff$ $M$ is a maximal CM module w/o a free summand.
+		\item If so, $\rF$ is induced a \emph{matrix factorization.}
+		\end{itemize} 
+	\end{theorem}
+\end{itemize}}
+\frame{\frametitle{Why do we care?}\begin{itemize}
+		\item<1-3> Generalizing Auslander-Buchsbaum and Serre!
+		\alt<1>{\begin{theorem}[Auslander-Buchsbaum-Serre]
+			For $(R,\mfr)$ local, $R$ is regular $\iff$ $\mathrm{gl}\,\mathrm{dim}(R)<\infty$.
+			\end{theorem}}{\begin{theorem}[6.1]
+		For $(R,\mfr)$ local with $\dim R=d$, TFAE:
+		\begin{itemize}
+			\item For some $x_1,\dots,x_{d+1}\in R$, $\mfr=\idl{x_1,\dots,x_{d+1}}$ and $\hat{0}$ is unmixed in $\hat{R}^\mfr$ (i.e. all associated primes of $\hat{0}$ are minimal).
+			\item For any f.g. $R$-module $M$ with minimal free resolution $\rF$, the truncation of $\rF$ at degree $d+1$ is periodic of period 2.
+			\item There exists a free resolution $\rF:\dots\to F_1\to F_0\to 0$ of $R_\mfr/\mfr R_\mfr$ where for some $n$, $\mathrm{rank} F_n<n$.
+		\end{itemize}
+	\alert<3>{We call such an $R$ an \emph{abstract hypersurface.}}
+		\end{theorem}}
+\end{itemize}}
+
 \frame{\frametitle{Set-up}
 Let $M$ be a $B$-module, and $\mathbf{F}$ a free resolution of $B$.
 $$\begin{tikzcd}[ampersand replacement=\#]\rF: \dots\ar[r,"\del_3"] \# F_2\ar[r,"\del_2"]\# F_1\ar[r,"\del_1"]\# F_0\ar[r,"\del_0"]\# 0\end{tikzcd}$$
-\onslide<2->
+\onslide<2->{}
 \onslide<3->{Let $\tilde{\del_i}$ denote an arbitrary lifting of  }
 }
 %
