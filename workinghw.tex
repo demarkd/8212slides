@@ -1,0 +1,1329 @@
+% If any of you wants to put in a decent header, be my guest.
+% This is just the one that I stole from my undergrad :P 
+% The top section is all somewhat essential, the bottom is just
+%   a random dump of commands I've used once.   -eric
+
+% --------------------------------------------------------------------
+
+\documentclass[Letter,12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx,framed,enumerate}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{microtype}
+\usepackage{centernot}
+\usepackage{dirtytalk}
+\usepackage{enumitem}
+\frenchspacing
+
+\newcommand{\problem}[2]{
+	\vspace{0.3in} 
+	\begin{leftbar} 
+		\noindent \textbf{{#1}.} {#2} 
+\end{leftbar} }
+
+\renewenvironment{leftbar}{%
+	\def\FrameCommand{\vrule width 1pt \relax\hspace {5pt}}
+	\MakeFramed {\advance \hsize -\width \FrameRestore }
+}{
+	\endMakeFramed
+}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0.2in}
+\pagestyle{myheadings}
+
+\renewcommand{\maketitle}{{\centering \LARGE \title{} \\
+		\medskip\Large \author{} \\
+		\smallskip \date{} \\
+		%\emph{\large Assistance from \assistance}\\
+	}
+	\thispagestyle{empty}
+	\vspace{0.5in}}
+
+\renewcommand{\author}{Ryan Coopergard, David DeMark, Andy Hardt, Eric Stucky}
+\renewcommand{\title}{Math 8272 Homework}
+\renewcommand{\date}{2 May 2018}
+\markright{\rm \title{} \hfill \author{} }
+
+
+% --------------------------------------------------------------------
+
+
+% quick blackboard bold
+\newcommand{\n}{\mathbb{N}}
+\newcommand{\z}{\mathbb{Z}}
+\newcommand{\q}{\mathbb{Q}}
+\newcommand{\p}{\mathbb{P}}
+\renewcommand{\r}{\mathbb{R}}
+\renewcommand{\c}{\mathbb{C}}
+\renewcommand{\k}{\mathbb{K}}
+\renewcommand{\t}{\mathbb{T}}
+
+%Quick lowercase mathfrak
+\newcommand{\afr}{\mathfrak{a}}
+\newcommand{\bfr}{\mathfrak{b}}
+\newcommand{\cfr}{\mathfrak{c}}
+\newcommand{\dfr}{\mathfrak{d}}
+\newcommand{\efr}{\mathfrak{e}}
+\newcommand{\ffr}{\mathfrak{f}}
+\newcommand{\gfr}{\mathfrak{g}}
+\newcommand{\hfr}{\mathfrak{h}}
+\newcommand{\ifr}{\mathfrak{i}}
+\newcommand{\jfr}{\mathfrak{j}}
+\newcommand{\kfr}{\mathfrak{k}}
+\newcommand{\lfr}{\mathfrak{l}}
+\newcommand{\mfr}{\mathfrak{m}}
+\newcommand{\nfr}{\mathfrak{n}}
+\newcommand{\ofr}{\mathfrak{o}}
+\newcommand{\pfr}{\mathfrak{p}}
+\newcommand{\qfr}{\mathfrak{q}}
+\newcommand{\rfr}{\mathfrak{r}}
+\newcommand{\sfr}{\mathfrak{s}}
+\newcommand{\tfr}{\mathfrak{t}}
+\newcommand{\ufr}{\mathfrak{u}}
+\newcommand{\vfr}{\mathfrak{v}}
+\newcommand{\wfr}{\mathfrak{w}}
+\newcommand{\xfr}{\mathfrak{x}}
+\newcommand{\yfr}{\mathfrak{y}}
+\newcommand{\zfr}{\mathfrak{z}}
+
+%Quick uppercase mathcal
+\def\Acal{{\mathcal A}}
+\def\Bcal{{\mathcal B}}
+\def\Ccal{{\mathcal C}}
+\def\Dcal{{\mathcal D}}
+\def\Ecal{{\mathcal E}}
+\def\Fcal{{\mathcal F}}
+\def\Gcal{{\mathcal G}}
+\def\Hcal{{\mathcal H}}
+\def\Ical{{\mathcal I}}
+\def\Jcal{{\mathcal J}}
+\def\Lcal{{\mathcal L}}
+\def\Mcal{{\mathcal M}}
+\def\Ncal{{\mathcal N}}
+\def\Ocal{{\mathcal O}}
+\def\Pcal{{\mathcal P}}
+\def\Qcal{{\mathcal Q}}
+\def\Rcal{{\mathcal R}}
+\def\Scal{{\mathcal S}}
+\def\Tcal{{\mathcal T}}
+\def\Xcal{{\mathcal X}}
+\def\Zcal{{\mathcal Z}}
+
+% quick greek letters
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\newcommand{\g}{\gamma}
+\renewcommand{\d}{\delta}
+\newcommand{\e}{\varepsilon}
+\renewcommand{\l}{\lambda}
+
+% quick linear algebra
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\vecspan}{span}
+\newcommand{\<}{\left\langle}
+\renewcommand{\>}{\right\rangle}
+
+% quick algebra
+\newcommand{\is}{\cong}
+\newcommand{\iso}{\cong}
+\newcommand{\filt}{\mathcal F}
+
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\initial}{in}
+
+\DeclareMathOperator{\Hom}{Hom}
+\renewcommand{\hom}[1]{\Hom_{{#1}}}
+\DeclareMathOperator{\Ext}{Ext}
+\newcommand{\ext}[1]{\Ext^{{#1}}}
+\DeclareMathOperator{\Tor}{Tor}
+\newcommand{\tor}[1]{\Tor^{{#1}}}
+\DeclareMathOperator{\gr}{gr}
+\newcommand{\Gr}[1]{\gr_{{#1}}}
+
+% quick geometry
+\DeclareMathOperator{\Spec}{Spec}
+\renewcommand{\prime}{\mathfrak p}
+\newcommand{\maxl}{\mathfrak m}
+\newcommand{\affine}{\mathbb{A}}
+
+% formatting conveniences
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ts}{\textstyle}
+
+\newcommand{\dsum}[4]{ \ds\sum_{#1 = #2}^{#3} {#4} }
+\newcommand{\dset}[4]{ \ds\left\{ #4 \right\}_{#1 = #2}^{#3} }
+\newcommand{\dseq}[4]{ \ds\left( #4 \right)_{#1 = #2}^{#3} }
+\newcommand{\dcup}[4]{ \ds\bigcup_{#1 = #2}^{#3} #4 }
+\newcommand{\dcap}[4]{ \ds\bigcap_{#1 = #2}^{#3} #4 }
+\newcommand{\dint}[4]{\ds \int_{#2}^{#3}\!{#4}~\! \text{d}{#1}~\!}
+
+\newcommand{\isum}[3]{ \ds\sum_{#1 \in #2} {#3} }
+\newcommand{\iset}[3]{ \ds\left\{ #3 \right\}_{#1 \in #2}}
+\newcommand{\iseq}[3]{ \ds\left( #3 \right)_{#1 \in #2}}
+\newcommand{\icup}[3]{ \ds\bigcup_{#1 \in #2} #3 }
+\newcommand{\icap}[3]{ \ds\bigcap_{#1 \in #2} #3 }
+\renewcommand{\iint}[3]{\ds \int_{#2}\!{#3}~\! \text{d}{#1}~\!}
+
+\newcommand{\pmat}[4]{ \ds\begin{bmatrix} {#1}&{#2}\\{#3}&{#4} \end{bmatrix} }
+\newcommand{\smat}[9]{ \ds\begin{bmatrix} {#1}&{#2}&{#3} \\ {#4}&{#5}&{#6} \\ {#7}&{#8}&{#9} \end{bmatrix} }
+\newcommand{\pvec}[2]{ \ds\begin{bmatrix} {#1}\\{#2} \end{bmatrix} }
+\newcommand{\svec}[3]{ \ds\begin{bmatrix} {#1}\\{#2}\\{#3} \end{bmatrix} }
+\newcommand{\phvec}[2]{ \ds\begin{bmatrix} {#1} & {#2} \end{bmatrix} }
+\newcommand{\shvec}[3]{ \ds\begin{bmatrix} {#1} & {#2} & {#3} \end{bmatrix} }
+
+% general laziness
+\DeclareMathOperator{\supp}{supp}
+\newcommand{\minus}{\smallsetminus}
+\newcommand{\homeo}{\simeq}
+\renewcommand{\ss}{\subseteq}
+\newcommand{\pipe}[2]{\left.{#1}\right|_{#2}}
+
+\DeclareMathOperator{\mor}{Mor}
+
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\ass}{Ass}
+\DeclareMathOperator{\pd}{pd}
+
+\newcommand{\col}[3]{{#1}:_{#2}{#3}}
+\newcommand{\del}{\partial}
+\DeclareMathOperator{\ann}{Ann}
+\newcommand{\colim}{\varinjlim}
+\newcommand{\limi}{\varprojlim}
+\DeclareMathOperator{\spec}{Spec}
+\DeclareMathOperator{\proj}{Proj}
+\DeclareMathOperator{\mspec}{Max-Spec}
+
+\DeclareMathOperator{\ins}{in}
+\newcommand{\idl}[1]{\left\langle{#1}\right\rangle }
+
+%%%Subproof environment
+\newenvironment{subproof}[1][\proofname]{%
+	\renewcommand{\qedsymbol}{$\blacksquare$}%
+	\begin{proof}[#1]%
+	}{%
+	\end{proof}%
+}
+
+
+%%Problem Numbering(?) (I'm not married to any system in particular, but we should have an easy way to distinguish Eisenbud numbering and homework seheet numbering)
+\usepackage{calc}
+\newcommand{\prob}[1]{\setcounter{section}{#1-1}\section{}}
+\newcommand{\prt}[1]{\setcounter{subsection}{#1-1}\subsection{}}
+\renewcommand\thesubsection{\alph{subsection}}
+\usepackage[sl,bf,compact]{titlesec}
+\titlelabel{\thetitle.)\quad}
+%%%
+
+%%%%%Probelm-internal theorem labeling (by using the \prob command, you set the section numbering to the problem number--thus if you want to include a sub-proposition in your proof, the first one is labeled "Proposition [problem #].A")
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{thm*}{Theorem}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem*{cor*}{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem*{prop*}{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem*{claim*}{Claim}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem*{notation*}{Notation}
+\renewcommand{\thetheorem}{\arabic{section}.\Alph{theorem}}
+
+\usepackage[textsize=small]{todonotes}
+%\usepackage[disable]{todonotes}
+
+%%%
+%%%%%%%%%%COMMENT MACROS%%%%%%%%%%
+%feel free to change your color-coding of course
+
+
+%David
+\newcommand{\ddt}[1]{\todo{#1}~}
+\newcommand{\ddi}[1]{\todo[inline]{#1}~}
+\newcommand{\ddf}[1]{\todo[fancyline]{#1}~}
+
+%Andy
+\newcommand{\aht}[1]{\todo[color=yellow]{#1}~}
+\newcommand{\ahi}[1]{\todo[inline,color=yellow]{#1}~}
+\newcommand{\ahf}[1]{\todo[fancyline,color=yellow]{#1}~}
+
+%Eric
+\newcommand{\est}[1]{\todo[color=lightgray]{#1}~}
+\newcommand{\esi}[1]{\todo[inline,color=lightgray]{#1}~}
+\newcommand{\esf}[1]{\todo[fancyline,color=lightgray]{#1}~}
+
+%Ryan
+\newcommand{\rct}[1]{\todo[color=cyan]{#1}~}
+\newcommand{\rci}[1]{\todo[inline,color=cyan]{#1}~}
+\newcommand{\rcf}[1]{\todo[fancyline,color=cyan]{#1}~}
+
+
+% --------------------------------------------------------------------
+
+
+% --------------------------------------------------------------------
+
+
+\begin{document}
+	\maketitle{}
+	
+	\ddi{So with Eric's preamble, \textbackslash prime is re-def'd to be \textbackslash mathfrak \{p\}, which causes the apostrophe to be interpreted as "to the mathfrak p." is there a way around this? or are we okay with letting mathfrak p be referred to as \textbackslash pfr? }
+	\prob{4}
+	\problem{Proposition (Eisenbud Ex. 9.2)}{There exists an infinite-dimensional Noetherian ring.}
+	\begin{proof}
+		We let\vspace*{-1em}\textellipsis\begin{itemize}
+			
+			\item $k$ be any field, \item $R=k[x_1,x_2,\ldots]$, \item $d:\n_0\to \n$ a strictly increasing function with first difference function $\delta: \n\to \n$ defined by $s(m)=d(m)-d(m-1)$ such that $d(0)=1$ and $s$ is strictly increasing as well, \item $P_m=\idl{x_{d(m-1)},x_{d(m-1)+1},\ldots,x_{d(m)}}$ for $m\geq 1$,\item $U$ be the multiplicative system $\left(\bigcup_{m=1}^\infty P_m\right)^c$,\item and $S$ be the ring $U^{-1}R$.
+		\end{itemize}
+		We shall now show that $\dim S=\infty$, but $S$ is Noetherian. We break this argument down into a series of claims.
+		\begin{prop}[Eisenbud, Ex. 3.14]\label{4:claim:maxs}
+			The maximal ideals of $S$ are precisely the ideals $P_m$.
+		\end{prop}
+		\begin{subproof}[Proof of Proposition \ref{4:claim:maxs}]
+			We let $I$ be a proper ideal of $S$ (noting that necessarily, $I\subset \bigcup_{m=1}^\infty P_m$) and $0\neq f\in I$ an arbitrary element. We let $\Acal_f:=\{P_{i_1},\hdots,P_{i_n}\}:=\{P_i\;:\;P_i \text{ contains a monomial of } f\}$. We let $g\neq f$ be another arbitrary element of $I$ and suppose for the sake of contradiction that $g$ has some monomial term $g'$ such that $g'\notin \bigcup_{j=1}^nP_{i_j}$. Then, $f+g$ has a nonzero coefficient for $g'$. As each $P_m$ is a monomial ideal and hence contains all monomials of each of its elements, we now have that for any $P_{i_k}\in \Acal_f$, $f+g\notin P_{i_k}$. However, by an identical argument, for any $P_j\ni g'$, $f+g\notin P_j$, since $f$ necessarily has monomial terms not in $P_j$. Returning to the monomial ideal argument, we have now shown that $f+g\notin \bigcup_{m=1}^\infty P_m$, thus inducing a contradiction. Thus, for any ideal $I\subset S$, we have that $I\subset \bigcup_{k=1}^N P_{j_N}$ for some finite $\{j_1,\hdots,J_N\}$. Prime avoidance then implies $I\subset P_M$ for some $M\in \n$. As it is the case that $P_m\centernot\subseteq P_{m'}$ for $m\neq m'$, this completes our proof.
+		\end{subproof}
+		Next, as suggested by the text, we prove Eisenbud's lemma 9.4.
+		\begin{lemma}[Eisenbud, Lemma 9.4]\label{4:lem:9.4}
+			Let $Q$ be a ring with the properties (i) for any maximal $\mfr\subset Q$, $Q_\mfr$ is Noetherian and (ii) each element $s\in Q$ is contained in finitely many maximal ideals. Then, $Q$ is Noetherian.
+		\end{lemma}
+		\begin{subproof}[Proof of Lemma \ref{4:lem:9.4}]
+			We suppose for the sake of contradiction that there exists an infinite chain of ideals $0=I_0\subsetneq I_1\subsetneq I_2\subsetneq\ldots$ in $Q$. We then define the function $N:\mspec(Q)\to \n_0$ by $\mfr\mapsto \min\{n\;:\; I_n\centernot \subseteq\mfr\}$. As each $Q_\mfr$ is Noetherian, we must have that $N(\mfr)$ exists and is finite. We also define the choice function $C:\n_0\to \mspec(Q)$ which assigns to each $n\in \n_0$ some $\mfr\in \mspec(Q)$ such that $I_n\subset \mfr$. As each ideal of a ring must be contained in a maximal ideal by Zorn's lemma, there exists some well-defined such $C$. We observe that $C(N(\mfr))\neq \mfr$ for any $\mfr\in \mspec(Q)$ as $I_{N(\mfr)}\not \subset \mfr$ by construction. We also observe that $n\leq N(C(n))$, as $I_m\subset C(n)$ for any $m\leq n$ but $I_{N(C(n))}\not\subseteq C(n)$ similarly by construction. We now iteratively define a sequence of distinct maximal ideals $\{\mfr_1,\mfr_2,\hdots\}$ by letting $\mfr_1:=C(1)$ and for $i>1$, $\mfr_i:=C(N(\mfr_{i-1}))$. As $N\circ C$ has been shown to be a strictly increasing function, we have by well-ordering that for any $n$, there exists a $J$ such that $I_n\subset \mfr_j$ for all $j>J$. However, then $I_n\subset \bigcap_{j=J}^\infty \mfr_j$, contradicting our assumptions on $Q$.  
+		\end{subproof}
+		\begin{cor}
+			$S$ is Noetherian
+		\end{cor}
+	\end{proof}
+	
+	
+	Problem 5: (I'm not quite sure how our formatting works).
+	Krull dimension satisfies the first half of axiom D1, and also the axiom D2. In other words, \[\dim R = \sup_{P\subset R \text{prime}} \dim R_P\] and if $I$ is a nilpotent ideal, then $\dim R = \dim R/I$.
+	
+	Proof: If $P$ is a prime ideal of $R$, let $P_0\subset\ldots\subset P_n$ be a chain of primes in $R_P$. If $\phi$ is the natural map from $R\to R_P$, then Proposition 2.2 of Eisenbud tells us that $P_i = \phi^{-1}(P_i)R_P$. The ideal $\phi^{-1}(P_i)\subset R$ is prime because if the complement of $\phi^{-1}(P_i)$ weren't multiplicatively closed, then the map $\phi$ would tell us that the complement of $P_i$ was also not multiplicatively closed. In addition, if $P_i\subsetneq P_j$, then $\phi^{-1}(P_i)R_P \subsetneq \phi^{-1}(P_j)R_P$, so $\phi^{-1}(P_i)\subsetneq \phi^{-1}(P_j)$. Therefore, any chain of primes in $R_P$ lifts to an equal length chain in $R$.
+	
+	On the other hand, let $P_1,P_2,\ldots$ be a sequence of primes in $R$ such that $\dim P_i\to\dim R$. This is possible because for a finite chain with minimal prime $Q$, $\dim Q$ is the length of that chain, and for an infinite chain, by taking smaller and smaller primes in the chain, we get such a sequence. If $P_i\subset Q_{i1}\subset Q_{i2}\ldots$ is a chain in $R$ starting with $P_i$ (i.e. a chain corresponding to one in $R/P_i$), then it will be a chain of the same length in $R_{P_i}$. Thus we have that $\dim R_{P_i}\ge \dim P_i$, so $\sup_{P\subset R \text{prime}} \dim R_P\ge \dim R$.
+	
+	Now, if $I$ is nilpotent, we have $\dim R\ge \dim R/I$, the fourth isomorphism theorem gives us a correspondence between prime ideals of $R/I$ and prime ideals of $R$ containing $I$. Now $I$ is contained in the nilradical of $R$, so it is contained in every prime of $R$, so chains of primes of $R$ are in one-to-one correspondence with chains of primes of $R/I$, so $\dim R = \dim R/i$.\qed
+	
+	
+	OLD PROBLEMS FOR FORMATTING CHECKS
+	
+	
+	%====%
+	\problem{Theorem 2.7}{
+		Show that the universal property of localization is unique up to unique isomorphism; that is, if another $R\to S$ has the same property....
+	}
+	
+	
+	\problem{Theorem 2.4}{
+		Let $R=k[x]$. Describe as explicitly as possible:
+		\begin{enumerate}
+			\item $\hom{\z}(\z_n,\z_m)$ and $\hom{R}(R/(x^n), R/(x^m))$,
+			\item $\z_n\otimes \z_m$ and $R/(x^n)\otimes R/(x^m)$,
+			\item $R\otimes_k R$ (describe this as an algebra).
+		\end{enumerate}
+	}
+	
+	
+	%====%
+	\problem{Theorem 3.17}{
+		Show that if $k=\z_2$ then the ideal $(x,y)\ss k[x,y]/(x,y)^2$ is the union of three properly smaller ideals.
+		
+		Let $k$ be any field, and $I_1=(x), I_2=(y)$ and $J=(x^2,y)$ ideals in the ring $k[x,y]/(xy,y^2)$. Show that the homogeneous elements of $J$ are contained in $I_1\cup I_2$, but that $J\not\ss I_1,I_2$. (Note that one of the $I$ is prime.)
+	}
+	
+	
+	\problem{Theorem 3.6--8}{
+		Which monomial ideals are prime? Irreducible? Radical? Primary?
+		
+		Find an algorithm for computing the radical of a monomial ideal.
+		
+		Find an algorithm for computing an irreducible decomposition, and thus a primary decomposition, of a monomial ideal.
+	}
+	
+	
+	%====%
+	\problem{Theorem 4.7}{
+		Show the Jacobsen radical of $R$ is $\{r: 1+rs \text{ is a unit for every } s\in R\}$.
+	}
+	
+	
+	\problem{Theorem 4.11}{
+		\begin{enumerate}
+			\item Use Nakayama's lemma to show that if $R$ is local and $M$ is finitely generated projective, then $M$ is free. If $R$ is a positively graded ring, with $R_0$ a field, and $M$ is a finitely generated graded projective, then $M$ is a graded free module.
+			\item Use Prop 2.10 (contains the snippet $\hom{S}\otimes{R}\hom{R}(M,N)\is \hom{S}\otimes_R M, S\otimes_R N)$) to show that a finitely presente module $M$ is projective iff $M$ is locally free in the sense that localization $M_P$ is free over $R_P$ for every maximal ideal of $R$.
+		\end{enumerate}
+	}
+	
+	
+	\problem{Theorem 4.24}{
+		Let $R$ be either of the domains $\c[x,y]/(y^2-x^3)$ or $\c[x,y](y^2-x^2(x+1))$ and let $t=y/x$ an element of the quotient field. Show that in each case, $R[t]=\c[t]$.
+	}
+	
+	
+	\problem{Theorem 4.26}{
+		Suppose that the additive group of $R$ is a finitely generated abelian group. If $P$ is a maximal ideal of $R$, show that $R/P$ is a finite field. Show that every prime ideal of $R$ that is not maximal is a minimal prime ideal.
+	}\rcf{Ryan Comment}
+	
+	
+	%====%
+	\problem{Theorem 5.1}{
+		Let $R$ be a ring and $M$ be an $R$-module. Suppose that $\cdots \ss M_1\ss M_0=M$ is a filtration by submodules. Although the map $M\to \gr M$ sending $f$ to $\initial(f)$ is not a homomorphism of abelian groups, show that  $\initial(f)+\initial(g)$ is either $\initial(f+g)$ or $0$.
+		
+		Moreover, suppose that $M=R$ and the filtration is multiplicative. Show that $\initial(f)\initial(g)$ is either $\initial(fg)$ or $0$.
+	}\est{Eric Comment}
+	
+	
+	\problem{Theorem 5.8}{
+		\begin{enumerate}
+			\item Let $R=k[x,y]/(x^2-y^3)$, and let $I=(x,y)$. Show that $R$ is a domain, but $\initial(x)^2=0$ in $\gr_I(R)$.
+			\item Let $R=k[t^4,t^5,t^{11}]\ss k[t]$, and let $I=(t^4,t^5,t^{11})$. Show that $\initial(I)\initial(t^{11})=0$
+		\end{enumerate}
+	}\ahi{Andy Comment}
+	
+	
+	
+	%====%
+	\problem{Theorem 6.1}{
+		Let $R$ be a ring and $M$ an $R$-module. Show that $M$ is flat iff $\Tor_1(M,N)=0$ for all $R$-modules $N$ iff $\Tor(N,M)=0$ for all $R$-modules $N$ iff $\Tor_i=0$ for all $R$-modules $N$ and all $i>0$.
+	}\ddi{David Comment}
+	
+	
+	
+	%====%
+	\problem{Theorem 7.11}{
+		Let $R$ be N\"otherian, and $\maxl = (a_1,\dots, a_n)$ be an ideal. Show that
+		$$\hat{R}_\maxl \is R[[x_1,\dots, x_n]]/(x_1-a_1,\dots, x_n-a_n).$$
+	}
+	
+	
+	
+	%====%
+	\problem{Theorem A3.6}{
+		Let $R$ be N\"otherian and $M$ be any finitely generate $R$-module.
+		\begin{enumerate}
+			\item Let $P$ be prime. Show that if $M\to E(R/P)$ is any map [into the injective envelope], then $\ker\a$ is a $P$-primary submodule of $M$.
+			\item Show that $E(M)$ is a finite direct sum of indecomposable projectives. Let $M\to E(M)=\oplus E(R/P_i)$, and show that if $P$ is a prime ideal and $M(P)$ is the kernel of the composite map $M\to E(M)\to \oplus_{P_i=P} E(R/P_i)$, then $M(P)$ is $P$-primary. Show that $0=\cap M(P)$ is a primary decomposition of zero, and that the set of $P$ that occurs among the $P_i$ above is precisely the set $\text{Ass}(M)$.
+		\end{enumerate}
+	}
+	
+	
+	\problem{Theorem A3.13}{
+		Show that if $0\to N_f\to F\to M\to 0$ and $0\to N_G\to G\to M\to 0$ are exact with $F$ and $G$ projective, then $N_F\oplus G \is N_G\oplus F$ and both are $\ker(F\oplus G\to M)$.
+	}
+	
+	
+	\problem{Theorem A3.18}{
+		Let $(R,\maxl)$ be a local ring. We say that a free reslution $(F_i, \varphi_i)$ is minimal if each $\varphi_i$ has an image contained in $\maxl F_{i-1}$.  If $F$ as above is a minial free resolution of $M$ and $\rank F_i=b_i$, then show that $\Tor_i(R/\maxl)\is (R/\maxl)^{b_i}$. [The $b_i$ are called Betti numbers of $M$, in loose analogy with the situation in topology where $F$ is a chain complex.]
+	}
+	
+	
+	\problem{Theorem A3.23}{
+		If $x$ is not a zero-divisor in a ring $R$, compute $\Ext^i(R/x,M)$. In particular, compute $\Ext^i(\z_n,\z_m)$ for any integers $n,m$.
+	}
+	
+	
+	\problem{Theorem A3.24}{
+		Show that a finitely generated abelian group $A$ is free iff $\Ext_\z(a,\z)=0$. It was conjectured that this would hold for all groups, but Shelah proved in 1974 that this depends on your set theory.
+	}
+	
+	
+	
+	
+\end{document}
+
+% If any of you wants to put in a decent header, be my guest.
+% This is just the one that I stole from my undergrad :P 
+% The top section is all somewhat essential, the bottom is just
+%   a random dump of commands I've used once.   -eric
+
+% --------------------------------------------------------------------
+
+\documentclass[Letter,12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx,framed,enumerate}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{microtype}
+\usepackage{centernot}
+\usepackage{dirtytalk}
+\usepackage{enumitem}
+\frenchspacing
+
+\newcommand{\problem}[2]{
+	\vspace{0.3in} 
+	\begin{leftbar} 
+		\noindent \textbf{{#1}.} {#2} 
+\end{leftbar} }
+
+\renewenvironment{leftbar}{%
+	\def\FrameCommand{\vrule width 1pt \relax\hspace {5pt}}
+	\MakeFramed {\advance \hsize -\width \FrameRestore }
+}{
+	\endMakeFramed
+}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0.2in}
+\pagestyle{myheadings}
+
+\renewcommand{\maketitle}{{\centering \LARGE \title{} \\
+		\medskip\Large \author{} \\
+		\smallskip \date{} \\
+		%\emph{\large Assistance from \assistance}\\
+	}
+	\thispagestyle{empty}
+	\vspace{0.5in}}
+
+\renewcommand{\author}{Ryan Coopergard, David DeMark, Andy Hardt, Eric Stucky}
+\renewcommand{\title}{Math 8272 Homework}
+\renewcommand{\date}{2 May 2018}
+\markright{\rm \title{} \hfill \author{} }
+
+
+% --------------------------------------------------------------------
+
+
+% quick blackboard bold
+\newcommand{\n}{\mathbb{N}}
+\newcommand{\z}{\mathbb{Z}}
+\newcommand{\q}{\mathbb{Q}}
+\newcommand{\p}{\mathbb{P}}
+\renewcommand{\r}{\mathbb{R}}
+\renewcommand{\c}{\mathbb{C}}
+\renewcommand{\k}{\mathbb{K}}
+\renewcommand{\t}{\mathbb{T}}
+
+%Quick lowercase mathfrak
+\newcommand{\afr}{\mathfrak{a}}
+\newcommand{\bfr}{\mathfrak{b}}
+\newcommand{\cfr}{\mathfrak{c}}
+\newcommand{\dfr}{\mathfrak{d}}
+\newcommand{\efr}{\mathfrak{e}}
+\newcommand{\ffr}{\mathfrak{f}}
+\newcommand{\gfr}{\mathfrak{g}}
+\newcommand{\hfr}{\mathfrak{h}}
+\newcommand{\ifr}{\mathfrak{i}}
+\newcommand{\jfr}{\mathfrak{j}}
+\newcommand{\kfr}{\mathfrak{k}}
+\newcommand{\lfr}{\mathfrak{l}}
+\newcommand{\mfr}{\mathfrak{m}}
+\newcommand{\nfr}{\mathfrak{n}}
+\newcommand{\ofr}{\mathfrak{o}}
+\newcommand{\pfr}{\mathfrak{p}}
+\newcommand{\qfr}{\mathfrak{q}}
+\newcommand{\rfr}{\mathfrak{r}}
+\newcommand{\sfr}{\mathfrak{s}}
+\newcommand{\tfr}{\mathfrak{t}}
+\newcommand{\ufr}{\mathfrak{u}}
+\newcommand{\vfr}{\mathfrak{v}}
+\newcommand{\wfr}{\mathfrak{w}}
+\newcommand{\xfr}{\mathfrak{x}}
+\newcommand{\yfr}{\mathfrak{y}}
+\newcommand{\zfr}{\mathfrak{z}}
+
+%Quick uppercase mathcal
+\def\Acal{{\mathcal A}}
+\def\Bcal{{\mathcal B}}
+\def\Ccal{{\mathcal C}}
+\def\Dcal{{\mathcal D}}
+\def\Ecal{{\mathcal E}}
+\def\Fcal{{\mathcal F}}
+\def\Gcal{{\mathcal G}}
+\def\Hcal{{\mathcal H}}
+\def\Ical{{\mathcal I}}
+\def\Jcal{{\mathcal J}}
+\def\Lcal{{\mathcal L}}
+\def\Mcal{{\mathcal M}}
+\def\Ncal{{\mathcal N}}
+\def\Ocal{{\mathcal O}}
+\def\Pcal{{\mathcal P}}
+\def\Qcal{{\mathcal Q}}
+\def\Rcal{{\mathcal R}}
+\def\Scal{{\mathcal S}}
+\def\Tcal{{\mathcal T}}
+\def\Xcal{{\mathcal X}}
+\def\Zcal{{\mathcal Z}}
+
+% quick greek letters
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\newcommand{\g}{\gamma}
+\renewcommand{\d}{\delta}
+\newcommand{\e}{\varepsilon}
+\renewcommand{\l}{\lambda}
+
+% quick linear algebra
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\vecspan}{span}
+\newcommand{\<}{\left\langle}
+\renewcommand{\>}{\right\rangle}
+
+% quick algebra
+\newcommand{\is}{\cong}
+\newcommand{\iso}{\cong}
+\newcommand{\filt}{\mathcal F}
+
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\initial}{in}
+
+\DeclareMathOperator{\Hom}{Hom}
+\renewcommand{\hom}[1]{\Hom_{{#1}}}
+\DeclareMathOperator{\Ext}{Ext}
+\newcommand{\ext}[1]{\Ext^{{#1}}}
+\DeclareMathOperator{\Tor}{Tor}
+\newcommand{\tor}[1]{\Tor^{{#1}}}
+\DeclareMathOperator{\gr}{gr}
+\newcommand{\Gr}[1]{\gr_{{#1}}}
+
+% quick geometry
+\DeclareMathOperator{\Spec}{Spec}
+\renewcommand{\prime}{\mathfrak p}
+\newcommand{\maxl}{\mathfrak m}
+\newcommand{\affine}{\mathbb{A}}
+
+% formatting conveniences
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ts}{\textstyle}
+
+\newcommand{\dsum}[4]{ \ds\sum_{#1 = #2}^{#3} {#4} }
+\newcommand{\dset}[4]{ \ds\left\{ #4 \right\}_{#1 = #2}^{#3} }
+\newcommand{\dseq}[4]{ \ds\left( #4 \right)_{#1 = #2}^{#3} }
+\newcommand{\dcup}[4]{ \ds\bigcup_{#1 = #2}^{#3} #4 }
+\newcommand{\dcap}[4]{ \ds\bigcap_{#1 = #2}^{#3} #4 }
+\newcommand{\dint}[4]{\ds \int_{#2}^{#3}\!{#4}~\! \text{d}{#1}~\!}
+
+\newcommand{\isum}[3]{ \ds\sum_{#1 \in #2} {#3} }
+\newcommand{\iset}[3]{ \ds\left\{ #3 \right\}_{#1 \in #2}}
+\newcommand{\iseq}[3]{ \ds\left( #3 \right)_{#1 \in #2}}
+\newcommand{\icup}[3]{ \ds\bigcup_{#1 \in #2} #3 }
+\newcommand{\icap}[3]{ \ds\bigcap_{#1 \in #2} #3 }
+\renewcommand{\iint}[3]{\ds \int_{#2}\!{#3}~\! \text{d}{#1}~\!}
+
+\newcommand{\pmat}[4]{ \ds\begin{bmatrix} {#1}&{#2}\\{#3}&{#4} \end{bmatrix} }
+\newcommand{\smat}[9]{ \ds\begin{bmatrix} {#1}&{#2}&{#3} \\ {#4}&{#5}&{#6} \\ {#7}&{#8}&{#9} \end{bmatrix} }
+\newcommand{\pvec}[2]{ \ds\begin{bmatrix} {#1}\\{#2} \end{bmatrix} }
+\newcommand{\svec}[3]{ \ds\begin{bmatrix} {#1}\\{#2}\\{#3} \end{bmatrix} }
+\newcommand{\phvec}[2]{ \ds\begin{bmatrix} {#1} & {#2} \end{bmatrix} }
+\newcommand{\shvec}[3]{ \ds\begin{bmatrix} {#1} & {#2} & {#3} \end{bmatrix} }
+
+% general laziness
+\DeclareMathOperator{\supp}{supp}
+\newcommand{\minus}{\smallsetminus}
+\newcommand{\homeo}{\simeq}
+\renewcommand{\ss}{\subseteq}
+\newcommand{\pipe}[2]{\left.{#1}\right|_{#2}}
+
+\DeclareMathOperator{\mor}{Mor}
+
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\ass}{Ass}
+\DeclareMathOperator{\pd}{pd}
+
+\newcommand{\col}[3]{{#1}:_{#2}{#3}}
+\newcommand{\del}{\partial}
+\DeclareMathOperator{\ann}{Ann}
+\newcommand{\colim}{\varinjlim}
+\newcommand{\limi}{\varprojlim}
+\DeclareMathOperator{\spec}{Spec}
+\DeclareMathOperator{\proj}{Proj}
+\DeclareMathOperator{\mspec}{Max-Spec}
+
+\DeclareMathOperator{\ins}{in}
+\newcommand{\idl}[1]{\left\langle{#1}\right\rangle }
+
+%%%Subproof environment
+\newenvironment{subproof}[1][\proofname]{%
+	\renewcommand{\qedsymbol}{$\blacksquare$}%
+	\begin{proof}[#1]%
+	}{%
+	\end{proof}%
+}
+
+
+%%Problem Numbering(?) (I'm not married to any system in particular, but we should have an easy way to distinguish Eisenbud numbering and homework seheet numbering)
+\usepackage{calc}
+\newcommand{\prob}[1]{\setcounter{section}{#1-1}\section{}}
+\newcommand{\prt}[1]{\setcounter{subsection}{#1-1}\subsection{}}
+\renewcommand\thesubsection{\alph{subsection}}
+\usepackage[sl,bf,compact]{titlesec}
+\titlelabel{\thetitle.)\quad}
+%%%
+
+%%%%%Probelm-internal theorem labeling (by using the \prob command, you set the section numbering to the problem number--thus if you want to include a sub-proposition in your proof, the first one is labeled "Proposition [problem #].A")
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{thm*}{Theorem}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem*{cor*}{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem*{prop*}{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem*{claim*}{Claim}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem*{notation*}{Notation}
+\renewcommand{\thetheorem}{\arabic{section}.\Alph{theorem}}
+
+\usepackage[textsize=small]{todonotes}
+%\usepackage[disable]{todonotes}
+
+%%%
+%%%%%%%%%%COMMENT MACROS%%%%%%%%%%
+%feel free to change your color-coding of course
+
+
+%David
+\newcommand{\ddt}[1]{\todo{#1}~}
+\newcommand{\ddi}[1]{\todo[inline]{#1}~}
+\newcommand{\ddf}[1]{\todo[fancyline]{#1}~}
+
+%Andy
+\newcommand{\aht}[1]{\todo[color=yellow]{#1}~}
+\newcommand{\ahi}[1]{\todo[inline,color=yellow]{#1}~}
+\newcommand{\ahf}[1]{\todo[fancyline,color=yellow]{#1}~}
+
+%Eric
+\newcommand{\est}[1]{\todo[color=lightgray]{#1}~}
+\newcommand{\esi}[1]{\todo[inline,color=lightgray]{#1}~}
+\newcommand{\esf}[1]{\todo[fancyline,color=lightgray]{#1}~}
+
+%Ryan
+\newcommand{\rct}[1]{\todo[color=cyan]{#1}~}
+\newcommand{\rci}[1]{\todo[inline,color=cyan]{#1}~}
+\newcommand{\rcf}[1]{\todo[fancyline,color=cyan]{#1}~}
+
+
+% --------------------------------------------------------------------
+
+
+% --------------------------------------------------------------------
+
+
+\begin{document}
+	\maketitle{}
+	
+	\ddi{So with Eric's preamble, \textbackslash prime is re-def'd to be \textbackslash mathfrak \{p\}, which causes the apostrophe to be interpreted as "to the mathfrak p." is there a way around this? or are we okay with letting mathfrak p be referred to as \textbackslash pfr? }
+	\prob{4}
+	\problem{Proposition (Eisenbud Ex. 9.2)}{There exists an infinite-dimensional Noetherian ring.}
+	\begin{proof}
+		We let\vspace*{-1em}\textellipsis\begin{itemize}
+			
+			\item $k$ be any field, \item $R=k[x_1,x_2,\ldots]$, \item $d:\n_0\to \n$ a strictly increasing function with first difference function $\delta: \n\to \n$ defined by $s(m)=d(m)-d(m-1)$ such that $d(0)=1$ and $s$ is strictly increasing as well, \item $P_m=\idl{x_{d(m-1)},x_{d(m-1)+1},\ldots,x_{d(m)}}$ for $m\geq 1$,\item $U$ be the multiplicative system $\left(\bigcup_{m=1}^\infty P_m\right)^c$,\item and $S$ be the ring $U^{-1}R$.
+		\end{itemize}
+		We shall now show that $\dim S=\infty$, but $S$ is Noetherian. We break this argument down into a series of claims.
+		\begin{prop}[Eisenbud, Ex. 3.14]\label{4:claim:maxs}
+			The maximal ideals of $S$ are precisely the ideals $P_m$.
+		\end{prop}
+		\begin{subproof}[Proof of Proposition \ref{4:claim:maxs}]
+			We let $I$ be a proper ideal of $S$ (noting that necessarily, $I\subset \bigcup_{m=1}^\infty P_m$) and $0\neq f\in I$ an arbitrary element. We let $\Acal_f:=\{P_{i_1},\hdots,P_{i_n}\}:=\{P_i\;:\;P_i \text{ contains a monomial of } f\}$. We let $g\neq f$ be another arbitrary element of $I$ and suppose for the sake of contradiction that $g$ has some monomial term $g'$ such that $g'\notin \bigcup_{j=1}^nP_{i_j}$. Then, $f+g$ has a nonzero coefficient for $g'$. As each $P_m$ is a monomial ideal and hence contains all monomials of each of its elements, we now have that for any $P_{i_k}\in \Acal_f$, $f+g\notin P_{i_k}$. However, by an identical argument, for any $P_j\ni g'$, $f+g\notin P_j$, since $f$ necessarily has monomial terms not in $P_j$. Returning to the monomial ideal argument, we have now shown that $f+g\notin \bigcup_{m=1}^\infty P_m$, thus inducing a contradiction. Thus, for any ideal $I\subset S$, we have that $I\subset \bigcup_{k=1}^N P_{j_N}$ for some finite $\{j_1,\hdots,J_N\}$. Prime avoidance then implies $I\subset P_M$ for some $M\in \n$. As it is the case that $P_m\centernot\subseteq P_{m'}$ for $m\neq m'$, this completes our proof.
+		\end{subproof}
+		Next, as suggested by the text, we prove Eisenbud's lemma 9.4.
+		\begin{lemma}[Eisenbud, Lemma 9.4]\label{4:lem:9.4}
+			Let $Q$ be a ring with the properties (i) for any maximal $\mfr\subset Q$, $Q_\mfr$ is Noetherian and (ii) each element $s\in Q$ is contained in finitely many maximal ideals. Then, $Q$ is Noetherian.
+		\end{lemma}
+		\begin{subproof}[Proof of Lemma \ref{4:lem:9.4}]
+			We suppose for the sake of contradiction that there exists an infinite chain of ideals $0=I_0\subsetneq I_1\subsetneq I_2\subsetneq\ldots$ in $Q$. We then define the function $N:\mspec(Q)\to \n_0$ by $\mfr\mapsto \min\{n\;:\; I_n\centernot \subseteq\mfr\}$. As each $Q_\mfr$ is Noetherian, we must have that $N(\mfr)$ exists and is finite. We also define the choice function $C:\n_0\to \mspec(Q)$ which assigns to each $n\in \n_0$ some $\mfr\in \mspec(Q)$ such that $I_n\subset \mfr$. As each ideal of a ring must be contained in a maximal ideal by Zorn's lemma, there exists some well-defined such $C$. We observe that $C(N(\mfr))\neq \mfr$ for any $\mfr\in \mspec(Q)$ as $I_{N(\mfr)}\not \subset \mfr$ by construction. We also observe that $n\leq N(C(n))$, as $I_m\subset C(n)$ for any $m\leq n$ but $I_{N(C(n))}\not\subseteq C(n)$ similarly by construction. We now iteratively define a sequence of distinct maximal ideals $\{\mfr_1,\mfr_2,\hdots\}$ by letting $\mfr_1:=C(1)$ and for $i>1$, $\mfr_i:=C(N(\mfr_{i-1}))$. As $N\circ C$ has been shown to be a strictly increasing function, we have by well-ordering that for any $n$, there exists a $J$ such that $I_n\subset \mfr_j$ for all $j>J$. However, then $I_n\subset \bigcap_{j=J}^\infty \mfr_j$, contradicting our assumptions on $Q$.  
+		\end{subproof}
+		\begin{cor}
+			$S$ is Noetherian
+		\end{cor}
+	\end{proof}
+	
+	
+	Problem 5: (I'm not quite sure how our formatting works).
+	Krull dimension satisfies the first half of axiom D1, and also the axiom D2. In other words, \[\dim R = \sup_{P\subset R \text{prime}} \dim R_P\] and if $I$ is a nilpotent ideal, then $\dim R = \dim R/I$.
+	
+	Proof: If $P$ is a prime ideal of $R$, let $P_0\subset\ldots\subset P_n$ be a chain of primes in $R_P$. If $\phi$ is the natural map from $R\to R_P$, then Proposition 2.2 of Eisenbud tells us that $P_i = \phi^{-1}(P_i)R_P$. The ideal $\phi^{-1}(P_i)\subset R$ is prime because if the complement of $\phi^{-1}(P_i)$ weren't multiplicatively closed, then the map $\phi$ would tell us that the complement of $P_i$ was also not multiplicatively closed. In addition, if $P_i\subsetneq P_j$, then $\phi^{-1}(P_i)R_P \subsetneq \phi^{-1}(P_j)R_P$, so $\phi^{-1}(P_i)\subsetneq \phi^{-1}(P_j)$. Therefore, any chain of primes in $R_P$ lifts to an equal length chain in $R$.
+	
+	On the other hand, let $P_1,P_2,\ldots$ be a sequence of primes in $R$ such that $\dim P_i\to\dim R$. This is possible because for a finite chain with minimal prime $Q$, $\dim Q$ is the length of that chain, and for an infinite chain, by taking smaller and smaller primes in the chain, we get such a sequence. If $P_i\subset Q_{i1}\subset Q_{i2}\ldots$ is a chain in $R$ starting with $P_i$ (i.e. a chain corresponding to one in $R/P_i$), then it will be a chain of the same length in $R_{P_i}$. Thus we have that $\dim R_{P_i}\ge \dim P_i$, so $\sup_{P\subset R \text{prime}} \dim R_P\ge \dim R$.
+	
+	Now, if $I$ is nilpotent, we have $\dim R\ge \dim R/I$, the fourth isomorphism theorem gives us a correspondence between prime ideals of $R/I$ and prime ideals of $R$ containing $I$. Now $I$ is contained in the nilradical of $R$, so it is contained in every prime of $R$, so chains of primes of $R$ are in one-to-one correspondence with chains of primes of $R/I$, so $\dim R = \dim R/i$.\qed
+	
+	
+	OLD PROBLEMS FOR FORMATTING CHECKS
+	
+	
+	%====%
+	\problem{Theorem 2.7}{
+		Show that the universal property of localization is unique up to unique isomorphism; that is, if another $R\to S$ has the same property....
+	}
+	
+	
+	\problem{Theorem 2.4}{
+		Let $R=k[x]$. Describe as explicitly as possible:
+		\begin{enumerate}
+			\item $\hom{\z}(\z_n,\z_m)$ and $\hom{R}(R/(x^n), R/(x^m))$,
+			\item $\z_n\otimes \z_m$ and $R/(x^n)\otimes R/(x^m)$,
+			\item $R\otimes_k R$ (describe this as an algebra).
+		\end{enumerate}
+	}
+	
+	
+	%====%
+	\problem{Theorem 3.17}{
+		Show that if $k=\z_2$ then the ideal $(x,y)\ss k[x,y]/(x,y)^2$ is the union of three properly smaller ideals.
+		
+		Let $k$ be any field, and $I_1=(x), I_2=(y)$ and $J=(x^2,y)$ ideals in the ring $k[x,y]/(xy,y^2)$. Show that the homogeneous elements of $J$ are contained in $I_1\cup I_2$, but that $J\not\ss I_1,I_2$. (Note that one of the $I$ is prime.)
+	}
+	
+	
+	\problem{Theorem 3.6--8}{
+		Which monomial ideals are prime? Irreducible? Radical? Primary?
+		
+		Find an algorithm for computing the radical of a monomial ideal.
+		
+		Find an algorithm for computing an irreducible decomposition, and thus a primary decomposition, of a monomial ideal.
+	}
+	
+	
+	%====%
+	\problem{Theorem 4.7}{
+		Show the Jacobsen radical of $R$ is $\{r: 1+rs \text{ is a unit for every } s\in R\}$.
+	}
+	
+	
+	\problem{Theorem 4.11}{
+		\begin{enumerate}
+			\item Use Nakayama's lemma to show that if $R$ is local and $M$ is finitely generated projective, then $M$ is free. If $R$ is a positively graded ring, with $R_0$ a field, and $M$ is a finitely generated graded projective, then $M$ is a graded free module.
+			\item Use Prop 2.10 (contains the snippet $\hom{S}\otimes{R}\hom{R}(M,N)\is \hom{S}\otimes_R M, S\otimes_R N)$) to show that a finitely presente module $M$ is projective iff $M$ is locally free in the sense that localization $M_P$ is free over $R_P$ for every maximal ideal of $R$.
+		\end{enumerate}
+	}
+	
+	
+	\problem{Theorem 4.24}{
+		Let $R$ be either of the domains $\c[x,y]/(y^2-x^3)$ or $\c[x,y](y^2-x^2(x+1))$ and let $t=y/x$ an element of the quotient field. Show that in each case, $R[t]=\c[t]$.
+	}
+	
+	
+	\problem{Theorem 4.26}{
+		Suppose that the additive group of $R$ is a finitely generated abelian group. If $P$ is a maximal ideal of $R$, show that $R/P$ is a finite field. Show that every prime ideal of $R$ that is not maximal is a minimal prime ideal.
+	}\rcf{Ryan Comment}
+	
+	
+	%====%
+	\problem{Theorem 5.1}{
+		Let $R$ be a ring and $M$ be an $R$-module. Suppose that $\cdots \ss M_1\ss M_0=M$ is a filtration by submodules. Although the map $M\to \gr M$ sending $f$ to $\initial(f)$ is not a homomorphism of abelian groups, show that  $\initial(f)+\initial(g)$ is either $\initial(f+g)$ or $0$.
+		
+		Moreover, suppose that $M=R$ and the filtration is multiplicative. Show that $\initial(f)\initial(g)$ is either $\initial(fg)$ or $0$.
+	}\est{Eric Comment}
+	
+	
+	\problem{Theorem 5.8}{
+		\begin{enumerate}
+			\item Let $R=k[x,y]/(x^2-y^3)$, and let $I=(x,y)$. Show that $R$ is a domain, but $\initial(x)^2=0$ in $\gr_I(R)$.
+			\item Let $R=k[t^4,t^5,t^{11}]\ss k[t]$, and let $I=(t^4,t^5,t^{11})$. Show that $\initial(I)\initial(t^{11})=0$
+		\end{enumerate}
+	}\ahi{Andy Comment}
+	
+	
+	
+	%====%
+	\problem{Theorem 6.1}{
+		Let $R$ be a ring and $M$ an $R$-module. Show that $M$ is flat iff $\Tor_1(M,N)=0$ for all $R$-modules $N$ iff $\Tor(N,M)=0$ for all $R$-modules $N$ iff $\Tor_i=0$ for all $R$-modules $N$ and all $i>0$.
+	}\ddi{David Comment}
+	
+	
+	
+	%====%
+	\problem{Theorem 7.11}{
+		Let $R$ be N\"otherian, and $\maxl = (a_1,\dots, a_n)$ be an ideal. Show that
+		$$\hat{R}_\maxl \is R[[x_1,\dots, x_n]]/(x_1-a_1,\dots, x_n-a_n).$$
+	}
+	
+	
+	
+	%====%
+	\problem{Theorem A3.6}{
+		Let $R$ be N\"otherian and $M$ be any finitely generate $R$-module.
+		\begin{enumerate}
+			\item Let $P$ be prime. Show that if $M\to E(R/P)$ is any map [into the injective envelope], then $\ker\a$ is a $P$-primary submodule of $M$.
+			\item Show that $E(M)$ is a finite direct sum of indecomposable projectives. Let $M\to E(M)=\oplus E(R/P_i)$, and show that if $P$ is a prime ideal and $M(P)$ is the kernel of the composite map $M\to E(M)\to \oplus_{P_i=P} E(R/P_i)$, then $M(P)$ is $P$-primary. Show that $0=\cap M(P)$ is a primary decomposition of zero, and that the set of $P$ that occurs among the $P_i$ above is precisely the set $\text{Ass}(M)$.
+		\end{enumerate}
+	}
+	
+	
+	\problem{Theorem A3.13}{
+		Show that if $0\to N_f\to F\to M\to 0$ and $0\to N_G\to G\to M\to 0$ are exact with $F$ and $G$ projective, then $N_F\oplus G \is N_G\oplus F$ and both are $\ker(F\oplus G\to M)$.
+	}
+	
+	
+	\problem{Theorem A3.18}{
+		Let $(R,\maxl)$ be a local ring. We say that a free reslution $(F_i, \varphi_i)$ is minimal if each $\varphi_i$ has an image contained in $\maxl F_{i-1}$.  If $F$ as above is a minial free resolution of $M$ and $\rank F_i=b_i$, then show that $\Tor_i(R/\maxl)\is (R/\maxl)^{b_i}$. [The $b_i$ are called Betti numbers of $M$, in loose analogy with the situation in topology where $F$ is a chain complex.]
+	}
+	
+	
+	\problem{Theorem A3.23}{
+		If $x$ is not a zero-divisor in a ring $R$, compute $\Ext^i(R/x,M)$. In particular, compute $\Ext^i(\z_n,\z_m)$ for any integers $n,m$.
+	}
+	
+	
+	\problem{Theorem A3.24}{
+		Show that a finitely generated abelian group $A$ is free iff $\Ext_\z(a,\z)=0$. It was conjectured that this would hold for all groups, but Shelah proved in 1974 that this depends on your set theory.
+	}
+	
+	
+	
+	
+\end{document}
+
+% If any of you wants to put in a decent header, be my guest.
+% This is just the one that I stole from my undergrad :P 
+% The top section is all somewhat essential, the bottom is just
+%   a random dump of commands I've used once.   -eric
+
+% --------------------------------------------------------------------
+
+\documentclass[Letter,12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx,framed,enumerate}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{microtype}
+\usepackage{centernot}
+\usepackage{dirtytalk}
+\usepackage{enumitem}
+\frenchspacing
+
+\newcommand{\problem}[2]{
+	\vspace{0.3in} 
+	\begin{leftbar} 
+		\noindent \textbf{{#1}.} {#2} 
+\end{leftbar} }
+
+\renewenvironment{leftbar}{%
+	\def\FrameCommand{\vrule width 1pt \relax\hspace {5pt}}
+	\MakeFramed {\advance \hsize -\width \FrameRestore }
+}{
+	\endMakeFramed
+}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0.2in}
+\pagestyle{myheadings}
+
+\renewcommand{\maketitle}{{\centering \LARGE \title{} \\
+		\medskip\Large \author{} \\
+		\smallskip \date{} \\
+		%\emph{\large Assistance from \assistance}\\
+	}
+	\thispagestyle{empty}
+	\vspace{0.5in}}
+
+\renewcommand{\author}{Ryan Coopergard, David DeMark, Andy Hardt, Eric Stucky}
+\renewcommand{\title}{Math 8272 Homework}
+\renewcommand{\date}{2 May 2018}
+\markright{\rm \title{} \hfill \author{} }
+
+
+% --------------------------------------------------------------------
+
+
+% quick blackboard bold
+\newcommand{\n}{\mathbb{N}}
+\newcommand{\z}{\mathbb{Z}}
+\newcommand{\q}{\mathbb{Q}}
+\newcommand{\p}{\mathbb{P}}
+\renewcommand{\r}{\mathbb{R}}
+\renewcommand{\c}{\mathbb{C}}
+\renewcommand{\k}{\mathbb{K}}
+\renewcommand{\t}{\mathbb{T}}
+
+%Quick lowercase mathfrak
+\newcommand{\afr}{\mathfrak{a}}
+\newcommand{\bfr}{\mathfrak{b}}
+\newcommand{\cfr}{\mathfrak{c}}
+\newcommand{\dfr}{\mathfrak{d}}
+\newcommand{\efr}{\mathfrak{e}}
+\newcommand{\ffr}{\mathfrak{f}}
+\newcommand{\gfr}{\mathfrak{g}}
+\newcommand{\hfr}{\mathfrak{h}}
+\newcommand{\ifr}{\mathfrak{i}}
+\newcommand{\jfr}{\mathfrak{j}}
+\newcommand{\kfr}{\mathfrak{k}}
+\newcommand{\lfr}{\mathfrak{l}}
+\newcommand{\mfr}{\mathfrak{m}}
+\newcommand{\nfr}{\mathfrak{n}}
+\newcommand{\ofr}{\mathfrak{o}}
+\newcommand{\pfr}{\mathfrak{p}}
+\newcommand{\qfr}{\mathfrak{q}}
+\newcommand{\rfr}{\mathfrak{r}}
+\newcommand{\sfr}{\mathfrak{s}}
+\newcommand{\tfr}{\mathfrak{t}}
+\newcommand{\ufr}{\mathfrak{u}}
+\newcommand{\vfr}{\mathfrak{v}}
+\newcommand{\wfr}{\mathfrak{w}}
+\newcommand{\xfr}{\mathfrak{x}}
+\newcommand{\yfr}{\mathfrak{y}}
+\newcommand{\zfr}{\mathfrak{z}}
+
+%Quick uppercase mathcal
+\def\Acal{{\mathcal A}}
+\def\Bcal{{\mathcal B}}
+\def\Ccal{{\mathcal C}}
+\def\Dcal{{\mathcal D}}
+\def\Ecal{{\mathcal E}}
+\def\Fcal{{\mathcal F}}
+\def\Gcal{{\mathcal G}}
+\def\Hcal{{\mathcal H}}
+\def\Ical{{\mathcal I}}
+\def\Jcal{{\mathcal J}}
+\def\Lcal{{\mathcal L}}
+\def\Mcal{{\mathcal M}}
+\def\Ncal{{\mathcal N}}
+\def\Ocal{{\mathcal O}}
+\def\Pcal{{\mathcal P}}
+\def\Qcal{{\mathcal Q}}
+\def\Rcal{{\mathcal R}}
+\def\Scal{{\mathcal S}}
+\def\Tcal{{\mathcal T}}
+\def\Xcal{{\mathcal X}}
+\def\Zcal{{\mathcal Z}}
+
+% quick greek letters
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\newcommand{\g}{\gamma}
+\renewcommand{\d}{\delta}
+\newcommand{\e}{\varepsilon}
+\renewcommand{\l}{\lambda}
+
+% quick linear algebra
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\vecspan}{span}
+\newcommand{\<}{\left\langle}
+\renewcommand{\>}{\right\rangle}
+
+% quick algebra
+\newcommand{\is}{\cong}
+\newcommand{\iso}{\cong}
+\newcommand{\filt}{\mathcal F}
+
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\initial}{in}
+
+\DeclareMathOperator{\Hom}{Hom}
+\renewcommand{\hom}[1]{\Hom_{{#1}}}
+\DeclareMathOperator{\Ext}{Ext}
+\newcommand{\ext}[1]{\Ext^{{#1}}}
+\DeclareMathOperator{\Tor}{Tor}
+\newcommand{\tor}[1]{\Tor^{{#1}}}
+\DeclareMathOperator{\gr}{gr}
+\newcommand{\Gr}[1]{\gr_{{#1}}}
+
+% quick geometry
+\DeclareMathOperator{\Spec}{Spec}
+\renewcommand{\prime}{\mathfrak p}
+\newcommand{\maxl}{\mathfrak m}
+\newcommand{\affine}{\mathbb{A}}
+
+% formatting conveniences
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ts}{\textstyle}
+
+\newcommand{\dsum}[4]{ \ds\sum_{#1 = #2}^{#3} {#4} }
+\newcommand{\dset}[4]{ \ds\left\{ #4 \right\}_{#1 = #2}^{#3} }
+\newcommand{\dseq}[4]{ \ds\left( #4 \right)_{#1 = #2}^{#3} }
+\newcommand{\dcup}[4]{ \ds\bigcup_{#1 = #2}^{#3} #4 }
+\newcommand{\dcap}[4]{ \ds\bigcap_{#1 = #2}^{#3} #4 }
+\newcommand{\dint}[4]{\ds \int_{#2}^{#3}\!{#4}~\! \text{d}{#1}~\!}
+
+\newcommand{\isum}[3]{ \ds\sum_{#1 \in #2} {#3} }
+\newcommand{\iset}[3]{ \ds\left\{ #3 \right\}_{#1 \in #2}}
+\newcommand{\iseq}[3]{ \ds\left( #3 \right)_{#1 \in #2}}
+\newcommand{\icup}[3]{ \ds\bigcup_{#1 \in #2} #3 }
+\newcommand{\icap}[3]{ \ds\bigcap_{#1 \in #2} #3 }
+\renewcommand{\iint}[3]{\ds \int_{#2}\!{#3}~\! \text{d}{#1}~\!}
+
+\newcommand{\pmat}[4]{ \ds\begin{bmatrix} {#1}&{#2}\\{#3}&{#4} \end{bmatrix} }
+\newcommand{\smat}[9]{ \ds\begin{bmatrix} {#1}&{#2}&{#3} \\ {#4}&{#5}&{#6} \\ {#7}&{#8}&{#9} \end{bmatrix} }
+\newcommand{\pvec}[2]{ \ds\begin{bmatrix} {#1}\\{#2} \end{bmatrix} }
+\newcommand{\svec}[3]{ \ds\begin{bmatrix} {#1}\\{#2}\\{#3} \end{bmatrix} }
+\newcommand{\phvec}[2]{ \ds\begin{bmatrix} {#1} & {#2} \end{bmatrix} }
+\newcommand{\shvec}[3]{ \ds\begin{bmatrix} {#1} & {#2} & {#3} \end{bmatrix} }
+
+% general laziness
+\DeclareMathOperator{\supp}{supp}
+\newcommand{\minus}{\smallsetminus}
+\newcommand{\homeo}{\simeq}
+\renewcommand{\ss}{\subseteq}
+\newcommand{\pipe}[2]{\left.{#1}\right|_{#2}}
+
+\DeclareMathOperator{\mor}{Mor}
+
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\ass}{Ass}
+\DeclareMathOperator{\pd}{pd}
+
+\newcommand{\col}[3]{{#1}:_{#2}{#3}}
+\newcommand{\del}{\partial}
+\DeclareMathOperator{\ann}{Ann}
+\newcommand{\colim}{\varinjlim}
+\newcommand{\limi}{\varprojlim}
+\DeclareMathOperator{\spec}{Spec}
+\DeclareMathOperator{\proj}{Proj}
+\DeclareMathOperator{\mspec}{Max-Spec}
+
+\DeclareMathOperator{\ins}{in}
+\newcommand{\idl}[1]{\left\langle{#1}\right\rangle }
+
+%%%Subproof environment
+\newenvironment{subproof}[1][\proofname]{%
+	\renewcommand{\qedsymbol}{$\blacksquare$}%
+	\begin{proof}[#1]%
+	}{%
+	\end{proof}%
+}
+
+
+%%Problem Numbering(?) (I'm not married to any system in particular, but we should have an easy way to distinguish Eisenbud numbering and homework seheet numbering)
+\usepackage{calc}
+\newcommand{\prob}[1]{\setcounter{section}{#1-1}\section{}}
+\newcommand{\prt}[1]{\setcounter{subsection}{#1-1}\subsection{}}
+\renewcommand\thesubsection{\alph{subsection}}
+\usepackage[sl,bf,compact]{titlesec}
+\titlelabel{\thetitle.)\quad}
+%%%
+
+%%%%%Probelm-internal theorem labeling (by using the \prob command, you set the section numbering to the problem number--thus if you want to include a sub-proposition in your proof, the first one is labeled "Proposition [problem #].A")
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{thm*}{Theorem}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem*{cor*}{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem*{prop*}{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem*{claim*}{Claim}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem*{notation*}{Notation}
+\renewcommand{\thetheorem}{\arabic{section}.\Alph{theorem}}
+
+\usepackage[textsize=small]{todonotes}
+%\usepackage[disable]{todonotes}
+
+%%%
+%%%%%%%%%%COMMENT MACROS%%%%%%%%%%
+%feel free to change your color-coding of course
+
+
+%David
+\newcommand{\ddt}[1]{\todo{#1}~}
+\newcommand{\ddi}[1]{\todo[inline]{#1}~}
+\newcommand{\ddf}[1]{\todo[fancyline]{#1}~}
+
+%Andy
+\newcommand{\aht}[1]{\todo[color=yellow]{#1}~}
+\newcommand{\ahi}[1]{\todo[inline,color=yellow]{#1}~}
+\newcommand{\ahf}[1]{\todo[fancyline,color=yellow]{#1}~}
+
+%Eric
+\newcommand{\est}[1]{\todo[color=lightgray]{#1}~}
+\newcommand{\esi}[1]{\todo[inline,color=lightgray]{#1}~}
+\newcommand{\esf}[1]{\todo[fancyline,color=lightgray]{#1}~}
+
+%Ryan
+\newcommand{\rct}[1]{\todo[color=cyan]{#1}~}
+\newcommand{\rci}[1]{\todo[inline,color=cyan]{#1}~}
+\newcommand{\rcf}[1]{\todo[fancyline,color=cyan]{#1}~}
+
+
+% --------------------------------------------------------------------
+
+
+% --------------------------------------------------------------------
+
+
+\begin{document}
+	\maketitle{}
+	
+	\ddi{So with Eric's preamble, \textbackslash prime is re-def'd to be \textbackslash mathfrak \{p\}, which causes the apostrophe to be interpreted as "to the mathfrak p." is there a way around this? or are we okay with letting mathfrak p be referred to as \textbackslash pfr? }
+	\prob{4}
+	\problem{Proposition (Eisenbud Ex. 9.2)}{There exists an infinite-dimensional Noetherian ring.}
+	\begin{proof}
+		We let\vspace*{-1em}\textellipsis\begin{itemize}
+			
+			\item $k$ be any field, \item $R=k[x_1,x_2,\ldots]$, \item $d:\n_0\to \n$ a strictly increasing function with first difference function $\delta: \n\to \n$ defined by $s(m)=d(m)-d(m-1)$ such that $d(0)=1$ and $s$ is strictly increasing as well, \item $P_m=\idl{x_{d(m-1)},x_{d(m-1)+1},\ldots,x_{d(m)}}$ for $m\geq 1$,\item $U$ be the multiplicative system $\left(\bigcup_{m=1}^\infty P_m\right)^c$,\item and $S$ be the ring $U^{-1}R$.
+		\end{itemize}
+		We shall now show that $\dim S=\infty$, but $S$ is Noetherian. We break this argument down into a series of claims.
+		\begin{prop}[Eisenbud, Ex. 3.14]\label{4:claim:maxs}
+			The maximal ideals of $S$ are precisely the ideals $P_m$.
+		\end{prop}
+		\begin{subproof}[Proof of Proposition \ref{4:claim:maxs}]
+			We let $I$ be a proper ideal of $S$ (noting that necessarily, $I\subset \bigcup_{m=1}^\infty P_m$) and $0\neq f\in I$ an arbitrary element. We let $\Acal_f:=\{P_{i_1},\hdots,P_{i_n}\}:=\{P_i\;:\;P_i \text{ contains a monomial of } f\}$. We let $g\neq f$ be another arbitrary element of $I$ and suppose for the sake of contradiction that $g$ has some monomial term $g'$ such that $g'\notin \bigcup_{j=1}^nP_{i_j}$. Then, $f+g$ has a nonzero coefficient for $g'$. As each $P_m$ is a monomial ideal and hence contains all monomials of each of its elements, we now have that for any $P_{i_k}\in \Acal_f$, $f+g\notin P_{i_k}$. However, by an identical argument, for any $P_j\ni g'$, $f+g\notin P_j$, since $f$ necessarily has monomial terms not in $P_j$. Returning to the monomial ideal argument, we have now shown that $f+g\notin \bigcup_{m=1}^\infty P_m$, thus inducing a contradiction. Thus, for any ideal $I\subset S$, we have that $I\subset \bigcup_{k=1}^N P_{j_N}$ for some finite $\{j_1,\hdots,J_N\}$. Prime avoidance then implies $I\subset P_M$ for some $M\in \n$. As it is the case that $P_m\centernot\subseteq P_{m'}$ for $m\neq m'$, this completes our proof.
+		\end{subproof}
+		Next, as suggested by the text, we prove Eisenbud's lemma 9.4.
+		\begin{lemma}[Eisenbud, Lemma 9.4]\label{4:lem:9.4}
+			Let $Q$ be a ring with the properties (i) for any maximal $\mfr\subset Q$, $Q_\mfr$ is Noetherian and (ii) each element $s\in Q$ is contained in finitely many maximal ideals. Then, $Q$ is Noetherian.
+		\end{lemma}
+		\begin{subproof}[Proof of Lemma \ref{4:lem:9.4}]
+			We suppose for the sake of contradiction that there exists an infinite chain of ideals $0=I_0\subsetneq I_1\subsetneq I_2\subsetneq\ldots$ in $Q$. We then define the function $N:\mspec(Q)\to \n_0$ by $\mfr\mapsto \min\{n\;:\; I_n\centernot \subseteq\mfr\}$. As each $Q_\mfr$ is Noetherian, we must have that $N(\mfr)$ exists and is finite. We also define the choice function $C:\n_0\to \mspec(Q)$ which assigns to each $n\in \n_0$ some $\mfr\in \mspec(Q)$ such that $I_n\subset \mfr$. As each ideal of a ring must be contained in a maximal ideal by Zorn's lemma, there exists some well-defined such $C$. We observe that $C(N(\mfr))\neq \mfr$ for any $\mfr\in \mspec(Q)$ as $I_{N(\mfr)}\not \subset \mfr$ by construction. We also observe that $n\leq N(C(n))$, as $I_m\subset C(n)$ for any $m\leq n$ but $I_{N(C(n))}\not\subseteq C(n)$ similarly by construction. We now iteratively define a sequence of distinct maximal ideals $\{\mfr_1,\mfr_2,\hdots\}$ by letting $\mfr_1:=C(1)$ and for $i>1$, $\mfr_i:=C(N(\mfr_{i-1}))$. As $N\circ C$ has been shown to be a strictly increasing function, we have by well-ordering that for any $n$, there exists a $J$ such that $I_n\subset \mfr_j$ for all $j>J$. However, then $I_n\subset \bigcap_{j=J}^\infty \mfr_j$, contradicting our assumptions on $Q$. 
+		\end{subproof}
+		\begin{cor}
+	\label{4:cor:Noe}		$S$ is Noetherian.
+		\end{cor}
+	\begin{subproof}[Proof of Corollary \ref{4:cor:Noe}]
+		What is left to show is that $Q$ fulfills the hypotheses of Lemma \ref{4:lem:9.4}.
+	\end{subproof}
+	\end{proof}
+	
+	
+	Problem 5: (I'm not quite sure how our formatting works).
+	Krull dimension satisfies the first half of axiom D1, and also the axiom D2. In other words, \[\dim R = \sup_{P\subset R \text{prime}} \dim R_P\] and if $I$ is a nilpotent ideal, then $\dim R = \dim R/I$.
+	
+	Proof: If $P$ is a prime ideal of $R$, let $P_0\subset\ldots\subset P_n$ be a chain of primes in $R_P$. If $\phi$ is the natural map from $R\to R_P$, then Proposition 2.2 of Eisenbud tells us that $P_i = \phi^{-1}(P_i)R_P$. The ideal $\phi^{-1}(P_i)\subset R$ is prime because if the complement of $\phi^{-1}(P_i)$ weren't multiplicatively closed, then the map $\phi$ would tell us that the complement of $P_i$ was also not multiplicatively closed. In addition, if $P_i\subsetneq P_j$, then $\phi^{-1}(P_i)R_P \subsetneq \phi^{-1}(P_j)R_P$, so $\phi^{-1}(P_i)\subsetneq \phi^{-1}(P_j)$. Therefore, any chain of primes in $R_P$ lifts to an equal length chain in $R$.
+	
+	On the other hand, let $P_1,P_2,\ldots$ be a sequence of primes in $R$ such that $\dim P_i\to\dim R$. This is possible because for a finite chain with minimal prime $Q$, $\dim Q$ is the length of that chain, and for an infinite chain, by taking smaller and smaller primes in the chain, we get such a sequence. If $P_i\subset Q_{i1}\subset Q_{i2}\ldots$ is a chain in $R$ starting with $P_i$ (i.e. a chain corresponding to one in $R/P_i$), then it will be a chain of the same length in $R_{P_i}$. Thus we have that $\dim R_{P_i}\ge \dim P_i$, so $\sup_{P\subset R \text{prime}} \dim R_P\ge \dim R$.
+	
+	Now, if $I$ is nilpotent, we have $\dim R\ge \dim R/I$, the fourth isomorphism theorem gives us a correspondence between prime ideals of $R/I$ and prime ideals of $R$ containing $I$. Now $I$ is contained in the nilradical of $R$, so it is contained in every prime of $R$, so chains of primes of $R$ are in one-to-one correspondence with chains of primes of $R/I$, so $\dim R = \dim R/i$.\qed
+	
+	
+	OLD PROBLEMS FOR FORMATTING CHECKS
+	
+	
+	%====%
+	\problem{Theorem 2.7}{
+		Show that the universal property of localization is unique up to unique isomorphism; that is, if another $R\to S$ has the same property....
+	}
+	
+	
+	\problem{Theorem 2.4}{
+		Let $R=k[x]$. Describe as explicitly as possible:
+		\begin{enumerate}
+			\item $\hom{\z}(\z_n,\z_m)$ and $\hom{R}(R/(x^n), R/(x^m))$,
+			\item $\z_n\otimes \z_m$ and $R/(x^n)\otimes R/(x^m)$,
+			\item $R\otimes_k R$ (describe this as an algebra).
+		\end{enumerate}
+	}
+	
+	
+	%====%
+	\problem{Theorem 3.17}{
+		Show that if $k=\z_2$ then the ideal $(x,y)\ss k[x,y]/(x,y)^2$ is the union of three properly smaller ideals.
+		
+		Let $k$ be any field, and $I_1=(x), I_2=(y)$ and $J=(x^2,y)$ ideals in the ring $k[x,y]/(xy,y^2)$. Show that the homogeneous elements of $J$ are contained in $I_1\cup I_2$, but that $J\not\ss I_1,I_2$. (Note that one of the $I$ is prime.)
+	}
+	
+	
+	\problem{Theorem 3.6--8}{
+		Which monomial ideals are prime? Irreducible? Radical? Primary?
+		
+		Find an algorithm for computing the radical of a monomial ideal.
+		
+		Find an algorithm for computing an irreducible decomposition, and thus a primary decomposition, of a monomial ideal.
+	}
+	
+	
+	%====%
+	\problem{Theorem 4.7}{
+		Show the Jacobsen radical of $R$ is $\{r: 1+rs \text{ is a unit for every } s\in R\}$.
+	}
+	
+	
+	\problem{Theorem 4.11}{
+		\begin{enumerate}
+			\item Use Nakayama's lemma to show that if $R$ is local and $M$ is finitely generated projective, then $M$ is free. If $R$ is a positively graded ring, with $R_0$ a field, and $M$ is a finitely generated graded projective, then $M$ is a graded free module.
+			\item Use Prop 2.10 (contains the snippet $\hom{S}\otimes{R}\hom{R}(M,N)\is \hom{S}\otimes_R M, S\otimes_R N)$) to show that a finitely presente module $M$ is projective iff $M$ is locally free in the sense that localization $M_P$ is free over $R_P$ for every maximal ideal of $R$.
+		\end{enumerate}
+	}
+	
+	
+	\problem{Theorem 4.24}{
+		Let $R$ be either of the domains $\c[x,y]/(y^2-x^3)$ or $\c[x,y](y^2-x^2(x+1))$ and let $t=y/x$ an element of the quotient field. Show that in each case, $R[t]=\c[t]$.
+	}
+	
+	
+	\problem{Theorem 4.26}{
+		Suppose that the additive group of $R$ is a finitely generated abelian group. If $P$ is a maximal ideal of $R$, show that $R/P$ is a finite field. Show that every prime ideal of $R$ that is not maximal is a minimal prime ideal.
+	}\rcf{Ryan Comment}
+	
+	
+	%====%
+	\problem{Theorem 5.1}{
+		Let $R$ be a ring and $M$ be an $R$-module. Suppose that $\cdots \ss M_1\ss M_0=M$ is a filtration by submodules. Although the map $M\to \gr M$ sending $f$ to $\initial(f)$ is not a homomorphism of abelian groups, show that  $\initial(f)+\initial(g)$ is either $\initial(f+g)$ or $0$.
+		
+		Moreover, suppose that $M=R$ and the filtration is multiplicative. Show that $\initial(f)\initial(g)$ is either $\initial(fg)$ or $0$.
+	}\est{Eric Comment}
+	
+	
+	\problem{Theorem 5.8}{
+		\begin{enumerate}
+			\item Let $R=k[x,y]/(x^2-y^3)$, and let $I=(x,y)$. Show that $R$ is a domain, but $\initial(x)^2=0$ in $\gr_I(R)$.
+			\item Let $R=k[t^4,t^5,t^{11}]\ss k[t]$, and let $I=(t^4,t^5,t^{11})$. Show that $\initial(I)\initial(t^{11})=0$
+		\end{enumerate}
+	}\ahi{Andy Comment}
+	
+	
+	
+	%====%
+	\problem{Theorem 6.1}{
+		Let $R$ be a ring and $M$ an $R$-module. Show that $M$ is flat iff $\Tor_1(M,N)=0$ for all $R$-modules $N$ iff $\Tor(N,M)=0$ for all $R$-modules $N$ iff $\Tor_i=0$ for all $R$-modules $N$ and all $i>0$.
+	}\ddi{David Comment}
+	
+	
+	
+	%====%
+	\problem{Theorem 7.11}{
+		Let $R$ be N\"otherian, and $\maxl = (a_1,\dots, a_n)$ be an ideal. Show that
+		$$\hat{R}_\maxl \is R[[x_1,\dots, x_n]]/(x_1-a_1,\dots, x_n-a_n).$$
+	}
+	
+	
+	
+	%====%
+	\problem{Theorem A3.6}{
+		Let $R$ be N\"otherian and $M$ be any finitely generate $R$-module.
+		\begin{enumerate}
+			\item Let $P$ be prime. Show that if $M\to E(R/P)$ is any map [into the injective envelope], then $\ker\a$ is a $P$-primary submodule of $M$.
+			\item Show that $E(M)$ is a finite direct sum of indecomposable projectives. Let $M\to E(M)=\oplus E(R/P_i)$, and show that if $P$ is a prime ideal and $M(P)$ is the kernel of the composite map $M\to E(M)\to \oplus_{P_i=P} E(R/P_i)$, then $M(P)$ is $P$-primary. Show that $0=\cap M(P)$ is a primary decomposition of zero, and that the set of $P$ that occurs among the $P_i$ above is precisely the set $\text{Ass}(M)$.
+		\end{enumerate}
+	}
+	
+	
+	\problem{Theorem A3.13}{
+		Show that if $0\to N_f\to F\to M\to 0$ and $0\to N_G\to G\to M\to 0$ are exact with $F$ and $G$ projective, then $N_F\oplus G \is N_G\oplus F$ and both are $\ker(F\oplus G\to M)$.
+	}
+	
+	
+	\problem{Theorem A3.18}{
+		Let $(R,\maxl)$ be a local ring. We say that a free reslution $(F_i, \varphi_i)$ is minimal if each $\varphi_i$ has an image contained in $\maxl F_{i-1}$.  If $F$ as above is a minial free resolution of $M$ and $\rank F_i=b_i$, then show that $\Tor_i(R/\maxl)\is (R/\maxl)^{b_i}$. [The $b_i$ are called Betti numbers of $M$, in loose analogy with the situation in topology where $F$ is a chain complex.]
+	}
+	
+	
+	\problem{Theorem A3.23}{
+		If $x$ is not a zero-divisor in a ring $R$, compute $\Ext^i(R/x,M)$. In particular, compute $\Ext^i(\z_n,\z_m)$ for any integers $n,m$.
+	}
+	
+	
+	\problem{Theorem A3.24}{
+		Show that a finitely generated abelian group $A$ is free iff $\Ext_\z(a,\z)=0$. It was conjectured that this would hold for all groups, but Shelah proved in 1974 that this depends on your set theory.
+	}
+	
+	
+	
+	
+\end{document}
+

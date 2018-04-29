@@ -1,0 +1,548 @@
+% If any of you wants to put in a decent header, be my guest.
+% This is just the one that I stole from my undergrad   -eric
+% It seems as though David is undertaking this task :)  -eric
+
+% --------------------------------------------------------------------
+
+\documentclass[Letter,12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx,framed,enumerate}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{microtype}
+\usepackage{centernot}
+\usepackage{dirtytalk}
+\usepackage{enumitem}
+\frenchspacing
+
+\newcommand{\problem}[2]{
+	\vspace{0.3in}
+	\begin{leftbar}
+		\noindent \textbf{{#1}.} {#2}
+\end{leftbar} }
+
+\renewenvironment{leftbar}{%
+	\def\FrameCommand{\vrule width 1pt \relax\hspace {5pt}}
+	\MakeFramed {\advance \hsize -\width \FrameRestore }
+}{
+	\endMakeFramed
+}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0.2in}
+\pagestyle{myheadings}
+
+\renewcommand{\maketitle}{{\centering \LARGE \title{} \\
+		\medskip\Large \author{} \\
+		\smallskip \date{} \\
+		%\emph{\large Assistance from \assistance}\\
+	}
+	\thispagestyle{empty}
+	\vspace{0.5in}}
+
+\renewcommand{\author}{Ryan Coopergard, David DeMark, Andy Hardt, Eric Stucky}
+\renewcommand{\title}{Math 8212 Homework}
+\renewcommand{\date}{2 May 2018}
+\markright{\rm \title{} \hfill \author{} }
+
+
+% --------------------------------------------------------------------
+
+
+% quick blackboard bold
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\n}{\mathbb{N}}
+\newcommand{\z}{\mathbb{Z}}
+\newcommand{\q}{\mathbb{Q}}
+\newcommand{\p}{\mathbb{P}}
+\renewcommand{\r}{\mathbb{R}}
+\renewcommand{\c}{\mathbb{C}}
+\renewcommand{\k}{\mathbb{K}}
+\renewcommand{\t}{\mathbb{T}}
+
+%Quick lowercase mathfrak
+\newcommand{\afr}{\mathfrak{a}}
+\newcommand{\bfr}{\mathfrak{b}}
+\newcommand{\cfr}{\mathfrak{c}}
+\newcommand{\dfr}{\mathfrak{d}}
+\newcommand{\efr}{\mathfrak{e}}
+\newcommand{\ffr}{\mathfrak{f}}
+\newcommand{\gfr}{\mathfrak{g}}
+\newcommand{\hfr}{\mathfrak{h}}
+\newcommand{\ifr}{\mathfrak{i}}
+\newcommand{\jfr}{\mathfrak{j}}
+\newcommand{\kfr}{\mathfrak{k}}
+\newcommand{\lfr}{\mathfrak{l}}
+\newcommand{\mfr}{\mathfrak{m}}
+\newcommand{\nfr}{\mathfrak{n}}
+\newcommand{\ofr}{\mathfrak{o}}
+\newcommand{\pfr}{\mathfrak{p}}
+\newcommand{\qfr}{\mathfrak{q}}
+\newcommand{\rfr}{\mathfrak{r}}
+\newcommand{\sfr}{\mathfrak{s}}
+\newcommand{\tfr}{\mathfrak{t}}
+\newcommand{\ufr}{\mathfrak{u}}
+\newcommand{\vfr}{\mathfrak{v}}
+\newcommand{\wfr}{\mathfrak{w}}
+\newcommand{\xfr}{\mathfrak{x}}
+\newcommand{\yfr}{\mathfrak{y}}
+\newcommand{\zfr}{\mathfrak{z}}
+
+%Quick uppercase mathcal
+\def\Acal{{\mathcal A}}
+\def\Bcal{{\mathcal B}}
+\def\Ccal{{\mathcal C}}
+\def\Dcal{{\mathcal D}}
+\def\Ecal{{\mathcal E}}
+\def\Fcal{{\mathcal F}}
+\def\Gcal{{\mathcal G}}
+\def\Hcal{{\mathcal H}}
+\def\Ical{{\mathcal I}}
+\def\Jcal{{\mathcal J}}
+\def\Lcal{{\mathcal L}}
+\def\Mcal{{\mathcal M}}
+\def\Ncal{{\mathcal N}}
+\def\Ocal{{\mathcal O}}
+\def\Pcal{{\mathcal P}}
+\def\Qcal{{\mathcal Q}}
+\def\Rcal{{\mathcal R}}
+\def\Scal{{\mathcal S}}
+\def\Tcal{{\mathcal T}}
+\def\Xcal{{\mathcal X}}
+\def\Zcal{{\mathcal Z}}
+
+% quick greek letters
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\newcommand{\g}{\gamma}
+\renewcommand{\d}{\delta}
+\newcommand{\e}{\varepsilon}
+\renewcommand{\l}{\lambda}
+
+% quick linear algebra
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\vecspan}{span}
+\newcommand{\<}{\left\langle}
+\renewcommand{\>}{\right\rangle}
+
+% quick algebra
+\newcommand{\is}{\cong}
+\newcommand{\iso}{\cong}
+\newcommand{\filt}{\mathcal F}
+
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\initial}{in}
+
+\DeclareMathOperator{\Hom}{Hom}
+\renewcommand{\hom}[1]{\Hom_{{#1}}}
+\DeclareMathOperator{\Ext}{Ext}
+\newcommand{\ext}[1]{\Ext^{{#1}}}
+\DeclareMathOperator{\Tor}{Tor}
+\newcommand{\tor}[1]{\Tor^{{#1}}}
+\DeclareMathOperator{\gr}{gr}
+\newcommand{\Gr}[1]{\gr_{{#1}}}
+
+% quick geometry
+\DeclareMathOperator{\Spec}{Spec}
+%\renewcommand{\prime}{\mathfrak p}
+\newcommand{\maxl}{\mathfrak m}
+\newcommand{\affine}{\mathbb{A}}
+\DeclareMathOperator{\codim}{codim}
+
+% formatting conveniences
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ts}{\textstyle}
+
+\newcommand{\dsum}[4]{ \ds\sum_{#1 = #2}^{#3} {#4} }
+\newcommand{\dset}[4]{ \ds\left\{ #4 \right\}_{#1 = #2}^{#3} }
+\newcommand{\dseq}[4]{ \ds\left( #4 \right)_{#1 = #2}^{#3} }
+\newcommand{\dcup}[4]{ \ds\bigcup_{#1 = #2}^{#3} #4 }
+\newcommand{\dcap}[4]{ \ds\bigcap_{#1 = #2}^{#3} #4 }
+\newcommand{\dint}[4]{\ds \int_{#2}^{#3}\!{#4}~\! \text{d}{#1}~\!}
+
+\newcommand{\isum}[3]{ \ds\sum_{#1 \in #2} {#3} }
+\newcommand{\iset}[3]{ \ds\left\{ #3 \right\}_{#1 \in #2}}
+\newcommand{\iseq}[3]{ \ds\left( #3 \right)_{#1 \in #2}}
+\newcommand{\icup}[3]{ \ds\bigcup_{#1 \in #2} #3 }
+\newcommand{\icap}[3]{ \ds\bigcap_{#1 \in #2} #3 }
+\renewcommand{\iint}[3]{\ds \int_{#2}\!{#3}~\! \text{d}{#1}~\!}
+
+\newcommand{\pmat}[4]{ \ds\begin{bmatrix} {#1}&{#2}\\{#3}&{#4} \end{bmatrix} }
+\newcommand{\smat}[9]{ \ds\begin{bmatrix} {#1}&{#2}&{#3} \\ {#4}&{#5}&{#6} \\ {#7}&{#8}&{#9} \end{bmatrix} }
+\newcommand{\pvec}[2]{ \ds\begin{bmatrix} {#1}\\{#2} \end{bmatrix} }
+\newcommand{\svec}[3]{ \ds\begin{bmatrix} {#1}\\{#2}\\{#3} \end{bmatrix} }
+\newcommand{\phvec}[2]{ \ds\begin{bmatrix} {#1} & {#2} \end{bmatrix} }
+\newcommand{\shvec}[3]{ \ds\begin{bmatrix} {#1} & {#2} & {#3} \end{bmatrix} }
+
+% general laziness
+\DeclareMathOperator{\supp}{supp}
+\newcommand{\minus}{\smallsetminus}
+\newcommand{\homeo}{\simeq}
+\renewcommand{\ss}{\subseteq}
+\newcommand{\pipe}[2]{\left.{#1}\right|_{#2}}
+
+\DeclareMathOperator{\mor}{Mor}
+
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\ass}{Ass}
+\DeclareMathOperator{\pd}{pd}
+
+\newcommand{\col}[3]{{#1}:_{#2}{#3}}
+\newcommand{\del}{\partial}
+\DeclareMathOperator{\ann}{Ann}
+\newcommand{\colim}{\varinjlim}
+\newcommand{\limi}{\varprojlim}
+\DeclareMathOperator{\spec}{Spec}
+\DeclareMathOperator{\proj}{Proj}
+\DeclareMathOperator{\mspec}{Max-Spec}
+
+\DeclareMathOperator{\ins}{in}
+\newcommand{\idl}[1]{\left\langle{#1}\right\rangle }
+\DeclareMathOperator{\lt}{LT}
+%%%Subproof environment
+\newenvironment{subproof}[1][\proofname]{%
+	\renewcommand{\qedsymbol}{$\blacksquare$}%
+	\begin{proof}[#1]%
+	}{%
+	\end{proof}%
+}
+
+
+%%Problem Numbering(?) (I'm not married to any system in particular, but we should have an easy way to distinguish Eisenbud numbering and homework seheet numbering)
+\usepackage{calc}
+\newcommand{\prob}[1]{\setcounter{section}{#1-1}\section{}}
+\newcommand{\prt}[1]{\setcounter{subsection}{#1-1}\subsection{}}
+\renewcommand\thesubsection{\alph{subsection}}
+\usepackage[sl,bf,compact]{titlesec}
+\titlelabel{\thetitle.)\quad}
+%%%
+
+%%%%%Probelm-internal theorem labeling (by using the \prob command, you set the section numbering to the problem number--thus if you want to include a sub-proposition in your proof, the first one is labeled "Proposition [problem #].A")
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{thm*}{Theorem}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem*{cor*}{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem*{prop*}{Proposition}
+\newtheorem*{prompt*}{Prompt}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem*{claim*}{Claim}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem*{notation*}{Notation}
+\renewcommand{\thetheorem}{\arabic{section}.\Alph{theorem}}
+
+\usepackage[textsize=small]{todonotes}
+%\usepackage[disable]{todonotes}
+
+%%%
+%%%%%%%%%%COMMENT MACROS%%%%%%%%%%
+%feel free to change your color-coding of course
+
+
+%David
+\newcommand{\ddt}[1]{\todo{#1}~}
+\newcommand{\ddi}[1]{\todo[inline]{#1}~}
+\newcommand{\ddf}[1]{\todo[fancyline]{#1}~}
+
+%Andy
+\newcommand{\aht}[1]{\todo[color=yellow]{#1}~}
+\newcommand{\ahi}[1]{\todo[inline,color=yellow]{#1}~}
+\newcommand{\ahf}[1]{\todo[fancyline,color=yellow]{#1}~}
+
+%Eric
+\newcommand{\est}[1]{\todo[color=lightgray]{#1}~}
+\newcommand{\esi}[1]{\todo[inline,color=lightgray]{#1}~}
+\newcommand{\esf}[1]{\todo[fancyline,color=lightgray]{#1}~}
+
+%Ryan
+\newcommand{\rct}[1]{\todo[color=cyan]{#1}~}
+\newcommand{\rci}[1]{\todo[inline,color=cyan]{#1}~}
+\newcommand{\rcf}[1]{\todo[fancyline,color=cyan]{#1}~}
+
+
+% --------------------------------------------------------------------
+
+
+% --------------------------------------------------------------------
+
+
+\begin{document}
+	\maketitle{}
+	
+	\esi{We've got 10 problems boiz!}
+	
+	Problems
+	\\1: done
+	\\2: done
+	\\3:
+	\\4: done
+	\\5: done
+	\\6:
+	\\7: done
+	\\8: done
+	\\9:
+	\\10: done
+	\\11:
+	\\12: Ryan
+	\\13: done
+	\\14:
+	\\15:
+	\\16:
+	\\17: Andy
+	\\18: Eric
+	\\19:
+	\\20:
+	\\21: done
+	\\22: done
+	\\23:
+	\\24:
+	\\25: Ryan
+	\\26:
+	\\27:
+	\\28:
+	\\29:
+	\\30:
+	\\31:
+	\\32:
+	\\33:
+	\\34:
+	\\35:
+	
+	
+	%------%
+	\begin{enumerate}
+		\item (Eisenbud Exercise 9.2)
+		
+		Let $k$ be a field.
+		\begin{enumerate}
+			\item Let $f(x,y)\in k[x,y]$ be any polynomial, and consider the "variable" $x'=x-y^n$.  Show that $k[x,y]=k[x',y]$, and that if $n$ is sufficiently large, then as a polynomial in $x'$ and $y$, $f$ is a scalar times a monic polynomial in $y$.  Deduce that $k[x,y]/f$ is integral over its subring $k[x']$.  Use this to prove that $\dim k[x,y]=2$.
+			\begin{proof}
+				We show that $k[x,y]=k[x',y]$.  It is clear that $k[x',y]\subseteq k[x,y]$.  Now $x'+y^n=x$ is in $k[x',y]$, as is $y$, so $k[x,y]\subseteq k[x',y]$ and we have equality.
+				Let $f\in k[x,y]$ be any polynomial, and let $r$ and $s$ be the highest degree of $x$ and $y$ in $f$, respectively. Set $n=s+1$.  We claim that in $x'$ and $y$, $f(x,y)$ is a scalar times a monic polynomial in $y$.  It suffices to show that if $\alpha x^ry^d$ is a term in $f$ with $d$ maximal, then $\alpha y^{nr+d}$ is a monomial in $f(x',y)$ and $nr+d$ is the largest power of $y$ appearing in $f$.  Indeed $\alpha y^{nr+d}$ is a monomial in $f(x',y)$.  Note that from any monomial $\beta x^ay^b$ in $f(x,y)$, we have the summand $\beta (x'+y^n)^ay^b$ in $f(x',y)$.  The highest $y$-degree in this summand is $na+b$.  If $a<r$, then because $b\leq s$ and $n=s+1$, we have $na+b\leq nr<nr+d$.  If $a=r$, and this polynomial is not $\alpha x^ry^d$, then $b<d$ and $na+b<nr+d$.  This proves our claim.
+				
+				Now $k[x,y]/(f(x,y))\cong k[x',y]/(f(x',y))$.  Moreover, $k[x',y]/(f(x',y))$ is generated by $1, y, y^2, \ldots, y^{nr+d-1}$ as a $k[x']$-module.  Hence $k[x',y]/(f(x',y))$ is integral over $k[x']$, and in particular they both have dimension 1.
+				
+				Let $0\subset p_1\subset\cdots\subset p_n$ is a maximal chain of distinct prime ideals in $k[x,y]$.  Then $p_1=(f)$ for some $f\in k[x,y]$.  This chain gets mapped to the maximal chain of primes $0\subset p_2+(f)\subset \cdots p_n+(f)$ in $k[x,y]/(f)$.  Because $\dim k[x,y]/(f)=1$ and the original chain has distinct primes, it follows that $n=2$ and $p_2+(f)$ is maximal.  This implies that the original chain is of length $2$, so $\dim k[x,y]=2$.
+			\end{proof}
+			
+			\item Show that the same things are true for $x'=x-ay$ for all but finitely many $a\in k$.  (If $k$ is finite, this could be all $a\in k$.)
+			\begin{proof}
+				We need only show that for all but finitely many $a\in k$, the polynomial $f(x',y)$ is a scalar times a monic polynomial in $y$.  Suppose $f$ has degree $d$.  After substituting $x=x'+ay$, the highest terms of $y$ will be a sum of terms of the form $a^n\alpha y^d$ for some scalar $\alpha$ and some $n$, i.e.
+				$$f(x',y)=(\alpha_0a^d+\alpha_1 a^{d-1}+\cdots \alpha_{d-1}a+\alpha_d)y^d+\text{ l.o.t.s}.$$
+				for some $\alpha_i\in k$ with $\alpha_i\neq 0$ for at least one $i$.  This is a monic in $y$ if and only if $(\alpha_0a^d+\alpha_1 a^{d-1}+\cdots \alpha_{d-1}a+\alpha_d)\neq 0$.  Allowing $a$ to vary, there are at most $d$ solutions to $(\alpha_0a^d+\alpha_1 a^{d-1}+\cdots \alpha_{d-1}a+\alpha_d)= 0$, so $f(x',y)$ is monic in $y$ for all but finitely many choices of $a\in k$.  The rest follows as in part (a).
+			\end{proof}
+		\end{enumerate}
+	\end{enumerate}
+	
+	
+	%------%
+	\problem{Eisenbud 9.3}{
+		Suppose that a ring $S$ is integral over the image of a ring homomorphism $\phi:R\to S$. Show that the Krull dimension of $M$ as an $S$-module is the same as the Krull dimension of $M$ as an $R$-module.
+	}
+	
+	We first show that $\dim_{R}(M) \geq \dim_{S}(M)$. Suppose that $Q_1\subset Q_2\subset\cdots \subset Q_n\subset S/\ann(M)$ is a maximum-size chain of distinct prime ideals in $S/\ann(M)$, and consider the chain $P_i=\varphi^{-1}(Q_i)$ in $R/\ann(M)$. By Corollary 4.18 (Incomparability), the fact that the $Q_i$ are distinct but comparable primes implies that they have distinct intersections with $\phi(R)$, and therefore, the $P_i$ are distinct.
+	
+	The proof that $\dim_{R}(M) \leq \dim_{S}(M)$ is similar in spirit. Suppose that $P_1\subset P_2\subset\cdots \subset P_n\subset R/\ann(M)$ is a maximum-size chain of distinct prime ideals in $R/\ann(M)$, and consider the chain $Q_i$ guaranteed by Going Up (Proposition 4.15). Then these $Q_i$ must be distinct because they have distinct intersections with $\phi(R)$.
+	
+	
+	%------%
+	\prob{4}
+	\problem{Proposition (Eisenbud Ex. 9.2)}{There exists an infinite-dimensional Noetherian ring.}
+	\begin{proof}
+		We let\vspace*{-1em}\textellipsis\begin{itemize}
+			
+			\item $k$ be any field, \item $R=k[x_1,x_2,\ldots]$, \item $d:\n_0\to \n_0$ a strictly increasing function with first difference function $\delta: \n\to \n$ defined by $\Delta(m)=d(m)-d(m-1)$ such that $d(0)=0$ and $\Delta$ is strictly increasing as well, \item $P_m=\idl{x_{d(m-1)+1},x_{d(m-1)+2},\ldots,x_{d(m)}}$ for $m\geq 1$,\item $U$ be the multiplicative system $\left(\bigcup_{m=1}^\infty P_m\right)^c$,\item and $S$ be the ring $U^{-1}R$.
+		\end{itemize}
+		We shall now show that $\dim S=\infty$, but $S$ is Noetherian. We break this argument down into a series of claims.
+		\begin{prop}[Eisenbud, Ex. 3.14]\label{4:claim:maxs}
+			The maximal ideals of $S$ are precisely the ideals $P_m$.
+		\end{prop}
+		\begin{subproof}[Proof of Proposition \ref{4:claim:maxs}]
+			We let $I$ be a proper ideal of $S$ (noting that necessarily, $I\subset \bigcup_{m=1}^\infty P_m$) and $0\neq f\in I$ an arbitrary element. We let $\Acal_f:=\{P_{i_1},\hdots,P_{i_n}\}:=\{P_i\;:\;P_i \text{ contains a monomial of } f\}$. We let $g\neq f$ be another arbitrary element of $I$ and suppose for the sake of contradiction that $g$ has some monomial term $g'$ such that $g'\notin \bigcup_{j=1}^nP_{i_j}$. Then, $f+g$ has a nonzero coefficient for $g'$. As each $P_m$ is a monomial ideal and hence contains all monomials of each of its elements, we now have that for any $P_{i_k}\in \Acal_f$, $f+g\notin P_{i_k}$. However, by an identical argument, for any $P_j\ni g'$, $f+g\notin P_j$, since $f$ necessarily has monomial terms not in $P_j$. Returning to the monomial ideal argument, we have now shown that $f+g\notin \bigcup_{m=1}^\infty P_m$, thus inducing a contradiction. Thus, for any ideal $I\subset S$, we have that $I\subset \bigcup_{k=1}^N P_{j_N}$ for some finite $\{j_1,\hdots,J_N\}$. Prime avoidance then implies $I\subset P_M$ for some $M\in \n$. As it is the case that $P_m\centernot\subseteq P_{m'}$ for $m\neq m'$, this completes our proof.
+		\end{subproof}
+		Next, as suggested by the text, we prove Eisenbud's lemma 9.4.
+		\begin{lemma}[Eisenbud, Lemma 9.4]\label{4:lem:9.4}
+			Let $Q$ be a ring with the properties (i) for any maximal $\mfr\subset Q$, $Q_\mfr$ is Noetherian and (ii) each element $s\in Q$ is contained in finitely many maximal ideals. Then, $Q$ is Noetherian.
+		\end{lemma}
+		\begin{subproof}[Proof of Lemma \ref{4:lem:9.4}]
+			We suppose for the sake of contradiction that there exists an infinite chain of ideals $0=I_0\subsetneq I_1\subsetneq I_2\subsetneq\ldots$ in $Q$. We then define the function $N:\mspec(Q)\to \n_0$ by $\mfr\mapsto \min\{n\;:\; I_n\centernot \subseteq\mfr\}$. As each $Q_\mfr$ is Noetherian, we must have that $N(\mfr)$ exists and is finite. We also define the choice function $C:\n_0\to \mspec(Q)$ which assigns to each $n\in \n_0$ some $\mfr\in \mspec(Q)$ such that $I_n\subset \mfr$. As each ideal of a ring must be contained in a maximal ideal by Zorn's lemma, there exists some well-defined such $C$. We observe that $C(N(\mfr))\neq \mfr$ for any $\mfr\in \mspec(Q)$ as $I_{N(\mfr)}\not \subset \mfr$ by construction. We also observe that $n\leq N(C(n))$, as $I_m\subset C(n)$ for any $m\leq n$ but $I_{N(C(n))}\not\subseteq C(n)$ similarly by construction. We now iteratively define a sequence of distinct maximal ideals $\{\mfr_1,\mfr_2,\hdots\}$ by letting $\mfr_1:=C(1)$ and for $i>1$, $\mfr_i:=C(N(\mfr_{i-1}))$. As $N\circ C$ has been shown to be a strictly increasing function, we have by well-ordering that for any $n$, there exists a $J$ such that $I_n\subset \mfr_j$ for all $j>J$. However, then $I_n\subset \bigcap_{j=J}^\infty \mfr_j$, contradicting our assumptions on $Q$.
+		\end{subproof}
+		\begin{cor}
+			\label{4:cor:Noe}$S$ is Noetherian.
+		\end{cor}
+		\begin{subproof}[Proof of Corollary \ref{4:cor:Noe}]
+			We wish to show that $S$ satisfies properties \textit{(i) }and\textit{ (ii)} of Lemma \ref{4:lem:9.4}. We let $X=\{x_1,\ldots\}$ and $X_m=\{x_{d(m-1)+1},\ldots,x_{d(m)}\}$. In order to show that $S_{P_m}$ is Noetherian, we present the following alternative characterization of $S_{P_m}$: we let $R'=k[X\setminus X_m]=k[x_1,\hdots,x_{d(m-1)},x_{d(m)+1},\ldots]$, so that $R=R'[X_m]$. We let $S'=K(R')=k(X\setminus X_m)$. We note that $S'$ is a field and hence Noetherian. Then, by the Hilbert Basis theorem, $Q=S'[X_m]=S'[x_{d(m-1)+1},\ldots, x_{d(m)}]$ is Noetherian as well. As Noetherianness is preserved by localization, $Q_{P_m}$ is also Noetherian, and as localizations commute and the generators of $Q$ and $S$ can be identified with one another, $Q_{P_m}=S_{P_m}$, so indeed $S_{P_m}$ is Noetherian for any maximal ideal $P_m\subset S$. Now, we show that any $s\in S$ is contained in finitely many maximal ideals. We note that there exists some $u\in S^\times$ such that $us\in R\cap S$, so without loss of generality, we assume $s\in R\cap S$. We let $\{m_1,\hdots,m_k\}$ be distinct integers and note that $\bigcap_{j=1}^kP_{m_j}=P_{m_1}P_{m_2}\ldots P_{m_k}$, which is generated by its homogenous elements of degree (in $R$) $k$. Hence, letting $d=\deg_Rs$, we have that $s\notin \bigcap_{j=1}^{d+1}P_{m_j}$ for any set of pairwise distinct $\{m_{1},\ldots m_{d+1}\}$. As $\deg_Rs$ is well-defined for any $s\in R\cap S$, this shows that $s$ is contained in finitely many maximal ideals, thus showing $S$ to satisfy the hypotheses of Lemma \ref{4:lem:9.4}; our corollary follows immediately from its conclusion.
+		\end{subproof}
+		
+		\begin{prop}
+			$\dim S=\infty$.\label{4:prop:final}
+		\end{prop}
+		\begin{subproof}[Proof of Proposition \ref{4:prop:final}]
+			We note that as there is an inclusion-preserving bijection between prime ideals of the ring $R$ and prime ideals of $S=U^{-1}R$ not meeting $U$, the ideals $\idl{x_{d(m-1)+1},\ldots,x_{d(m)-r}}\subset P_m$ are prime in $S$ for any integer $0\leq r <d(m)-d(m-1)$. Hence, for any $m$, we have a chain of prime ideals of length $\Delta(m)$ given by $0\subsetneq \idl{x_{d(m-1)+1}}\subsetneq \idl{x_{d(m-1)+1},x_{d(m-1)+2}}\subsetneq \ldots\subsetneq P_m$. This shows that $\dim S\geq \sup\{\Delta(m)\;:\;m\in \n\}$. As $\Delta(m)$ is a strictly increasing function on the integers by assumption, we have that $\sup\{\Delta(m)\;:\;m\in \n\}=\infty$. This completes our proof both of the proposition and of the main theorem.
+		\end{subproof}
+	\end{proof}
+	
+	
+	%------%
+	\problem{Problem 5}{
+		Krull dimension satisfies the first half of axiom D1, and also the axiom D2. In other words, \[\dim R = \sup_{P\subset R \text{prime}} \dim R_P\] and if $I$ is a nilpotent ideal, then $\dim R = \dim R/I$.
+	}
+	
+	Proof: If $P$ is a prime ideal of $R$, let $P_0\subset\ldots\subset P_n$ be a chain of primes in $R_P$. If $\phi$ is the natural map from $R\to R_P$, then Proposition 2.2 of Eisenbud tells us that $P_i = \phi^{-1}(P_i)R_P$. The ideal $\phi^{-1}(P_i)\subset R$ is prime because if the complement of $\phi^{-1}(P_i)$ weren't multiplicatively closed, then the map $\phi$ would tell us that the complement of $P_i$ was also not multiplicatively closed. In addition, if $P_i\subsetneq P_j$, then $\phi^{-1}(P_i)R_P \subsetneq \phi^{-1}(P_j)R_P$, so $\phi^{-1}(P_i)\subsetneq \phi^{-1}(P_j)$. Therefore, any chain of primes in $R_P$ lifts to an equal length chain in $R$.
+	
+	On the other hand, let $P_1,P_2,\ldots$ be a sequence of primes in $R$ such that $\dim P_i\to\dim R$. This is possible because for a finite chain with minimal prime $Q$, $\dim Q$ is the length of that chain, and for an infinite chain, by taking smaller and smaller primes in the chain, we get such a sequence. If $P_i\subset Q_{i1}\subset Q_{i2}\ldots$ is a chain in $R$ starting with $P_i$ (i.e. a chain corresponding to one in $R/P_i$), then it will be a chain of the same length in $R_{P_i}$. Thus we have that $\dim R_{P_i}\ge \dim P_i$, so $\sup_{P\subset R \text{prime}} \dim R_P\ge \dim R$.
+	
+	Now, if $I$ is nilpotent, we have $\dim R\ge \dim R/I$, the fourth isomorphism theorem gives us a correspondence between prime ideals of $R/I$ and prime ideals of $R$ containing $I$. Now $I$ is contained in the nilradical of $R$, so it is contained in every prime of $R$, so chains of primes of $R$ are in one-to-one correspondence with chains of primes of $R/I$, so $\dim R = \dim R/i$.\qed
+	
+	
+	
+	
+	
+	\prob{6}	In this problem, we let $R$ be a Noetherian ring and $\pfr\triangleleft R$ a prime ideal of codimension $c$.\begin{prop*}[Eisenbud 10.2]
+		Let $Q\triangleleft R[x]$ such that $Q\cap R=\pfr]$. Then, either \emph{(a)} $Q=\pfr R[x]$ in which case $\codim Q= c$ or \emph{(b)} $Q\supsetneq\pfr R[x]$ in which case $\codim Q=c+1$. We break our response into two parts along those lines.
+	\end{prop*}
+
+\prt{1}
+	\begin{prop*}
+		$\codim (\pfr R[x])=c$
+	\end{prop*}
+\begin{proof}
+	We first show $\codim \pfr R[x]\geq c$. We let $\pfr_0\subsetneq \pfr_1\subsetneq \dots\subsetneq \pfr_c=\pfr$ be a chain of primes in $R$ terminating at $\pfr$. Then, $\pfr_0R[x]\subsetneq \pfr_1R[x]\subsetneq\dots\subsetneq \pfr_cR[x]=\pfr R[x]$ is a chain of primes in $R[x]$ terminating at $\pfr R[x]$ so $\codim \pfr R[x]\geq c$. We now show that $\codim \pfr R[x]\leq c$. By the converse to the principal ideal theorem (Eisenbud 10.5), there exists some $Z=\{z_1,\dots,z_c\}\subset R$ such that $\pfr$ is minimal in the set of primes containing $Z$. Then, via the ring extension $R\subset R[x]$, we have that any prime of $R[x]$ containing $Z$ must contain $\pfr\subset R$ as well via minimality of $\pfr$ over $Z$. As $\pfr R[x]$ is the unique minimal prime ideal of $R[x]$ containing $\pfr$, we have that $\pfr R[x]$ is minimal over $Z\subset R[x]$. Thus, by the principal ideal theorem (Eisenbud 10.2), we have that $\codim \pfr R[x]\leq c$, and hence $\codim \pfr R[x]=c$. 
+\end{proof}
+\prt{2}
+\begin{prop*}
+	If $\pfr R[x]\neq Q\triangleleft R[x]$ with $Q\cap R=\pfr$, then $\codim Q=c+1$
+\end{prop*}
+Before proving the main proposition, we introduce a crucial lemma.
+\begin{lemma}\label{6b:keylem}
+There is a containment-preserving bijection between prime ideals of $R[x]$ intersecting $R$ in $\pfr$ and ideals of $k(\pfr)[x]$ where $k(\pfr)$ is the residue field $k(\pfr):=R_\pfr/\pfr R_\pfr$. \end{lemma}
+\begin{subproof}[Proof of Lemma \ref{6b:keylem}]
+By the fourth isomorphism theorem, there is a containment and primality-preserving bijection between ideals of $R[x]$ containing $\pfr R[x]$ and ideals of $R[x]/(\pfr R[x])\cong (R/\pfr)[x]$. Then by Eisenbud's Proposition 2.2a, there is a containment-preserving bijection between prime ideals of $(R/\pfr)[x]$ not meeting $R/\pfr\setminus\{0\}\subset (R/\pfr)[x]$ and prime ideals of $\left((R/\pfr)[x]\right)[(R/\pfr\setminus\{0\})^{-1}]\cong (R/\pfr)_\pfr[x]$. The composition of these two primality-preserving and containment-preserving bijections then gives the desired identification.
+\end{subproof}
+\begin{proof}[Proof of main proposition]
+%	By Lemma \ref{6b:keylem}, we have shown that ideals of the type $Q$ are in identification with ideals of $k(\pfr)[x]$. As $k(\pfr)[x]$ is a polynomial ring over a field, it is a principal ideal and hence of dimension 1. Thus, for any $Q\triangleleft R[x]$ with $Q\cap R=\pfr$ but $Q\neq \pfr R[x]$,  
+We induct on $\dim \pfr$. To establish a basis, we let $\pfr$ be of codimension $0$ and $Q\triangleleft R[x]$ with $Q\cap R=\pfr$. We then let $Q_0\subsetneq \dots \subsetneq Q_m=Q$ with $m:=\codim Q$ be a chain of prime ideals. We let $\qfr_i:=Q_i\cap R\triangleleft R$ and note necessarily $\qfr_i\subseteq \pfr$ with $\qfr_i$ prime. Thus, $\qfr_i=\pfr$ by our assumption $\codim \pfr=0$, so by Lemma \ref{6b:keylem} $Q_0\subsetneq \dots \subsetneq Q_m$ corresponds to a chain of prime ideals $\tilde{Q}_0\subsetneq \dots \subsetneq \tilde{Q}_m\triangleleft k(\pfr)[x]$. As $\dim k(\pfr)[x]=1$ by theorem A in \S8.2.1 of Eisenbud, we then have that $m\leq 1$ with equality if $Q\neq \pfr R[x]$, thus establishing a basis for induction.
+
+For our inductive step, we let $\dim \pfr =c$ and let $Q\triangleleft R[x]$ with $Q\cap R=\pfr$ and $\dim Q=:m\geq c$. As before, we let $Q_0\subsetneq \dots \subsetneq Q_m=Q$ be a chain of prime ideals in $R[x]$ and let $\qfr_i:=Q_i\cap R$. We consider two cases:
+\begin{itemize}[itemindent=1in]
+	\item[(\emph{Case 1: $\qfr_{m-1}=\pfr$}):] By the lemma, we have that if $\pfr R[x]\subseteq Q'\subsetneq Q$ with $Q'$ prime in $R[x]$, we have that $Q'=\pfr R[x]$. Thus, we must have that $Q_{m-1}=\pfr R[x]\neq Q$ and by maximality of $Q_0\subsetneq \dots \subsetneq Q_m$, we have that $m-1=c$ and hence $m=c+1$ as desired.
+	\item[(\emph{Case 2: $\qfr_{m-1}\subsetneq \pfr$}):] By our inductive hypothesis, we now have that $\dim Q_{m-1}\leq (c-1)+1=c$. Thus, by maximality of $Q_0\subsetneq \dots \subsetneq Q_m$, we have that $c\leq m\leq c+1$ with equality only if $Q\neq \pfr R[x]$, as desired.
+\end{itemize}
+This completes our induction and thus our proof.
+\end{proof}
+	
+	
+	\prob{7} (Eisenbud 10.3)
+	Let $k$ be a field.  Show that the ring $k[x]\times k[x]$ contains a principal prime ideal of codimension 1, although it is not a domain. (By the argument of Corollary 10.14, there is no such example in a local ring.)
+	\begin{proof}
+		Consider the ideal $P=\langle (1,x)\rangle$.  This is a prime ideal because $(k[x]\times k[x])/P\cong 0\times k\cong k$, which is a domain.
+		
+		Suppose $Q=\langle\{f_i,g_i\}_{i=1}^n\rangle$ is another prime ideal strictly contained in $P$.  The $f_i$ must generate a prime ideal of $k[x]$ and the $g_i$ must generate a prime ideal of $k[x]$ contained in $(x)$.  Thus the $g_i$ generate all of $x$ or all the $g_i$ are 0.  This implies that there is one $g_i$ and it is either $0$ or $x$, and there is one $f_i$.
+		
+		Thus there are five types of ideals strictly contained in $P$: $\langle (1,0)\rangle,\langle (x-a,0)\rangle$ for some $a\in k$, $\langle (0,0)\rangle,\langle (x,x)\rangle,$, and $\langle (0,x)\rangle$.  Of these, the only prime ideal is $\langle (1,0)\rangle$, so $\codim P=1$.
+	\end{proof}
+	
+	\prob{8}
+	\begin{prompt*}
+		Find a variety $X$ in $\A^3$ which consists of a hyperplane $P$ and a line $L$ perpendicular to the hyperplane such that for any hyperplane parallel to $P$, $P\cap X$ is of dimension 0.
+	\end{prompt*}
+	\begin{proof}[Response]
+		We note that the $xy$-plane in $\A^3$ is the variety of the ideal $\pfr=\idl{z}\triangleleft R:=k[x,y,z]$, while the $z$ axis is the variety of the ideal $\qfr=\idl{x,y}$. Thus, we may use the inclusion-reversing nature of the bijection given by the Nullstellensatz to compute the union of the two as $X=V(\pfr\cap \qfr)=V(\pfr\qfr)=V(xz,yz)$. We denote by $J$ the ideal $\pfr\qfr$. As we show in problem 10, $\dim J=2$. We consider the hyperplane $Y$ which is given by $V(z-1)$. Then $Y\cap X$ is given by $V(I )$ where $I:=\idl{z-1}+\idl{xz,yz}$. We note that $x=-x(z-1)+xz$ and $y=-y(z-1)+yz$, and thus $I=\idl{z-1,x,y}$ which is well known to be maximal and hence of dimension 0.
+	\end{proof}
+	
+	
+	\prob{10}
+	\begin{prompt*}
+		Consider the ring $R=k[x,y,z]/(xz,yz)$. Show that the ring is $2$-dimensional, find an explicit system of parameters, and prove that the ring does not have any regular sequence $f_1,f_2\ss\mfr$.
+	\end{prompt*}
+	\begin{proof}[Response]
+		In what follows, we identify without comment $R$ with the vector space $k[x,y]\oplus zk[z]$ having the appropriate ring structure. Note that $R$ is not local, but it is graded, so we can modify the definitions of systems of parameters and regular sequences for this setting.
+		
+		We claim that $\<z\>\subset \<x,z\>\subset \mfr$ is a chain of distinct prime ideals. Primeness follows because $R/\!\<z\>\is k[x,y]$ and $R/\!\<x,z\>\is k[y]$ are both domains; the second ideal is not maximal because $k[y]$ is not a field, and the first two ideals are distinct because $x$ annihilates $\<z\>$ but not $\<x,z\>$.
+		
+		We also claim that $\{x+z,y+z\}$ is a system of parameters, i.e. that $\<x,y,z\>^n \subseteq \<x+z,y+z\>$ for all large $n$. Our proof proceeds by showing that the inclusion holds already at $n=2$, using brute force. An arbitrary element of $\mfr^2$ can be written in the form
+		$$\sum_{i\geq 2} A_ix^i + B_iy^i+C_iz^i + \sum_{i,j\geq 1}  D_{ij}x^iy^j,$$
+		where $A_i,B_i,C_i$, and $D_{ij}$ are all in $R$. (Note this representation is not unique, and we are not claiming that these four families may be chosen independently.) Then define $E_k=\sum_{i=1}^{k-1} D_{i(k-i)}$ and consider the following element of $R$:
+		$$\sum_{i\geq 2} A_i(x+z)^i+B_i(y+z)^i + \sum_{i,j\geq 1} D_{ij} (x+z)^i(y+z)^j + \sum_{k\geq 2} (C_k-A_k-B_k-E_k) z(x+z)^{k-1}.$$
+		This agrees with the element of $\mfr^2$ described above. The coefficients of $x^iy^j$ all come from the first two summation symbols, and in this case they clearly agree. Moreover, the $z^i$ coefficients agree because all the $z^i$ that appear in the first two summations are cancelled out in the third, and then a coefficient of $C_k$ is added. Finally, observe that every term has at least one factor of $x+z$ or $y+z$, and therefore, an arbitrary element of $\mfr^2$ is contained in $\<x+z,y+z\>$.
+		
+		Hence we have shown that the dimension of $R$ is 2. However, we wish to show that $R$ has no regular sequence $(f_1,f_2)$ contained in the maximal ideal. Unwinding the definitions, this means that we need to show that for all nonzero $f_1,f_2\in\mfr$, then either $f_1$ is a zerodivisor, $f_1$ divides $f_2$, or there exist nonzero $\a,\b\in R$ such that $\b f_1 = \a f_2$, but $f_1$ does not divide $\a$ (in $R$).
+		
+		The proof requires a bit of casework: We note first that $f_i\in\mfr$ means $f_i=p_i(x,y)+q_i(z)$ where $p_i$ and $q_i$ have no constant term. The ``typical" case is that $p_1,p_2,q_1$, and $q_2$ are all nonzero. In this case, let $\b=q_2(z)$ and $\a=q_1(z)$. We see (by direct computation, if you want) that $f_1$ does not divide $\a$, but that $\b f_1 = q_2(z)q_1(z) = f_2\a$.
+		
+		This choice of $\a$ and $\b$ also works if $p_2=0$ but all others are nonzero. Similarly, if $q_2=0$ but all others are nonzero, we can choose $\b=p_2(x,y)$ and $\a=p_1(x,y)$, since then $\b f_1 = p_2p_1 = f_2 \a$. If either $p_1=0$ or $q_1=0$ (regardless of $p_2$ or $q_2$) then either $zf$ or $xf$ are zero, i.e. $f$ is a zerodivisor.
+	\end{proof}
+	
+	
+	\prob{12}
+	\begin{prompt*}
+		(Eisenbud 10.4) Let $a,b$ be a regular sequence in a domain $R$, and let $S=R[x]$ be the polynomial ring in one variable over $R$.  Show that $ax-b$ is a prime of $S$.
+	\end{prompt*}
+	\begin{proof}
+		We will show that the map $\phi:S\to R[1/a]$ given by $\phi(x)=b/a$ has kernel $(ax-b)$.  This would imply that $(ax-b)$ is a prime ideal because then $S/(ax-b)$ would be isomorphic to a domain.
+		
+		Suppose $p(x)\in\ker \phi$.  We will show $p(x)\in (ax-b)$ by induction on $\deg p(x)$, starting with $\deg p(x)=0$.  In this case, $p(x)=0$, so $p(x)\in (ax-b)$.
+		
+		Now suppose $p(x)=\sum_{i=1}^nr_ix^i\in\ker \phi$.  This implies
+		\[\sum_{i=1}^nr_i(b/a)^i=0\]
+		in $R[1/a]$.
+	\end{proof}
+	
+	
+	\prob{13}
+	\begin{prompt*}
+		(Eisenbud 10.6) Here is an example showing that $\codim PS\leq \codim P$ may fail when $R$ is not regular. Let $R=k[x,y,s,t]/(xs-yt)$ and let $S=R/(x,y) \is k[s,t]$. For $P=(s,t)\ss R$, prove that $\codim P = 1$ but $\codim PS=2$.
+	\end{prompt*}
+	\begin{proof}
+		We know that $\codim PS=2$ immediately from Corollary 10.4; and we can show that $\codim P \neq 1$ simply by showing that $P$ is not nilpotent (using, for instance, the graded version of Corollary 10.7). But it is clear that $s^n\in P^n$ is nonzero for any $n$.
+		
+		It remains to show that $\codim P \leq 1$; for this we are done if $P$ satisfies the conditions of the prime ideal theorem; i.e. if $P$ is minimal among the primes containing some element of $R$. Consider all primes $Q$ containing $s$. Necessarily $yt=xs\in Q$; since $Q$ is prime, either $y$ or $t$ must be in $Q$. If $t\notin Q$, then $y\in Q$. But $y\notin P$ so these ideals are incomparable. On the other hand, if $t\in Q$ then all of $P$'s generators are in $Q$, so $P\ss Q$.
+	\end{proof}
+	
+	
+	\prob{17}
+	\begin{prompt*}
+		(Eisenbud 13.2) Let $G$ be a finite group acting on a domain $T$, and let $R$ be the ring of invariants $R = T^G$. Then every element $b\in T$ is integral over $R$, and in fact over the subring generated by the elementary symmetric functions in the conjugates $\sigma b$.
+	\end{prompt*}
+	
+	\begin{proof}
+		The $i$-th elementary symmetric function is \[e_i = \sum_{\{\sigma_1, \ldots, \sigma_i\} \subset G} (\sigma_1 b)\ldots (\sigma_i b),\] and clearly this is $G$-invariant since action by an element of $G$ simply permutes the terms. So indeed $e_i\in R$.
+		
+		???????????????
+	\end{proof}
+	
+	
+	
+	\prob{21}
+	\begin{prompt*}
+		Let $I = \langle xz-y^2, yw-z^2, yz-xw\rangle$, and let $f = x^2y^2w^2-y^4z^2$. Determine whether or not $f$ lies in $I$.
+	\end{prompt*}
+	\begin{proof}[Response]
+		We will use the division algorithm using the lex monomial order with the variable order $x>y>z>w$. The leading term of $f$ is $x^2y^2w^2$, and the first term of the generator $yw-z^2$ divides this. $x^2y^2w^2-y^4z^2 = yw(x^2yw)$, and subtracting $(yw-z^2)(x^2yw)$ from $f$ gives us $f' = x^2yz^2w - y^4z^2$. $yw$ still divides this leading term, so we subtract $(yw-z^2)(x^2z^2)$, and get $f_1 = x^2z^4 - y^4z^2 = f - (yw-z^2)(x^2yw + x^2z^2)$.
+		
+		Now, the leading term of $f_1$ is divisible by the leading term of $xz-y^2$, so we subtract $(xz-y^2)(xz^3)$ from $f_1$, and get $f_1' = xy^2z^3 - y^4z^2$. Then $xz-y^2$ still divides the leading term, so we subtract $(xz-y^2)(y^2z^2)$ from $f_1'$, giving us $f_2 = y^4z^2-y^4z^2 = 0 = f_1 - (xz-y^2)(xz^3+y^2z^2)$. Therefore, $f$ is in the ideal, and we can write $f = (yw-z^2)(x^2yw+x^2z^2) + (xz-y^2)(xz^3+y^2z^2)$.
+	\end{proof}
+	
+	
+	\prob{22}
+	\begin{prompt*}
+		Let $R=\q[x,y,z]$. Find polynomials, $f,g_1,g_2\in R$ such that $(f\%g_1)\%g_2\neq (f\%g_2)\%g_1$.
+	\end{prompt*}
+	\begin{proof}[Response]
+		We fix the lex monomial order with $x>y>z$. Let $f=x^2y^2-y$, $g_1=x^2y-1$, $g_2=xy^2-1$. Then, $f=yg_1$, so $(f\%g_1)=0=(f\%g_1)\%g_2$. We now perform polynomial long division on $f/g_2$ to determine the remainder $r$. We have that $LT(f)=xLT(g_2)$, so we let $r_1=f-xg_2=-y+x$. Now, no term of $r_1$ is divisible by the leading term of $g_2$, so our process terminates and we have that $f=xg_2+(x-y)$, so $(f\%g_2)=x-y$. Now, the leading term $x^2y$ of $g_1$ divides no terms of $(f\%g_2)$, so we have $(f\%g_2)\%g_1=(f\%g_2)=x-y\neq 0 =(f\%g_1)\%g_2$.
+	\end{proof}
+	
+	
+	
+\end{document}
+
+

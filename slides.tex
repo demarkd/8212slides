@@ -1,0 +1,1095 @@
+\documentclass[xcolor=svgnames,compress]{beamer} 
+%\setbeameroption{show only notes}
+% For use with beamer v 2.20  
+%  options  [handout] 
+
+%  There is a VERY rich set of possible 
+%  styles of presentations and color themes.  See the 
+%  beamer documentation for a full list of possibilities. 
+
+\usetheme{Warsaw}  
+			% Madrid Darmstadt
+			% JuanLesPins  Rochester  
+		   %  Berkeley  Palo Alto    with sidebar and top 
+		   % Goettingen(maybe)  Marburg     with sidebar 
+		   %  Copenhagen  Luebeck  Warsaw 
+
+%\useinnertheme{rounded}
+\usecolortheme{seahorse}
+%\usecolortheme{orchid}
+\usepackage{caption}
+% Albatross, Beetle, Crane, Dove, Fly, Seagull 
+% Inner color themes: Lily, Orchid 
+% Outer color themes: Whale, Seahorse
+
+\usefonttheme{structuresmallcapsserif}
+
+%\usepackage{pgfarrows}
+%  Don't need to load the pgf package, but it has 
+%  has itself some packages you might want, such as 
+%  pgfarrows,,pgfnodes,pgfautomata,pgfheaps  
+%  See the pgf documentation. 
+
+\usepackage{graphicx}
+
+% \setbeamertemplate{bibliography item}{}
+
+% %remove line breaks
+% \setbeamertemplate{bibliography entry title}{}
+% \setbeamertemplate{bibliography entry location}{}
+% \setbeamertemplate{bibliography entry note}{}
+
+
+\usepackage{amsmath,amssymb,amscd,tikz-cd,pgfplots}
+% \beamertemplatetransparentcovereddynamic
+ 		% overlays that are upcoming are transparent, in 
+		% a manner that depends upon how far ahead  they are. 
+		
+\def\AA{{\mathbb A}}
+\def\BB{{\mathbb B}}
+\def\CC{{\mathbb C}}
+\def\FF{{\mathbb F}}
+\def\GG{{\mathbb G}}
+\def\KK{{\mathbb K}}
+\def\MM{{\mathbb M}}
+\def\NN{{\mathbb N}}
+\def\OO{{\mathbb O}}
+\def\QQ{{\mathbb Q}}
+\def\PP{{\mathbb P}}
+\def\QQ{{\mathbb Q}}
+\def\RR{{\mathbb R}}
+\def\TT{{\mathbb T}}
+\def\ZZ{{\mathbb Z}}
+\def\ZZp{{\mathbb Z}_p}
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  %\vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+%\makeatletter
+%\let\oldabs\abs
+%\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+%\let\oldnorm\norm
+%\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+%\makeatother
+
+
+\newcommand{\Ipsp}{I_{+/+}}
+\newcommand{\Ipsm}{I_{+/-}}
+\newcommand{\Imsp}{I_{-/+}}
+\newcommand{\Imsm}{I_{-/-}}
+
+\usepackage{todonotes}
+%\usepackage{todonotes}[disable]
+
+
+\def\Zbar{\overline{{\mathbb Z}}}
+\def\Qbar{\overline{{\mathbb Q}}}
+
+\def\Asf{{\mathsf A}}
+\def\Bsf{{\mathsf B}}
+\def\Esf{{\mathsf E}}
+\def\Fsf{{\mathsf F}}
+\def\Psf{{\mathsf P}}
+
+\def\hhat{{\hat h}}
+\def\Hhat{{\hat H}}
+
+\def\0{{\mathbf 0}}
+\def\1{{\mathbf 1}}
+\def\a{{\mathbf a}}
+\def\b{{\mathbf b}}
+\def\c{{\mathbf c}}
+\def\e{{\mathbf e}}
+\def\h{{\mathbf h}}
+\def\r{{\mathbf r}}
+\def\w{{\mathbf w}}
+\def\x{{\mathbf x}}
+\def\y{{\mathbf y}}
+\def\z{{\mathbf z}}
+\def\Bbf{{\mathbf B}}
+
+\def\Acal{{\mathcal A}}
+\def\Bcal{{\mathcal B}}
+\def\Ccal{{\mathcal C}}
+\def\Dcal{{\mathcal D}}
+\def\Ecal{{\mathcal E}}
+\def\Fcal{{\mathcal F}}
+\def\Gcal{{\mathcal G}}
+\def\Ical{{\mathcal I}}
+\def\Lcal{{\mathcal L}}
+\def\Mcal{{\mathcal M}}
+\def\Ncal{{\mathcal N}}
+\def\Ocal{{\mathcal O}}
+\def\Pcal{{\mathcal P}}
+\def\Qcal{{\mathcal Q}}
+\def\Rcal{{\mathcal R}}
+\def\Scal{{\mathcal S}}
+\def\Tcal{{\mathcal T}}
+
+\def\Kbar{{\bar K}}
+\def\kbar{{\bar k}}
+\def\Fbar{{\bar F}}
+
+\def\Aut{\mathrm{Aut}}
+\def\Cl{\mathrm{Cl}}
+\def\ker{\mathrm{Ker}}
+\def\Div{\mathrm{Div}}
+\def\diag{\mathrm{diag}}
+\def\Perm{\mathrm{Perm}}
+\def\diam{\mathrm{diam}}
+\def\disc{\mathrm{disc}}
+\def\sgn{\mathrm{sgn}}
+\def\grad{\mathrm{grad}}
+\def\div{\mathrm{div}}
+\def\Isom{\mathrm{Isom}}
+\def\ns{\mathrm{ns}}
+\def\ab{\mathrm{ab}}
+\def\s{\mathrm{s}}
+\def\Gal{\mathrm{Gal}}
+\def\Sym{\mathrm{Sym}}
+\def\Spec{\mathrm{Spec}}
+\def\Vol{\mathrm{Vol}}
+\def\PGL{\mathrm{PGL}}
+\def\GL{\mathrm{GL}}
+\def\tor{\mathrm{tor}}
+\def\Pic{\mathrm{Pic}}
+\def\ord{\mathrm{ord}}
+\def\ad{\mathrm{ad}}
+\def\Res{\mathrm{Res}}
+\def\Prep{\mathrm{Prep}}
+\def\Berk{\mathrm{Berk}}
+\def\supp{\mathrm{supp}}
+\def\im{\mathrm{Im}}
+\def\PrePer{\mathrm{PrePer}}
+
+\theoremstyle{plain}
+\newtheorem*{main}{Main~Theorem}
+\newtheorem*{defn}{Definition}
+\newtheorem*{ShaThm}{Shafarevich's Theorem}
+\newtheorem*{rem}{Remark}
+\newtheorem{thm}{Theorem}
+\newtheorem{conj}{Conjecture}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{proposition}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+
+\newtheorem{exs}{Examples}
+\newtheorem{notation}[theorem]{Notation}
+\newcommand{\zmod}[1]{\ZZp/{p}^{#1}\ZZp}
+\newcommand{\zmodq}[2]{\ZZp/{#1}^{#2}\ZZp}
+\newcommand{\redw}[1]{\overline{#1}_w}
+\newcommand{\redm}[2]{\overline{#2}_{#1}}
+\DeclareMathOperator{\Peri}{Per}
+\newcommand{\Per}[1]{\Peri({#1})}
+\DeclareMathOperator{\fixi}{Fix}
+\newcommand{\fix}[1]{\fixi({#1})}
+\DeclareMathOperator{\imgi}{Im}
+\newcommand{\img}[1]{\imgi({#1})}
+\newcommand{\rph}{\redw{\phi}}
+\newcommand{\rphn}{\redw{\phi}^{-1}}
+\newcommand{\rps}{\redw{\psi}}
+\newcommand{\rpsn}{\redw{\psi}^{-1}}
+\newcommand{\Pp}{\mathcal{P}}
+\newcommand{\valph}{\vec{\alpha}}
+\newcommand{\Bb}{\mathcal{B}}
+\newcommand{\vbet}{\vec{\beta}}
+\newcommand{\vzet}{\vec{\zeta}}
+%\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\Aa}{\mathscr{A}}
+\newcommand{\LL}{\mathcal{L}}
+%\newcommand{\CC}{\mathbb{C}}
+%\newcommand{\DD}{\mathbb{D}}
+%\newcommand{\RR}{\mathbb{R}}
+%\newcommand{\NN}{\mathbb{N}}
+%\newcommand{\ZZ}{\mathbb{Z}}
+%\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\Ss}{\mathcal{S}}
+%\newcommand{\OO}{\mathcal{O}}	
+%\newcommand{\BB}{\mathcal{B}}
+%\newcommand{\Pcal}{\mathcal{P}}
+%\newcommand{\FF}{\mathbb{F}}
+\newcommand{\Ff}{\mathscr{F}}
+\newcommand{\Gg}{\mathscr{G}}
+%\newcommand{\PP}{\mathbb{P}}
+%\newcommand{\Fcal}{\mathcal{F}}
+%\newcommand{\Gcal}{\mathcal{G}}
+\newcommand{\fsc}{\mathscr{F}}
+\newcommand{\afr}{\mathfrak{a}}
+\newcommand{\bfr}{\mathfrak{b}}
+\newcommand{\cfr}{\mathfrak{c}}
+\newcommand{\dfr}{\mathfrak{d}}
+\newcommand{\efr}{\mathfrak{e}}
+\newcommand{\ffr}{\mathfrak{f}}
+\newcommand{\gfr}{\mathfrak{g}}
+\newcommand{\hfr}{\mathfrak{h}}
+\newcommand{\ifr}{\mathfrak{i}}
+\newcommand{\jfr}{\mathfrak{j}}
+\newcommand{\kfr}{\mathfrak{k}}
+\newcommand{\lfr}{\mathfrak{l}}
+\newcommand{\mfr}{\mathfrak{m}}
+\newcommand{\nfr}{\mathfrak{n}}
+\newcommand{\ofr}{\mathfrak{o}}
+\newcommand{\pfr}{\mathfrak{p}}
+\newcommand{\qfr}{\mathfrak{q}}
+\newcommand{\rfr}{\mathfrak{r}}
+\newcommand{\sfr}{\mathfrak{s}}
+\newcommand{\tfr}{\mathfrak{t}}
+\newcommand{\ufr}{\mathfrak{u}}
+\newcommand{\vfr}{\mathfrak{v}}
+\newcommand{\wfr}{\mathfrak{w}}
+\newcommand{\xfr}{\mathfrak{x}}
+\newcommand{\yfr}{\mathfrak{y}}
+\newcommand{\zfr}{\mathfrak{z}}
+%\newcommand{\Dcal}{\mathcal{D}}
+%\newcommand{\Ccal}{\mathcal{C}}
+%\newcommand{\Ical}{\mathcal{I}}
+%\newcommand{\Jcal}{\mathcal{J}}
+\newcommand{\rF}{\mathbf{F}}
+\newcommand{\rG}{\mathbf{G}}
+
+\title[Homological Algebra on a Complete Intersection]{Free Resolutions Over a Complete Hypersurface (And Friends)}  
+\subtitle{Based on ``Homological algebra on a complete intersection, with an
+	application to group representations." by David Eisenbud}
+\author{David DeMark} 
+\date{2 May 2018}
+\institute[University of Minnesota]{MATH 8212 University of Minnesota}
+%%stuff that david's slides need
+%DONT FORGET TO MIGRATE TO O'ERLEAF
+\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\usepackage{dirtytalk}
+
+\theoremstyle{definition}
+\newtheorem{intu}{Intuitively}
+\theoremstyle{example}
+\newtheorem{noet}{Note}
+\newtheorem{ex}{Example}
+%\theoremstyle{theorem}
+%\newtheorem{fact}{Fact}
+\usepackage{centernot}
+
+\newenvironment{inlineitemize}{%
+ \let\par\relax%
+ \def\item{\usebeamertemplate{itemize item}\hspace{1mm}}
+ \leavevmode%
+}{}
+
+\newenvironment{inlineenumerate}{%
+ \let\par\relax%
+ \setcounter{enumi}{1}%
+ \def\item{\usebeamertemplate{enumerate  item} \stepcounter{enumi}}%
+ \leavevmode%
+}{%
+ \setcounter{enumi}{0}%
+}
+
+\newcommand{\idl}[1]{\langle #1 \rangle}
+
+\newcommand{\del}{\partial}
+\begin{document}
+
+
+
+
+%%%%LOOK AT ME
+
+
+
+%STRUCTURE:
+%PRELIMINARY NOTIONS
+%-(subitle)
+%-(subtitle)
+%-....
+%OUR WORK SO FAR
+%-(subtitle)
+%-....
+%LOOKING FORWARD (name tbd)
+%-(subtitle)
+%......
+%IN PARTICULAR, \frametitle should be one of the "section titles" with subtitle in \textcolor{MediumBlue}{\sc (subtitle)} for purposes of standardizing format.
+
+
+
+
+
+%%%LOOK AT ME
+
+%  \frame[plain]{
+%  \todo[inline]{see the URL commented into this todo box for dead slides (also remember to remove this one!!!)
+% %%%%%%%%% https://www.overleaf.com/9499704nswyjsdnhtrf#/34418188/
+%  }
+%  }
+
+
+%\section{The Problem}
+
+%\subsection{Irreducible Polynomials}
+\frame{\titlepage
+	
+	
+} 
+\frame{\frametitle{Notation \& Motivation}
+{\textbf{Throughout this talk, we let\dots}}
+\begin{itemize}
+\item<2-> $(A,\mfr)$ be a regular local ring
+\item<3-> $x_1,\dots,x_n$ a regular sequence of finite length
+\item<4-> $B:=A/\idl{x_1,\dots,x_n}$
+\end{itemize}
+\only<5->{Such a $B$ is a \emph{complete intersection of codimension $n$.}}
+
+\only<6-> {We shall study the structure of $B$-free resolutions of $B$-modules, relating these to their liftings to $A$.}
+
+}
+\frame{\frametitle{Clarification: $B$-Free}
+\only<1>{We do \textbf{NOT} mean\dots} \only<2->{\begin{figure}
+		\includegraphics[scale=.6]{bfree.jpg}\caption{Another \say{$B$-Free} Object.}
+\end{figure}}
+}
+\frame{\frametitle{Set-up}
+Let $M$ be a $B$-module, and $\mathbf{F}$ a free resolution of $B$.
+$$\begin{tikzcd}[ampersand replacement=\#]\rF: \dots\ar[r,"\del_3"] \# F_2\ar[r,"\del_2"]\# F_1\ar[r,"\del_1"]\# F_0\ar[r,"\del_0"]\# 0\end{tikzcd}$$
+\onslide<2->
+\onslide<3->{Let $\tilde{\del_i}$ denote an arbitrary lifting of  }
+}
+%
+%
+%\frame{\frametitle{Basic Definitions}
+%{\sc\textcolor{blue}{Anatomy of a Polynomial}}
+%$$f(x)=a_nx^n+a_{n-1}x^{n-1}+a_{n-2}x^{n-2}+\hdots +a_{1}x+a_0$$ \vspace{-.5cm}
+%\begin{itemize}
+%\item $f(x)$: a polynomial
+%\item $a_i$: coefficients%\item Note: $x^n$ has coefficient 1-- hence we call $f$ \say{monic.}
+%\item $n$: the \emph{degree} of $f$, often denoted $\deg f$
+%\end{itemize}
+% {\sc\textcolor{blue}{Some sets of Numbers:}}
+% \vspace{.35cm}
+% 
+%{\centering \begin{tabular}{c|c|c}
+% \textbf{Symbol}&\textbf{Name}&\textbf{Sample Elements}\\\hline\hline
+% $\ZZ$& The Integers & 17, 3, 0, -8\\\hline
+% $\QQ$ & The Rational Numbers & $\frac{19}{3},\,\frac{-20}{9},2,\frac{1108}{17}$
+% \end{tabular}
+% \begin{itemize}
+% \item Note that $\ZZ\subset \QQ$ (\say{$\ZZ$ is a subset of $\QQ$.}).
+% \item For our purposes (unless otherwise stated), our coefficients $a_i$ are in $\QQ$ -- in that case, we write $f(x)\in \QQ[x]$ (\say{$f(x)$ is in $\QQ[x]$.})
+% \end{itemize}
+% 
+% }
+% \note{note: coefficients are numbers!!}
+% }
+%   \begin{frame}[plain]
+% \begin{center}
+% {\Huge\textbf{The Problem}}
+% \end{center}
+% \end{frame}
+%\begin{frame}{Factoring Polynomials}
+%\note{Steve Kennedy says 2nd grade}
+%\only<1-3>{\textit{Recall the days of middle school algebra...}
+%\vspace{1em}
+%
+%\begin{example}<2->
+%Let $g(x) = x^2 -1$; then
+%\begin{equation*}
+%g(x) = x^2 - 1 = (x-1)(x+1)
+%\end{equation*}
+%\end{example}
+%\begin{example}<3->
+%Let $h(x) = x^2 - \frac{1}{2}x - \frac{3}{16}$; then
+%\begin{equation*}
+%h(x) = x^2 - \frac{1}{2}x - \frac{3}{16} = \left(x-\frac{3}{4}\right)\left(x+\frac{1}{4}\right)
+%\end{equation*}
+%\end{example}}
+%\only<4-8>{What about $f(x) = x^2 +1$?
+%\vspace{1em}
+%\note{You might say that this has no factors. But I can factor it:}
+%\begin{itemize}
+%\item<5-> A trivial factorization: $f(x)=2\left(\frac{1}{2}x^2 +\frac{1}{2}\right)$
+%\note{we say we have to factor into polynomials each of lower degree...}
+%\item<6-> An alternate factorization: $f(x)=(x-i)(x+i)$ (where $i = \sqrt{-1}$)
+%\item<8-> \alert<8>{Actual factorization over $\QQ$: $f(x)=x^2+1$}
+%\end{itemize}
+%\onslide<7->{Field matters: in this talk, we will only consider rational polynomials factored over the rationals $\mathbb{Q}$ -- that is, with each factor having rational coefficients.}}
+%\only<9>{\begin{definition}[Irreduciblilty]
+%A polynomial $f(x)\in \QQ[x]$ is irreducible over $\QQ$ if there do not exist polynomials $g(x)\in \QQ[x]$ and $h(x)\in \QQ[x]$ such that $\deg g < \deg f$ and $\deg h < \deg f$, but
+%\begin{equation*}
+%f(x)=g(x)h(x).
+%\end{equation*}
+%\end{definition}
+%\note{Irreducibility can be thought of as analogous to primality.}
+%\note{Almost all polynomials are irreducible.}}
+%\end{frame}
+%
+%%\subsection{Iteration of Polynomials}
+%\begin{frame}{Iterating Polynomials}
+%
+%\note{ Recall that you could also compose polynomials - you know, apply a polynomial to another polynomial. In particular you can choose to apply a polynomial to itself...}
+%\only<1-2>{
+%\textit{Back in middle school algebra...}\note{Steve Kennedy says 3rd grade}
+%\vspace{1em}
+%\begin{example}<2->
+%Let $f(x)=x^2+1$; then 
+%\begin{alignat*}{3}
+%f^0(x) &= x &&= x &&= x \\
+%f^1(x) &= f(x) &&= x^2+1 &&= x^2+1 \\
+%f^2(x) &= f(f(x)) &&= (x^2+1)^2+1 &&= x^4 + 2x^2 + 2\\
+%f^3(x) &= f(f(f(x))) &&= (x^2+1)^4+2(x^2+1)^2+2 && 
+%\end{alignat*}
+%\note{This notation isn't ours, but it's standard. Don't confuse it with exponentiation.}
+%\end{example}}
+%
+%\begin{definition}<3->
+%The $n$th iterate $f^n(x)$ of a polynomial $f(x)$ is
+%\begin{equation*}
+%f^n(x) =\begin{cases*}
+%x & $n=0$ \\
+%f^{n-1}(f(x)) & $n > 0$ \\
+%\end{cases*}
+%\end{equation*}
+%\end{definition}
+%\note{This is not exponentiation!}
+%\end{frame}
+%
+%
+%%\subsection{Our Mission}
+%\begin{frame}{Our Mission}
+%\note{Now you might wonder if when you take an irreducible polynomial and iterate it, do you get another irreducible polynomial? Well, there's no obvious reason why that must be true, but most polynomials ARE irreducible. We are considering a much more narrow case}
+%\only<1-3>{\textbf{Goal:} characterize the factorization of the iterates of all polynomials of the form $f_r(x) = x^2+r$, $r \in \QQ$. For a given $r$, are all the iterates $f_r^n(x)$
+%\begin{itemize}
+%\item irreducible?
+%\item reducible but with a bounded number of irreducible factors as $n$ grows?
+%\item reducible with unbounded numbers of irreducible factors?
+%\end{itemize}
+%\note{\linebreak The first is a special case of the second, but it is an important special case, so we have terms for both of them: (1) is stable, (2) is eventually stable. We use }
+%\vspace{1em}}
+%
+%\onslide<2-4>{\only<2,4>{\begin{definition}[Stablility]
+%A polynomial $g(x)\in \QQ[x]$ is \textit{stable} if all iterates $g^n(x)$ of the polynomial are irreducible over $\QQ$.
+%\end{definition}}
+%
+%\only<3-4>{\begin{definition}[Eventual Stability]
+%A polynomial $g(x)\in \QQ[x]$ is \textit{eventually stable} if there is some $M$ such that all iterates $g^n(x)$ of the polynomial have at most $M$ irreducible factors over $\QQ$.
+%\end{definition}}}
+%
+%\note{Stability is Eventual Stability with M equal to 1}
+%
+%\begin{block}<4->{Conjecture}
+%For all $r\in \QQ, r\neq 0, -1$, $f_r(x)$ is eventually stable. If $r=1/c$ for $c\in \ZZ$, $c\neq 0,-1$, then $f_r(x)$ is stable.
+%\end{block}
+%\note{\linebreak We call this property eventual stability; if all of the iterates are irreducible (M=1) then we say that $f_r(x)$ is stable}
+%
+%\note{\linebreak Also, spoiler alert: we didn't completely succeed, but we covered almost all the cases, and almost all of the ones that haven't already been solved. First we will discuss a known method that addresses almost all of the cases, then we will plunge into our new methods and results.}
+%\end{frame}
+%
+%\frame{
+%\frametitle{Our Results}
+%\begin{theorem} 
+%Let $S\subseteq \QQ\setminus\{0,-1\}$ be the set of all $r\in\QQ$ such that $f_r(x)$ is eventually stable. $S$ contains the following sets of rational numbers:
+%\begin{enumerate}[i)]
+%			\item The set of $r=\frac{a}{b}\in \QQ$ such that $a,b\in \ZZ$ with $\gcd(a,b)=1$ and $a\neq 1$
+%            \item The set of $r=\frac{1}{c}$ with $c\in \ZZ$ and $6\nmid c$
+%			\item The set of $r=\frac{1}{c}$ with $c<0$ and $-c\neq d^2$ for all $d\in \NN$
+%			\item The set of $r=\frac{1}{c}$ with $c\in \ZZ$ and $c\equiv -1\mod p$ where $p$ is a prime such that $p\equiv 3 \mod 4$
+%			\item[$\vdots$]
+%		\end{enumerate}
+%\end{theorem}
+% }
+%
+%\frame{
+%\frametitle{Our Results}
+%\begin{theorem} 
+%Let $S\subseteq \QQ\setminus\{0,-1\}$ be the set of all $r\in\QQ$ such that $f_r(x)$ is eventually stable. $S$ contains the following sets of rational numbers:\begin{enumerate}[i)] \setcounter{enumi}{4}
+%			\item[$\vdots$]
+%
+%			\item The set of $r=\frac{1}{c}$ with $c\in \NN$ and $c$ \say{dominantly odd-powered}
+%			\item The set of $r=\frac{1}{c}$ where $c=d^2$ for $d\in \ZZ$ with $c$ \say{dominantly nonresidual}
+%		\end{enumerate}
+%		Furthermore, there exists an algorithm which can determine whether any given $r \in (\QQ \setminus \lbrace -\frac{1}{d^2} : d \in \ZZ \rbrace)$ is an element of $S$ in finite time.
+%\end{theorem}
+%}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%% Michael is working below here
+%%\section{Eisenstein's Criterion}
+% \begin{frame}[plain]
+% \begin{center}
+% {\Huge\textbf{First Principles: Eisenstein Polynomials and a Natural Generalization}}
+% \end{center}
+% \end{frame}
+%%\subsection{Criterion}
+%
+%\begin{frame}{Definining Eisenstein-$p$ Over $\mathbb{Z}$}
+%
+%\only<1->
+%{\begin{definition}[Eisenstein-$p$] %over Z[x]
+%A polynomial $g(x)\in \mathbb{Z}[x]$ is Eisenstein-$p$ for a prime $p$ if
+%\begin{equation*}
+%g(x) = \sum_{j=0}^{\deg g} a_j x^j
+%\end{equation*}
+%for $a_j\in \mathbb{Z}$ such that
+%\begin{enumerate}
+%\item $p\nmid a_{\deg g}$
+%\item $p \mid a_j$ for all $j<\deg g$
+%\item $p^2 \nmid a_0$.
+%\end{enumerate}
+%\end{definition}}
+%
+%\only<2>
+%{\begin{theorem}[Eisenstein's Criterion]
+%If $g(x)\in \mathbb{Z}[x]$ is Eisenstein-$p$ for some prime $p$, $g(x)$ is irreducible over $\mathbb{Q}$.
+%\end{theorem}}
+%\end{frame}
+%
+%
+%\begin{frame}{Eisenstein-$p$: Example}
+%\only<1->{\begin{definition}[Eisenstein-$p$] %over Z[x]
+%\begin{equation*}
+%g(x) = \sum_{j=0}^{\deg g} a_j x^j, a_j\in \mathbb{Z}
+%\end{equation*}
+%\begin{inlineenumerate}
+%\item $p\nmid a_{\deg g}$ \textbf{ } \textbf{ }
+%\item $p \mid a_j$ for all $j<\deg g$ \textbf{ } \textbf{ }
+%\item $p^2 \nmid a_0$
+%\end{inlineenumerate}
+%\end{definition}}
+%
+%\only<1->{\begin{ex}
+%The polynomial $g(x) = 11x^2 + 110x -660$ is
+%\begin{itemize}
+%\item<1-> Eisenstein-$5$
+%\item<2-> \textbf{Not} Eisenstein-$11$ 
+%\item<3-> \textbf{Not} Eisenstein-$3$ 
+%\item<4-> \textbf{Not} Eisenstein-$2$
+%\item<5-> \textbf{Not} Eisenstein-$10$ (as 10 isn't prime!)
+%\end{itemize}
+%\end{ex}}
+%\end{frame}
+%
+%\begin{frame}{Justification}
+%\begin{definition}[Eisenstein-$p$] %over Z[x]
+%\begin{inlineenumerate}
+%\item $p\nmid a_{\deg g}$ \textbf{ } \textbf{ }
+%\item $p \mid a_j$ for all $j<\deg g$ \textbf{ } \textbf{ }
+%\item $p^2 \nmid a_0$
+%\end{inlineenumerate}
+%\end{definition}
+%\begin{example}
+%\onslide<1->{The polynomial $g(x) = x^2 + 10x - 60$ is Eisenstein-5. Suppose that it could be factored.}
+%\onslide<2->{Then $$g(x) = (x - a)(x - b) = x^2 + (-a-b)x + ab.$$}
+%\onslide<3->{Because $5 \mid -60$, but $5^2 \nmid -60$, we can conclude (without loss of generality) that $5 \mid a$ and $5 \nmid b$.}
+%\onslide<4->{This would mean that $$5 \nmid (-a-b) = 10,$$ which is a contradiction. So $g(x)$ is irreducible.}
+%\end{example}
+%\end{frame}
+%
+%
+%%\subsection{Extensions}%%%%%%%%%%%%
+%
+%\begin{frame}{Extending to Multiple Factors}
+%
+%\begin{definition}[Eisenstein-$(p,k)$]
+%A polynomial $g(x)\in \mathbb{Z}[x]$ is Eisenstein-$(p,k)$ for a prime $p$ and positive integer $k$ if
+%\begin{equation*}
+%g(x) = \sum_{j=0}^{\deg g} a_j x^j
+%\end{equation*}
+%for $a_j \in \mathbb{Z}$ such that
+%\begin{enumerate}
+%\item $p\nmid a_{\deg g}$
+%\item $p\mid a_j$ for all $j<\deg g$
+%\item \alert<1->{$p^k \mid a_0$ but $p^{k+1}\nmid a_0$}
+%\end{enumerate}
+%\textbf{Note:} Eisenstein-$(p,1)$ is identical to Eisenstein-$p$.
+%\end{definition}
+%
+%\note{emph similarity to es-p, don't worry about reducibility yet!}
+%
+%\onslide<2->{\begin{example}
+%$g(x) = x^2 + 10x + 25$ is Eisenstein-$(5,2)$, but not Eisenstein-5.
+%\end{example}}
+%\note{Note that $g(x)$ is $(x+5)^2$, and so clearly the Eisenstein-$p$ criterion is not the same as Eisenstein-$p,k$.}
+%\end{frame}
+%
+%
+%\begin{frame}{Extending to Rational Numbers}
+%
+%\onslide<1-3>{\begin{definition}[Eisenstein-$(p,k)$]
+%A polynomial $g(x)\in \mathbb{Q}[x]$ is Eisenstein-$(p,k)$ for a prime $p$ and positive integer $k$ if
+%\begin{equation*}
+%g(x) = \sum_{j=0}^{\deg g} \frac{a_j}{b_j} x^j
+%\end{equation*}
+%for $a_j, b_j\in \mathbb{Z}$ such that
+%\begin{enumerate}
+%\item $p \nmid b_j$ for all $j$
+%\item The polynomial $f(x) = \sum_{j=0}^{\deg g} a_j x^j$ is Eisenstein-$(p,k)$
+%\end{enumerate}
+%\end{definition}}
+%
+%\only<2>{\begin{example}
+%$g(x) = \frac{1}{2}x^2 + \frac{10}{3}x + \frac{25}{6}$ is Eisenstein-$(5,2)$, as
+%\begin{enumerate}
+%\item $5 \nmid 2$, $5 \nmid 3$, $5 \nmid 6$, and
+%\item $f(x) = x^2 + 10x + 25$ is Eisenstein-$(5,2)$.
+%\end{enumerate}
+%\end{example}}
+%
+%\onslide<3->{\begin{theorem}[Generalized Eisenstein's Criterion]
+%If $g(x)\in \mathbb{Q}[x]$ is Eisenstein-$(p,k)$ for some prime $p$ and positive integer $k$, $g(x)$ can be factored into at most $k$ irreducible factors over $\mathbb{Q}$.
+%\end{theorem}}
+%
+%\end{frame}
+%
+%\begin{frame}{Extending to Rational Numbers}
+%\begin{theorem}[Generalized Eisenstein's Criterion]
+%If $g(x)\in \mathbb{Q}[x]$ is Eisenstein-$(p,k)$ for some prime $p$ and positive integer $k$, $g(x)$ can be factored into at most $k$ irreducible factors over $\mathbb{Q}$.
+%\end{theorem}
+%
+%\begin{noet}
+%In most cases, $f_r(x) = x^2 + r = x^2 + 0x + \frac{a}{b}$ (with $\frac{a}{b}$ in reduced terms) is Eisenstein-$(p,k)$ for some $p$ and $k$!
+%\begin{enumerate}
+%\item For all $p$, $p \nmid 1$.
+%\item For all $p$, $p \mid 0$.
+%\item No prime that divides $a$ will divide $b$, as $\gcd(a,b) = 1$.
+%\item If any prime $p$ to any non-zero power $k$ divides $a$, $f_r(x)$ will be Eisenstein-$(p,k)$. 
+%\end{enumerate}
+%\end{noet}
+%\end{frame}
+%
+%% \begin{frame}{Generalized Eisenstein's Criterion}
+%% \only<1>{\begin{theorem}[Generalized Eisenstein's Criterion]
+%% If $g(x)\in \mathbb{Q}[x]$ is Eisenstein-$(p,k)$ for some prime $p$ and positive integer $k$, $g(x)$ can be factored into at most $k$ irreducible factors over $\mathbb{Q}$.
+%% \end{theorem}}
+%
+%% \note{But wait, we already knew something better than that.}
+%
+%% \note{What we were looking for was information about the iterates of $f$ we didn't know their behavior.}
+%% \end{frame}
+%
+%% \begin{frame}{Justification}
+%% \note{How does Eisenstein's Criterion work? Basically, by counting the powers of p in each coefficient of a hypothetical factorization of the polynomial, and showing that it is inconsistent with with Eisenstein-p definition. Instead of the full proof, lets look at an example.}
+%
+%% \begin{example}
+%% The function $f_{45/2}(x) = x^2 +\frac{45}{2}$ is Eisenstein-$(5,1)$. Suppose that $f_{45/2}(x)$ is reducible; then 
+%% \begin{equation*}
+%% f_{45/2}(x)= (x + \frac{a_0}{b_0})(x+ \frac{a_1}{b_1})=x^2 +\frac{a_0b_1+a_1b_0}{b_0b_1}x + \frac{a_0a_1}{b_0b_1}
+%% \end{equation*}
+%
+%% Then $a_0a_1 = 45$, so $5$ divides exactly one of $a_0$, $a_1$, and neither $b_0$ nor $b_1$. Then $5$ divides exactly one of $a_0b_1$ and $a_1b_0$, so $5\nmid (a_0b_1+a_1b_0)$. But this contradicts property (3), so $f_{45/2}(x)$ is irreducible.
+%% \end{example}
+%% \end{frame}
+%
+%
+%%\subsection{Eisenstein with Iterates}
+%\begin{frame}{What About Iteration?}
+%\only<1>{\textbf{Our dream:} Iterates of Eisenstein-$(p,k)$ polynomials are Eisenstein-$(p,k)$}
+%\note{In this case, our dreams come true...}
+%
+%% \begin{theorem}<2->
+%% If $g(x),h(x)\in \QQ[x]$ are both of degree $\geq 2$, $g(x)$ is Eisenstein-$(p,k)$, and $h(x)$ is Eisenstein-$(p,l)$ where $l\leq k$, then $h(g(x))$ is Eisenstein-$(p,l)$.
+%% \end{theorem}
+%\onslide<2->{\textbf{Our reality:} Iterates of Eisenstein-$(p,k)$ polynomials are Eisenstein-$(p,k)$}
+%\begin{block}{Theorem}<2->
+%If $g(x)\in \QQ[x]$ is Eisenstein-$(p,k)$ and $\deg g \geq 2$ , $g^n(x)$ is Eisenstein-$(p,k)$ for all $n\geq 1$.
+%\end{block}
+%\note{That's exactly what we wanted, now how do we prove it?}
+%\end{frame}
+%
+%
+%\begin{frame}{Which cases are solved?}
+%\onslide<1->{If $r=a/b$ in lowest terms such that $p\mid a$ for some prime $p$, then $f_r(x)$ is Eisenstein-$(p,k)$ for some $k$, and so the number of irreducible factors of $f_r^n(x)$ is bounded by $k$ for all $n$.}
+%\vspace{1em}
+%
+%\onslide<2->{Thus the \textbf{only cases} for which eventual stability is not yet proven are those where for all primes $p$, $p\nmid a$; that is, $a=1$ and so $r=1/c$ for some $c\in \ZZ\setminus \lbrace 0,-1\rbrace$.}
+%
+%\note{But there's actually a clever trick that allows us to do even better.}
+%
+%\end{frame}
+%
+%%%%%% David's Stuff
+%
+% \begin{frame}[plain]
+% \begin{center}
+% {\Huge\textbf{\say{The Big Lemma:} Expanding our Toolbox}}
+% \end{center}
+% \end{frame}
+% %\section{Big Lemma}
+% \begin{frame}[plain]
+%  \begin{center}
+%  \textit{To reiterate\ldots}\\\vspace{1cm}
+%\visible<2,4,6>{\alert<2,4,6>{\LARGE{Henceforth, $r=1/c$ with $c\in \ZZ\setminus \{0,-1\}$}}}\\\vspace{1cm}
+%\visible<2->{\LARGE !!!!}
+% \end{center}
+% \end{frame}
+% 
+% 
+% 
+% 
+%
+%\begin{frame}{Introducing a Crucial Sequence}
+%
+%\begin{definition}
+%		We let $A_m=f_{1/c}^m(0)$.
+%	
+%    \pause
+%  \vspace*{-.5em}  \begin{noet}
+%The denominator of $A_m$ is $c^{2^{m-1}}$ for all $m>0$. We rewrite it as $A_m=\frac{a_m}{c^{2^{m-1}}}$ where $a_m$ is an integer. Then $a_m$ is defined by the recursion $a_m=a_{m-1}^2+c^{2^{m-1}-1}$.
+%    \end{noet}\end{definition}
+%\pause
+%\alt<3>{\vspace*{-.2em}\begin{example}
+%For $f_{1/2}(x)=x^2+\frac{1}{2}$,
+%\begin{center}\begin{tabular}{rlll|c}
+%$A_0$ &$= f_{1/2}^0(0)$& &$=0$&$a_0=0$\\
+%$A_1$ &$= f_{1/2}^1(0)$&$= 0^2+\frac{1}{2}$&$=\frac{1}{2}$&$a_1=1$\\
+%$A_2$& $=f_{1/2}^2(0)$ &$= \left(\frac{1}{2}\right)^2+\frac{1}{2}$ &$= \frac{3}{4}$&$a_2=3$\\
+%$A_3$ &$= f_{1/2}^3(0)$ &$= \left(\frac{3}{4}\right)^2+\frac{1}{2}$ &$= \frac{17}{16}$&$a_3=17$
+%\end{tabular}\end{center}
+%
+%\end{example}}{\begin{theorem}[\say{The Big Lemma}]
+%	If $f_{1/c}^m(x)$ is irreducible for all $m\leq n$ and $A_{n+1}$ is not a square in $\QQ$, then $f_{1/c}^{n+1}(x)$ is irreducible. As $c^{2^{n}}$ is a square for $n\geq 1$, $A_{n+1}$ is a square if and only if $a_{n+1}$ is a square in $\ZZ$.
+%\end{theorem}}\pause
+%% \pause
+%% \uncover<5->{\alert<5>{This opens up a number of new techniques to us. However, before we get into that, we shall briefly discuss the proof\ldots}}
+%\end{frame}
+%	\setbeamercolor{background canvas}{bg=black}
+%\frame{\frametitle{The Black Box}\vspace{1.5cm}
+%	\centering{\Large\textcolor{white}{(Front)}}
+%	
+%	\note{Briefly discuss how blackboxing is an essential skill of the mathematics student, warn audience that we might lose them at some point soon--but we will let them know when we are ready to go back to simpler stuff!
+%
+%Q for rafe: where exactly do you think this slide should go? (if you approve of this expository technique)}}
+%\setbeamercolor{background canvas}{bg=white}
+%
+%\frame{\frametitle{\say{The Big Lemma:} Preliminaries}
+%\alert<1>{We assume that $f_{1/c}^m(x)$ is irreducible for all $m\leq n$.}\pause
+%\begin{notation}
+%We denote a root of $f_{1/c}^n(x)$ as $\alpha_n$, and when $n$ is fixed, we take the complete set of roots of $f_{1/c}^n(x)$ (\say{conjugates of $\alpha_n$}) to be $\{\beta_1,\beta_2,\hdots,\beta_{2^n}\}$. Note $f_{1/c}^n(x)=\prod_{j=1}^{2^n}(x-\beta_j)$. 
+%\end{notation}\pause
+%\begin{definition}
+%We let $h(\alpha_n)=a_0+a_1\alpha_n+a_2\alpha_n^2+\hdots+a_{2^{n-1}}\alpha_n^{2^{n-1}}$ be an arbitrary element of $\QQ(\alpha_n)$. We define the field norm $N:\QQ(\alpha_n)\to \QQ$ by $h(\alpha_n)\mapsto \prod_{j=1}^{2^n} h(\beta_j)$.
+%\end{definition}\note{That Im$(N)\subseteq \QQ$ is a fact from Galois theory.}
+%\pause
+%
+%\begin{noet}
+%	$N$ is \say{completely multiplicative,} that is $N(q)*N(r)=N(q*r)$ for all $q,r\in \QQ(\alpha_n)$.
+%\end{noet}}
+%\frame{\frametitle{Proof of \say{The Big Lemma}}
+%
+%\setbeamercovered{dynamic}
+%
+%
+%
+%
+%\uncover<1->{\begin{theorem}[Well-known]
+%$f_{1/c}^{n+1}(x)$ is irreducible if and only if $\left[\QQ(\alpha_{n+1}):\QQ\right]=\deg f^{n+1}(x)=2^{n+1}$. Inductively, this is equivalent to whether $\left[\QQ(\alpha_{n+1}):\QQ(\alpha_n)\right]=2$ -- that is, whether $\alpha_{n+1}\centernot\in \QQ(\alpha_n)$. \end{theorem}}\begin{itemize}
+%\item<2->\alert<2>{We note $0=f_{1/c}^{n+1}(\alpha_{n+1})=f_{1/c}^n(f_{1/c}(\alpha_{n+1}))$.}
+%\item<3-> \alert<3>{Hence, $f_{1/c}(\alpha_{n+1})$ is a root of $f^n_{1/c}(x)$, so $\alpha_n=f_{1/c}(\alpha_{n+1})=\alpha_{n+1}^2+\frac{1}{c}$}
+%\item<4->\alert<4>{$\alpha_{n+1}\in \QQ(\alpha_n)\iff \left(\alpha_n-\frac{1}{c}\right)=\gamma^2;\; \gamma\in\QQ(\alpha_n)$}
+%\item<5->\alt<5>{\alert<5>{(Note: $\gamma$ is secretly $\alpha_{n+1}$)}}{\alert<6>{Of course if this is true, then $N\left(\alpha_n-\frac{1}{c}\right)=N(\gamma^2)=N(\gamma)^2$, which is a square in $\QQ$.}}
+%\item<7->\alert<7>{So what is $N(\alpha_n-\frac{1}{c})$?}
+%\end{itemize}
+%% \uncover<2->{\alert<2>{We note $0=f_{1/c}^{n+1}(\alpha_{n+1})=f_{1/c}^n(f_{1/c}(\alpha_{n+1}))$.}} \uncover<3->{\alert<3>{Hence, $\alpha_{n}=f_{1/c}(\alpha_{n+1})=\alpha_{n+1}^2+\frac{1}{c}$, so\ldots}} \uncover<4->{\alert<4>{\begin{center}$\alpha_{n+1}\in \QQ[\alpha_n]\iff \left(\alpha_n-\frac{1}{c}\right)=\gamma^2;\; \gamma\in\QQ[\alpha_n]$\end{center}}}
+%% \uncover<5->{\alert<5>{Of course if this is true, then $N\left(\alpha_n-\frac{1}{c}\right)=N(\gamma^2)=N(\gamma)^2$, which is a square in $\QQ$.}} \uncover<6->{\alert<6>{And what is $N\left(\alpha_n-\frac{1}{c}\right)$?}}
+%% {\alt<7,8>{\begin{definition}
+%% We let $h(\alpha_n)=a_0+a_1\alpha_n+a_2\alpha_n^2+\hdots+a_{2^{n-1}}\alpha_n^{2^{n-1}}$ be an arbitrary element of $\QQ(\alpha_n)$. We define the field norm $N:\QQ(\alpha_n)\to \QQ$ by $h(\alpha_n)\mapsto \prod_{j=1}^{2^n} h(\beta_j)$
+%% \end{definition}}{\begin{notation}
+%% We denote a generic root of $f^n$ as $\alpha_n$, and when $n$ is fixed, we take the complete set of roots of $f^n$ to be $\{\beta_1,\beta_2,\hdots,\beta_n\}$ such that $f^n(x)=\prod_{j=1}^{2^n}(x-\beta_j)$ 
+%% \end{notation}}}
+%
+%
+%% \begin{overprint}[\textwidth]
+%
+%
+%% \onslide<1-6,11->{\uncover<1,12>{\begin{theorem}[Well-known]
+%% $f^{n+1}(x)$ is irreducible if and only if $\left[\QQ[\alpha_{n+1}]:\QQ\right]=\deg f^{n+1}=2^{n+1}$. Equivalently $f^{n+1}$ is irreducible if $\left[\QQ[\alpha_{n+1}]:\QQ[\alpha_n]\right]=2$ -- that is, if $\alpha_{n+1}\centernot\in \QQ[\alpha_n]$ \end{theorem}}\pause
+%% \uncover<2->{\alert<2>{We note $0=f^{n+1}(\alpha_{n+1})=f^n(f(\alpha_{n+1}))$.}} \uncover<3->{\alert<3>{Hence, $\alpha_{n}=f(\alpha_{n+1})=\alpha_{n+1}^2+\frac{1}{c}$, so\ldots}} \uncover<4->{\alert<4>{\begin{center}$\alpha_{n+1}\in \QQ[\alpha_n]\iff \left(\alpha_n-\frac{1}{c}\right)=\gamma^2;\; \gamma\in\QQ[\alpha_n]$\end{center}}}
+%% \uncover<5->{\alert<5>{Of course if this is true, then $N\left(\alpha_n-\frac{1}{c}\right)=N(\gamma^2)=N(\gamma)^2$, which is a square in $\QQ$.}} \uncover<6->{\alert<6>{And what is $N\left(\alpha_n-\frac{1}{c}\right)$?}}}
+%% {\onslide<7,8>{\begin{definition}
+%% We let $h(\alpha_n)=a_0+a_1\alpha_n+a_2\alpha_n^2+\hdots+a_{2^{n-1}}\alpha_n^{2^{n-1}}$ be an arbitrary element of $\QQ(\alpha_n)$. We define the field norm $N:\QQ(\alpha_n)\to \QQ$ by $h(\alpha_n)\mapsto \prod_{j=1}^{2^n} h(\beta_j)$
+%% \end{definition}}}\onslide<9,10>{\begin{notation}
+%% We denote a generic root of $f^n$ as $\alpha_n$, and when $n$ is fixed, we take the complete set of roots of $f^n$ to be $\{\beta_1,\beta_2,\hdots,\beta_n\}$ such that $f^n(x)=\prod_{j=1}^{2^n}(x-\beta_j)$ 
+%% \end{notation}}
+%
+%
+%
+%%%
+%}
+%\frame{\frametitle{So what is $N(\alpha_n-\frac{1}{c})$?}
+%
+%\begin{center}\vspace*{-\baselineskip}%%
+%
+%\begin{align*}
+%N(\alpha_n-\frac{1}{c})&= \uncover<2->{\alert<2>{\prod_{j=1}^{2^n}(\beta_j-\frac{1}{c})}}\\
+% &\uncover<3->{\alert<3>{=(-1)^{2^n}\prod_{j=1}^{2^n}(\frac{1}{c}-\beta_j)}}\uncover<4->{\alert<4>{=f_{1/c}^n(\frac{1}{c})}}\uncover<5->{\alert<5>{=f_{1/c}^{n+1}(0)}}\uncover<6->{\alert<6>{=A_{n+1}}}
+% \end{align*}
+% 
+%%
+%\end{center}
+%
+%\uncover<2->{\alt<2,3>{\begin{block}{Recall}
+% $N:\QQ(\alpha_n)\to \QQ$ is defined by $$h(\alpha_n)\mapsto \prod_{j=1}^{2^n} h(\beta_j)$$
+%\end{block}}
+%{\alt<4,5>{\begin{block}{Recall}$$f_{1/c}^n(x)=\prod_{j=1}^{2^n}(x-\beta_j)$$\end{block}}
+%{\begin{block}{Recall}
+%$$A_m=f_{1/c}^m(0)$$
+%\end{block}}}
+%}
+%}
+%
+%	\setbeamercolor{background canvas}{bg=black}
+%\frame{\frametitle{The Black Box}\vspace{1.5cm}
+%	\centering{\Large\textcolor{white}{(Back)}}
+%	
+%	\note{\say{for those of you we lost with that, this is your invitation to rejoin us}}}%\section{The Sequences $\{A_n\}$ and $\{a_n\}$}
+%%\subsection{First Principles}
+%\setbeamercolor{background canvas}{bg=white}
+%\frame{\frametitle{What happened in the black box?}
+%\begin{theorem}<1->[\say{The Big Lemma}] 
+%	If $f_{1/c}^m(x)$ is irreducible for all $m\leq n$ and $A_{n+1}$ is not a square in $\QQ$, then $f_{1/c}^{n+1}(x)$ is irreducible.
+%\end{theorem}
+%\uncover<2->{\begin{block}{Corollary (Stability Test)} For any given $c\in(\ZZ\setminus\{0,-1\})$, if $f_{1/c}(x)$ is irreducible and $a_n$ is nonsquare for all $n\geq 2$, then $f_{1/c}(x)$ is stable.\end{block}
+%}
+%\uncover<3->{{\sc{\large\textcolor{blue}{One Subtlety:}}}\\The above corollary is \textbf{not} an if-and-only-if statement. The converse is not necessarily true!}
+%
+%
+%} \begin{frame}[plain]
+% \begin{center}
+% {\Huge\textbf{Our Results: Putting Our New Tools to the Test!}}
+% \end{center}
+% \end{frame}
+%
+%\begin{frame}{The case $c<0$, $-c$ Nonsquare}
+%\begin{theorem}
+%If $c<0$, then $f_{1/c}(x)=x^2+\frac{1}{c}$ is stable as long as $-c$ is
+%not a square in $\ZZ$.\end{theorem}{\sc \textcolor{blue}{The Proof:}}\\\vspace{1mm}
+%\uncover<2->{\textbf{Claim:} $A_m<0$ for all $m$.}
+%\vspace{1.5cm}
+%\newline\uncover<3->{(\textcolor{blue}{\sc Note:} $A_m<0\implies A_m$ nonsquare)}
+%
+%\vspace{1.5cm}
+%
+%\uncover<4->{\alert<4>{ Hence, $f_{1/c}(x)$ is stable by the {\LARGE Big Lemma}}}
+%
+%\end{frame}
+%
+% \begin{frame}[plain]
+%  \begin{center}
+%  \textit{Well we've handled all of $c<0$ we can (for now), so\ldots}\\\vspace{1cm}
+%\visible<2->{\alert<2->{\LARGE{Henceforth, $c>0$!}}\\\vspace{1cm}}
+%
+%\visible<3->{$f_{1/c}(x)$ is irreducible over $\QQ$ for all $c>0$, so we ``only'' need to check if $a_n$ is square for all $n\geq 2$.}
+% \end{center}
+% \end{frame}
+%
+%%%on the super-super-super-off chance we have extra time IMO this should be the first thing we consider adding back in.
+%\frame{\frametitle{The case $c\equiv 1 \mod 3$} \onslide<1->{\begin{fact}
+% 	There is no integer $z$ such that $z^2\equiv 2\mod 3$. (i.e. $z^2 = 3k+2$)\end{fact}}
+% 	\onslide<2->{We suppose $c\equiv 1\mod 3$ and consider each $a_m\mod 3$. As $A_1=\frac{1}{c}$, $a_1=1\equiv 1\mod 3$. Then
+% 	$$a_m=a_{m-1}^2+c^{2^{m-1}-1}\equiv a_{m-1}^2+1^{2^{m-1}-1}\mod 3$$
+% so $a_2 \equiv 1^2+1 \equiv 2\mod 3$, so $a_2$ is not a square in $\ZZ$.} 
+% 
+%\onslide<3->{\alert<3>{Now, if we plug in $a_{m-1}=2$,
+% $$a_m\equiv a_{m-1}^2+1\equiv 1+1\equiv 2 \mod 3$$
+% Inductively, for $m\geq 2$, $a_m\equiv 2\mod 3$, so $a_m$ cannot be a square!}}
+% \begin{theorem}<4->
+%	If $0<c\equiv 1\mod 3$, then for $f_{1/c}(x)=x^2+\frac{1}{c}$, $f_{1/c}^n(x)$ is irreducible for all $n$. 
+%\end{theorem}
+% }
+%
+%
+%
+%\frame{\frametitle{More Methodologically Related Results}
+%\begin{center}\textit{Let $c>0$}
+%\end{center}
+%\uncover<2>{\alert<2>{Bam!}}
+%\begin{theorem}<2->
+%If $ c\equiv 1 \mod 2$, then $f_{1/c}(x)$ is stable.\end{theorem}
+%
+%\uncover<3>{\alert<3>{Bam!}}
+%\begin{theorem}<3->
+%If $c+1$ is non-square, and $p$ is a prime with $p\equiv 3 \mod 4$ such that $c\equiv -1 \mod p$, then $f_{1/c}(x)$ is stable. 
+%\end{theorem}
+%}
+%\begin{frame}[plain]\begin{center}
+%{\Huge\textbf{Parametrization Arguments: More Tools!}}\end{center}
+%\end{frame}
+%
+%
+%
+%
+%% %\subsection{Divisibility Sequences}\frame{\frametitle{What is a Divisibility Sequence?}
+%% \begin{definition}
+%% We say that an integer sequence $\{s_n\}_{n\geq 0}$ is a (semi-strong) divisibility sequence if for all $p\mid s_m$ and $k\in \NN$,  $v_p(s_m)=v_p(s_{km})$.
+%% \end{definition}
+%% \begin{lem} 
+%% 	$\{a_m\}_{m\geq 0}$ is a divisibility sequence
+%% \end{lem}
+%% \begin{cor} 
+%% 	Suppose for all $m\leq n$ $f^m$ is irreducible \textbf{and} $a_{p}$ is not a square where $p$ is a prime number. Then $a_{kp}$ is not a square for any $k\in \NN$. Moreover, if for all $m\leq n$, $a_m$ is not a square, then if $f^{n+1}$ is irreducible, $n+1$ is necessarily a prime number.
+%% \end{cor}
+%
+%% }
+%
+%
+%
+%% \frame{\frametitle{The case $c\equiv -1 \mod p$ for $p\equiv 3\mod 4$}
+%% \begin{fact}[Generalization of last fact]
+%% If $p\equiv 3\mod 4$, then $p-1$ is not a square $\mod p$
+%% \end{fact}
+%% We suppose that $c\equiv -1\mod p$ for some $p\equiv 3\mod 4$, and $a_2=c+1$ is not a square in $\ZZ$. Consider the sequence $\{a_m \mod p\}_{m\geq 0}$. We have $a_0=0$ and $c^{2^{m-1}-1}\equiv (-1)^{2^{m-1}-1}\equiv -1\mod p$  for $m\geq 2$. Then $a_1\equiv 0+1\equiv 1\mod p$, $a_2\equiv 0 \mod p$, and $a_3\equiv 0+(-1)\equiv -1\mod p$. Thus,
+%% $$a_0,a_1,a_2\hdots \equiv 0,1,0,-1,0,-1,\hdots$$
+%% Now, the even entries $a_{2k}\equiv 0\mod p$, but we already have that $a_{2k}$ cannot be a square. The odd entries $a_{2k+1}$ for $k\geq 1$ are $-1\mod p$, so $a_{2k+1}$ cannot be a square. 
+% 
+%% \note{Announce verbally that this is periodic}}
+%% \frame{\frametitle{The case $c\equiv -1 \mod p$ for $p\equiv 3\mod 4$}
+%% 	\begin{cor}
+%% 	If $c\equiv -1\mod p$ for some $p\equiv 3\mod 4$ and $c+1$ is not a square in $\ZZ$, then for $f(x)=x^2+\frac{1}{c}$, $f^n$ is irreducible for all $n$.	\end{cor}}
+%    
+%% \begin{frame}{}
+%
+%% \end{frame}
+%
+%
+%\frame{
+%\frametitle{A (Almost) Pythagorean Parameterization}\alert<1>{\uncover<1->{\begin{center}
+%\textit{Let $c>0$ be even\ldots}\end{center}}}
+%\note{\say{For this slide, and what follows, c is both even and positive, with even because we just handled 1 mod 2 (well not really, but anyway).}}
+%\note{\say{We would like to show $a_{n}$ is a not a square for all $n>2$. So in the spirit of contradiction, what happens if it is a square?}}\onslide<2->{
+%
+%\onslide<2->{If $a_n$ is square, then}
+%\onslide<3->{\begin{equation*}
+%\left(\sqrt{a_n}\right)^2 = a_{n-1}^2+c^{2^{n-1}-1}
+%\end{equation*}
+%is \emph{almost} a Pythagorean triple.
+%\vspace{1em}}
+%
+%\onslide<4->{In particular, if we separate $c$ into a square-free part $\delta$ and a square part $d^2$, so that $c=\delta d^2$,}\onslide<5->{ then there are relatively prime integers $u$ and $v$ such that
+%\begin{align*}
+%a_{n-1} &= \alert<5>{u^2-\frac{v^2}{\delta^{2^{n-1}-1}}}\\
+%d^{2^{n-1}-1} &= \frac{2uv}{\delta^{2^{n-1}-1}} \\
+%\sqrt{a_n} &= u^2+\frac{v^2}{\delta^{2^{n-1}-1}}.
+%\end{align*}}
+%\note{\say{Now we can use this and knowledge about the relative size of $a_n$ and $a_n-1$}}
+%}}
+%
+%\frame{
+%\frametitle{Some Bounds}
+%\note{\say{We can also find the limit of this sequence and use it to determine bounds on $a_n$ which get better with $c$}}
+%For all $n$, whether $a_n$ is square or not, 
+%\begin{equation*}
+%c^{2^{n-1}-1}\leq a_n <\Upsilon(c) c^{2^{n-1}-1}
+%\end{equation*}
+%where
+%\begin{equation*}
+%\lim_{c\rightarrow \infty}\Upsilon(c) = 1.
+%\end{equation*}
+%\vspace{1em}
+%
+%\onslide<2->{For $c$ with certain prime factorization properties, we can use the parameterization to prove that if $a_n$ is square, it violates these bounds.}
+%\note{\say{Thus using a proof by contradiction format, we can prove that $f_{1/c}^n(x)$ is irreducible for all $n$.}}
+%}
+%
+%%\subsection{Consequences}
+%
+%\frame{
+%\frametitle{Dominantly Odd-Powered $c$}
+%\note{\say{So we will briefly give you an overview of the kinds of results we can achieve with these two additions to our toolbox (parameterization and bounds).}}
+%\note{\say{First we will define what it means for a number to be mostly nonsquare (most of the number consists of primes to odd powers).}}
+%
+%\begin{defn}
+%Let the prime factorization of $c$ be $c= p_0^{e_0}p_1^{e_1}\hdots p_t^{e_t}$ where the $p_i$ are distinct primes. We call $c$ \say{dominantly odd-powered} if
+%\begin{equation*}
+%	\Psi(c)=\frac{\displaystyle\prod_{i:\,2\nmid e_i}p_i^{e_i}}{\displaystyle\prod_{j: 2\mid e_j}p_j^{e_j}}>2^{2/3}\approx 1.59
+%\end{equation*}
+%\end{defn}
+%\note{\say{Now here's our key insight about these dominantly odd-powered $c$ - we use our parameterization to draw strong conclusions about what happens to those primes in the numerator. We just will be presenting the basic idea here, and ignoring a bunch of technical details that determine exactly what number appears in the bound, etc.}}
+%
+%\only<2>{\vspace{1em}{\sc{\large\textcolor{blue}{Key Insight:}}} If $e_i$ is odd, then $p_i \mid \delta$. But the parameterization implies $\frac{v^2}{\delta^{2^{n-1}-1}}$ is an integer, so then $p_i$ divides $v$ and not $u$. Thus if ``too much'' of $c$ consists of primes to odd powers, then $v \gg u$, which violates our bounds and results in a contradiction.}
+%
+%% \begin{defn}
+%% We let  $T=T(c)=\{p\mid c:\,v_p(c)\equiv 1 \mod 2\}$. We call $c$ \say{dominantly odd-powered} if the following holds for  $p_i$ being the prime divisors of $c$:
+%% \begin{equation*}
+%% 	\Psi(c)=\frac{\prod_{p_i\not \in T}p_i^{v_{p_i}(c)}}{\prod_{p_j\in T}p_j^{v_{p_j}(c)}}<2^{-\frac{2}{3}}
+%% \end{equation*}
+%% \end{defn}
+%\only<3>{\begin{theorem}
+%If $c$ is dominantly odd-powered, $f_{1/c}(x) = x^2 + \frac{1}{c}$ is stable.
+%\end{theorem}}
+%\note{Say what ``percentage of numbers''($> 6/\pi^2$)--because it includes squarefree numbers!}
+%}
+%
+%\frame{
+%\frametitle{Dominantly Non-Residual $c$}
+%\note{\say{Here's another category for which we can make similar claims about where particular prime factors ``end up'' in the parameterization. Here we once again divide $c$ into two parts: the part where $p_i$ is $2,3 \mod 4$ and the part consisting of primes that are $1\mod 4$. This completely multiplicative function $\Phi$ basically takes the first category of prime factors and divides by the second. Thus $c$ is dominantly non-residual if more of $c$ is in primes that are $2,3\mod 4$ than those $1\mod 4$.}}
+%\begin{defn}
+%Let the prime factorization of $c$ be $c= p_0^{e_0}p_1^{e_1}\hdots p_t^{e_t}$ where the $p_i$ are distinct primes. We call $c$ \say{dominantly non-residual} if
+%\begin{equation*}
+%	\Phi(c)=\frac{\displaystyle\prod_{i:\,p_i\not\equiv 1 \,\text{mod}\, 4}p_i^{e_i}}{\displaystyle\prod_{j:\, p_j\equiv 1 \,\text{mod}\, 4}p_j^{e_j}}>1
+%\end{equation*}
+%\end{defn}
+%\vspace{1em}
+%
+%\note{\say{We again show these prime factors divide $v$ and not $u$, and thus if there are too many of them, $v>u$, contradicting the bounds.}}
+%\only<1-2>{\onslide<2>{\vspace{1em}{\sc{\large\textcolor{blue}{Key Insight:}}} If $c=d^2$ (i.e. $\delta =1$), then any prime $p\mid c$ that is $2$ or $3 \mod 4$ must divide $v$ and not $u$. Thus if ``too much'' of $c$ is primes that are $2,3\mod 4$, then $v > u$, which is again a contradiction.}}
+%
+%
+%\only<3>{\begin{theorem}
+%If $c$ is dominantly non-residual and $c=d^2$, $f_{1/c}(x) = x^2 + \frac{1}{c}$ is stable.
+%\end{theorem}}
+%}
+%
+%\frame{
+%\frametitle{Logarithmic-Time Algorithm}
+%\note{\say{Well, even though the cases we discussed here represent a large proportion of numbers, we still have many positive $c$ values that don't match any of them. For example, FILL IN EXAMPLE HERE. }}
+%\onslide<1->{\textbf{Good News:} These cases cover the vast majority of $c$ values.}
+%
+%\onslide<2->{\textbf{Bad News:} There are $c$ values that don't fit any of these cases.}
+%
+%\onslide<3->{\textbf{Better News:} We have an algorithm that can check any $c>0$.}
+%
+%\onslide<4->{\vspace{1em}{\sc{\large\textcolor{blue}{Motivation:}}} From the parameterization, %$u$ and $v$ are relatively prime and
+%\only<5>{\begin{equation*}
+% 2uv = (d\delta)^{2^{n-1}-1},
+%\end{equation*}}
+%\note{\say{And recall $u,v$ relatively prime, so...}}
+%\onslide<6->{\hspace*{-1em}~$v$ is \emph{almost} a very large power of some integer $k$.}\onslide<7->{The known bounds on $a_n$ provide bounds on this $k$ that are \emph{almost} independent of $n$, so that $k$ has a single fixed possible value for all $n$ past some threshold $N$. Here
+%\begin{equation*}
+%N \approx \frac{\log c}{2\log 2}
+%\end{equation*}}}
+%
+%\onslide<8->{{\sc{\large\textcolor{blue}{Strategy:}}} Calculate $a_n$ and check if it is a square for all $n\leq N$. Then check if the single possible value for $k$ results in a valid parameterization. If no squares and no valid parameterization, then $f_{1/c}(x)$ is stable.}
+%}
+%\note{\say{Because of the asymmetry in the result we talked about earlier, this algorithm can only verify stability; it can never prove instability. However, it might be inconclusive.}}
+%\note{\say{Actually, we wrote this algorithm, along with some enhancements that check for all of the cases we already proved here, and started it running from $c=2$ at the start of the talk...}}
+%
+%\begin{frame}{Surprise Live Demo!}
+%\begin{center}
+%\emph{What $c$ have we reached in the last $50$ minutes?}
+%\end{center}
+%\end{frame}
+%
+%\frame{\frametitle{Acknowledgements}
+%\textbf{A thousand and one thank yous to the following:}
+%\begin{itemize}
+%\item<2-> Our advisor, mentor, spiritual guide, and all-around hero, \emph{Rafe Jones}.
+%\item<3-> Our \emph{professors}, for preparing us to reach this stage of our mathematical career.
+%\item<4-> \emph{Sue Jandro}, for secretly being the reason the math department hasn't succumbed to mass chaos and cannibalistic anarchy.
+%\item<5-> Our \emph{parents, roommates and friends} for supporting us through this and putting up with incoherent rambling about polynomial stability for the last five months.
+%\item<6-> \emph{You}, for coming and listening.
+%\end{itemize}
+%
+%\uncover<7->{\textbf{And finally, a big raspberry directed towards\ldots}}
+%
+%\begin{itemize}
+%\item<8-> \emph{The number 2,} \say{the worst prime.}\hspace{-1em}~ ~\uncover<9->{(-Rafe Jones, 15 May 2017)}
+%\end{itemize}
+%}
+
+\end{document}
