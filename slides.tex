@@ -422,9 +422,36 @@ $$\begin{tikzcd}[ampersand replacement=\#]\rF: \dots\ar[r,"\del_3"] \# F_2\ar[r,
 \frame{\frametitle{Interlude: Matrix Factorizations}
 Let $x\in A$ and $\phi:F\to G$ a morphism of $A$-modules.
 
-\onslide<3->{\begin{definition}
- The ordered pair $(\psi,\phi)$ is a \emph{matrix factorization of $x$} if\end{definition}
+\onslide<2->{\begin{definition}
+ The ordered pair $(\psi,\phi)$ is a \emph{matrix factorization of $x$} if $\psi\circ \phi=1_F$ and $\phi\circ \psi=x\cdot 1_G$.\end{definition}
+\onslide<3->{\begin{theorem}[5.5]
+		Given $\phi$, there exists a $\psi$ such that $(\psi,\phi)$ is a matrix factorization if and only if \textbf{each} of the following hold:\begin{itemize}
+			\item $\rank F=\rank G$
+			\item $\det \phi$ is a non-zero divisor
+			\item $x\cdot \mathrm{Fitt}_1(\phi)\subset \idl{\det\phi}$, i.e. $x$ annihilates $\mathrm{coker} \phi$
+			i.e. $\phi$ is f
+		\end{itemize}
+\end{theorem}}
 }}
+\frame{\frametitle{A Quick Computation}\begin{itemize}
+\item\onslide<1->{$A:=k[W,Y,Z]$ with $k$ a field of characteristic 0. Set $x=W(Y^2-Z^2)$.}
+
+$$\onslide<2->{\phi=\begin{bmatrix}
+Y-Z&0&Y-Z\\
+Y-Z&0&0\\
+0&W&0
+\end{bmatrix}}\hspace{.5cm}\onslide<3->{\det \phi=W(Y-Z)^2}$$$$\onslide<4->{\alert<4>{\phi^c=\begin{bmatrix}0&W(Y-Z)&0\\0&0&(Y-Z)^2\\W(Y-Z)&W(Z-Y)&0
+	\end{bmatrix}}}$$ 
+\item\onslide<5->{\alert<5>{Thus, $\mathrm{Fitt}_1(\phi)=\idl{W(Y-Z),(Y-Z)^2}$ and indeed $x\cdot \mathrm{Fitt}_1\subset \idl{\det\phi}$}}
+\item\onslide<6-> \alert<6>{$\psi$ is uniquely determined by $\phi$: $\psi=\frac{x}{\det \phi}\phi^c=\frac{(Y+Z)}{(Y-Z)}\phi^c$}\end{itemize}
+}
+\frame{\frametitle{From Matrix Factorizations to Free Resolutions}
+Let $x\in A$ be a nonzero divisor and $(\psi,\phi)$ a matrix factorization of $x$.
+\begin{itemize}
+	\item<2-> We can construct a minimal $B=A/\idl{x}$-free resolution $\rF(\psi,\phi)$ of $\mathrm{coker }\phi$ with differentials $\phi,\psi$.$$\begin{tikzcd}[column sep=small,ampersand replacement=\#]\rF(\psi,\phi): \dots \ar[r,"\psi"]\# F\ar[r,"\phi"] \# G\ar[r,"\psi"]\# F\ar[r,"\phi"]\# G \ar[r]\# 0\end{tikzcd}$$   \note{Of course this res is periodic of period 2}.
+	\item<3->
+\end{itemize}
+}
 %
 %
 %\frame{\frametitle{Basic Definitions}
