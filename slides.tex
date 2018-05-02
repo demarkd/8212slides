@@ -23,7 +23,7 @@
 % Outer color themes: Whale, Seahorse
 
 \usefonttheme{structuresmallcapsserif}
-
+%\usepackage{enumitem}
 %\usepackage{pgfarrows}
 %  Don't need to load the pgf package, but it has 
 %  has itself some packages you might want, such as 
@@ -363,28 +363,29 @@
 }
 \frame{\frametitle{Why do we care?}\begin{itemize}
 	\item<2-> Classifying maximal CM modules over complete hypersurfaces! (case $n=1$)
-	\begin{theorem}[6.1]
-		Let $x\in A$, $d=\dim A$, and $B:=A/\idl{x}$. Then,
-		\begin{itemize}
-			\item For any $B$-module $M$ and minimal free resolution $\rF$, the truncation at $F_{d+1}$ is periodic with period 2.
-			\item $\rF$ periodic $\iff$ $M$ is a maximal CM module w/o a free summand.
-		\item If so, $\rF$ is induced a \emph{matrix factorization.}
-		\end{itemize} 
-	\end{theorem}
-\end{itemize}}
-\frame{\frametitle{Why do we care?}\begin{itemize}
-		\item<1-3> Expanding upon a familiar characterization!
-		\alt<1>{\begin{theorem}[Auslander-Buchsbaum-Serre]
+%	\begin{theorem}[6.1]
+%		Let $x\in A$, $d=\dim A$, and $B:=A/\idl{x}$. Then,
+%		\begin{enumerate}
+%			\item For any $B$-module $M$ and minimal free resolution $\rF$, the truncation at $F_{d+1}$ is periodic with period 2.
+%			\item $\rF$ periodic $\iff$ $M$ is a maximal CM module w/o a free summand.
+%		\item If so, $\rF$ is induced a \emph{matrix factorization.}
+%		\end{enumerate} 
+%	\end{theorem}
+
+		\item<3-5> Expanding upon a familiar characterization!
+		\onslide<4->{\begin{theorem}[Auslander-Buchsbaum-Serre]
 			For $(R,\mfr)$ local, $R$ is regular $\iff$ $\mathrm{gl}\,\mathrm{dim}(R)<\infty$.
-			\end{theorem}}{\begin{theorem}[6.1]
-		For $(R,\mfr)$ local with $\dim R=d$, TFAE:
-		\begin{itemize}
-			\item For some $x_1,\dots,x_{d+1}\in R$, $\mfr=\idl{x_1,\dots,x_{d+1}}$ and $\hat{0}$ is unmixed in $\hat{R}^\mfr$ (i.e. all associated primes of $\hat{0}$ are minimal).
-			\item For any f.g. $R$-module $M$ with minimal free resolution $\rF$, the truncation of $\rF$ at degree $d+1$ is periodic of period 2.
-			\item There exists a free resolution $\rF:\dots\to F_1\to F_0\to 0$ of $R_\mfr/\mfr R_\mfr$ where for some $n$, $\mathrm{rank} F_n<n$.
-		\end{itemize}\note{This establishes periodicity as somewhat of a ``first step up" from finiteness of projective resolutions.}
-	\alert<3>{We call such an $R$ an \emph{abstract hypersurface.}}
-		\end{theorem}}
+			\end{theorem}}
+		\onslide<5-> We will give a similar (albeit more complicated) characterization of codim-1 quotients of regular local rings.
+		%{\begin{theorem}[6.1]
+		%For $(R,\mfr)$ local with $\dim R=d$, TFAE:
+		%\begin{itemize}
+			%\item For some $x_1,\dots,x_{d+1}\in R$, $\mfr=\idl{x_1,\dots,x_{d+1}}$ and $\hat{0}$ is unmixed in $\hat{R}^\mfr$ (i.e. all associated primes of $\hat{0}$ are minimal).
+			%\item For any f.g. $R$-module $M$ with minimal free resolution $\rF$, the truncation of $\rF$ at degree $d+1$ is periodic of period 2.
+			%\item There exists a free resolution $\rF:\dots\to F_1\to F_0\to 0$ of $R_\mfr/\mfr R_\mfr$ where for some $n$, $\mathrm{rank} F_n<n$.
+		%\end{itemize}\note{This establishes periodicity as somewhat of a ``first step up" from finiteness of projective resolutions.}
+	%\alert<3>{We call such an $R$ an \emph{abstract hypersurface.}}
+		%\end{theorem}}
 	\note{Remark: ``Abstract hypersurface" is an intentionally suggestive piece of terminology. Indeed, if $B$ is such a ring satisfying these conditions, there exists some $\hat{A}$ regular, local, complete and $x\in \hat{A}$ with $\hat{B}=\hat{A}/\idl{x}$\textemdash in summary, given such a ring, we may identify its completion as the coordinate ring of some codimension-1 closed embedding into the affine scheme of a regular local ring. }
 \end{itemize}}
 
@@ -446,11 +447,64 @@ Y-Z&0&0\\
 \item\onslide<6-> \alert<6>{$\psi$ is uniquely determined by $\phi$: $\psi=\frac{x}{\det \phi}\phi^c=\frac{(Y+Z)}{(Y-Z)}\phi^c$}\end{itemize}
 }
 \frame{\frametitle{From Matrix Factorizations to Free Resolutions}
-Let $x\in A$ be a nonzero divisor and $(\psi,\phi)$ a matrix factorization of $x$.
+Let $x\in A$ be a nonzero divisor with $\idl{x}/\idl{x}^2$ free over $B=A/\idl{x}$ and $(\psi,\phi)$ a matrix factorization of $x$.
 \begin{itemize}
-	\item<2-> We can construct a minimal $B=A/\idl{x}$-free resolution $\rF(\psi,\phi)$ of $\mathrm{coker }\phi$ with differentials $\phi,\psi$.$$\begin{tikzcd}[column sep=small,ampersand replacement=\#]\rF(\psi,\phi): \dots \ar[r,"\psi"]\# F\ar[r,"\phi"] \# G\ar[r,"\psi"]\# F\ar[r,"\phi"]\# G \ar[r]\# 0\end{tikzcd}$$   \note{Of course this res is periodic of period 2}.
-	\item<3->
-\end{itemize}
+	\item<2-> We can construct a minimal $B$-free resolution $\rF(\psi,\phi)$ of $\mathrm{coker }\phi$ with differentials $\phi,\psi$.$$\begin{tikzcd}[column sep=small,ampersand replacement=\#]\rF(\psi,\phi): \dots \ar[r,"\psi"]\# F\ar[r,"\phi"] \# G\ar[r,"\psi"]\# F\ar[r,"\phi"]\# G \ar[r]\# 0\end{tikzcd}$$   \note{Of course this res is periodic of period 2.}
+	\item<3-> In such a resolution, necessarily, $\rank_B G=\rank_B F$ (5.3-5.4)
+	\item<4-> If $\det_A \phi=x^k u$ with $u\notin \idl{x}$, then $\rank_B\mathrm{coker} \phi=k$. (5.6)
+\end{itemize}}
+
+\frame{\frametitle{So What?}\begin{itemize}
+		\item<2-> These classify maximal CM modules over complete hypersurfaces! 
+		\onslide<3->{\begin{theorem}[6.1]
+			Let $x\in A$, $d=\dim A$, and $B:=A/\idl{x}$. Then,
+			\begin{enumerate}
+				\item<4-> For any $B$-module $M$ with minimal free resolution $\rF$, the truncation at $F_{d+1}$ is periodic with period 2.
+				\item<5-> $\rF$ periodic $\iff$ $M$ is a maximal CM module w/o a free summand.
+				\item<6-> If so, $\rF$ is induced by a {matrix factorization.}
+			\end{enumerate} 
+		\end{theorem}}
+\end{itemize}}
+\frame{\frametitle{Sketch of Proof of Theorem 6.1}
+%%\begin{proof}[Proof (sketch).]
+\begin{itemize}
+	\item<1-3> (2)$\implies$ (1)	
+		\onslide<2-3>{\begin{lem}[0.1--Well-known]
+			For $B$ a local ring and $B$-free resolution $$\begin{tikzcd}[ampersand replacement=\#]\rF: \dots\ar[r,"\del_3"] \# F_2\ar[r,"\del_2"]\# F_1\ar[r,"\del_1"]\# F_0\ar[r,"\del_0"]\# 0\end{tikzcd}$$
+			\begin{enumerate}
+				\item If $x_1,\dots,x_r$ is a $B$-sequence, then it is a regular sequence on $\im \del_k$ for all $k\geq r$.
+				\item If $\rF$ is minimal, $\im \del_k$ has no free summands for $k\geq 1+\mathrm{depth }B$
+			\end{enumerate}
+		\end{lem}}
+\item<3> (2$\implies$) Note that $M=\mathrm{coker}(G\to F)$.\note{Lemma 0.1 then shows that since we can find such an image of arbitrary homological degree, $M$ must be maximally Cohen-Macaulay} \end{itemize}}
+\frame{\frametitle{Sketch of Proof of Theorem 6.1}\begin{itemize}
+\item<1-3> (2$\impliedby$) Consider $M$ as an $A$-module. Use $\rF^\#:0\to F\to G\to M$ be its minimal $A$-free resolution.
+\item<2-3> Show $F\to G$ satisfies conditions for matrix factorization with corresponding $\psi$.\note{Shown directly, using that $\phi$ is an injection}
+\item<3> Show if $\rF(\phi,\psi)$ is not minimal, $M$ contains a free summand.\end{itemize}}
+\frame{\frametitle{Sketch of Proof of Theorem 6.1}\begin{itemize}
+\item<1-> (3)
+\item<2-> Show that for any periodic resolution $\rF$ over $B$, $t(A,x,\rF)$ can be chosen to be the identity!
+\end{itemize}}
+%\end{proof}
+
+\frame{\frametitle{So What?}\begin{itemize}
+		\item<1-3> Expanding upon a familiar characterization!
+		\alt<1>{\begin{theorem}[Auslander-Buchsbaum-Serre]
+				For $(R,\mfr)$ local, $R$ is regular $\iff$ $\mathrm{gl}\,\mathrm{dim}(R)<\infty$.
+		\end{theorem}}{\begin{theorem}[6.1]
+				For $(R,\mfr)$ local with $\dim R=d$, TFAE:
+				\begin{itemize}
+					\item For some $x_1,\dots,x_{d+1}\in R$, $\mfr=\idl{x_1,\dots,x_{d+1}}$ and $\hat{0}$ is unmixed in $\hat{R}^\mfr$ (i.e. all associated primes of $\hat{0}$ are minimal).
+					\item For any f.g. $R$-module $M$ with minimal free resolution $\rF$, the truncation of $\rF$ at degree $d+1$ is periodic of period 2.
+					\item There exists a free resolution $\rF:\dots\to F_1\to F_0\to 0$ of $R_\mfr/\mfr R_\mfr$ where for some $n$, $\mathrm{rank} F_n<n$.
+				\end{itemize}\note{This establishes periodicity as somewhat of a ``first step up" from finiteness of projective resolutions.}
+				\alert<3>{We call such an $R$ an \emph{abstract hypersurface.}}
+		\end{theorem}}
+		\note{Remark: ``Abstract hypersurface" is an intentionally suggestive piece of terminology. Indeed, if $B$ is such a ring satisfying these conditions, there exists some $\hat{A}$ regular, local, complete and $x\in \hat{A}$ with $\hat{B}=\hat{A}/\idl{x}$\textemdash in summary, given such a ring, we may identify its completion as the coordinate ring of some codimension-1 closed embedding into the affine scheme of a regular local ring. }
+\end{itemize}}
+
+\frame{\centering
+\Huge\textbf{Thank you for listening!}
 }
 %
 %
